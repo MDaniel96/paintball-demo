@@ -3,8 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.3.1.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
-	kotlin("jvm") version "1.3.72"
+	id("org.jetbrains.kotlin.plugin.allopen") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
+	kotlin("jvm") version "1.3.72"
 }
 
 group = "demo.server"
@@ -35,4 +36,8 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "1.8"
 	}
+}
+
+allOpen {
+	annotation("demo.server.paintball")
 }
