@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/flag"
     tools:context=".activities.DashboardActivity">
 
     <Button
@@ -11,6 +12,7 @@
         android:layout_width="280dp"
         android:layout_height="80dp"
         android:text="@string/create_game"
+        android:layout_marginTop="300dp"
         style="@style/button"
         app:layout_constraintBottom_toTopOf="@+id/btnJoinGame"
         app:layout_constraintEnd_toEndOf="parent"

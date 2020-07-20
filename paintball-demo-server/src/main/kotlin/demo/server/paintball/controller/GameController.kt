@@ -16,10 +16,11 @@ class GameController(val gameService: GameService) {
     }
 
     @GetMapping
-    fun getGame(): ResponseEntity<Game?> {
-        gameService.getGame()?.let {
-            return ResponseEntity.ok(it)
-        } ?: run {
+    fun getGame(): ResponseEntity<Game> {
+        val game = gameService.getGame()
+        if (game.name != "") {
+            return ResponseEntity.ok(game)
+        } else {
             return ResponseEntity.notFound().build()
         }
     }

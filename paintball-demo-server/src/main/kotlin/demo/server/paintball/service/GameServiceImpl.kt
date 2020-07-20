@@ -6,14 +6,12 @@ import org.springframework.stereotype.Service
 @Service
 class GameServiceImpl : GameService {
 
-    private var game: Game? = null
+    override fun getGame() = Game
 
-    override fun getGame() = game
-
-    fun createTestGame() = Game(
-            name = "test game",
-            time = 12,
-            admin = "Sanyi",
-            type = "TDM"
-    )
+    fun createTestGame() = Game.apply {
+        name = "Test game"
+        time = 120
+        admin = "Sanyi"
+        type = "TDM"
+    }
 }

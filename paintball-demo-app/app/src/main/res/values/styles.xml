@@ -1,12 +1,20 @@
 <resources>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/primaryLightColor</item>
     </style>
+
     <style name="button" parent="Base.Widget.AppCompat.Button.Colored">
         <item name="background">@color/primaryLightColor</item>
         <item name="colorControlHighlight">@color/primaryDarkColor</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="card" parent="CardView">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="cardUseCompatPadding">true</item>
     </style>
 </resources>

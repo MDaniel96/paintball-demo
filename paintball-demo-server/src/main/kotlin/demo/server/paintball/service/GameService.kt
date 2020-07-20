@@ -4,5 +4,5 @@ import demo.server.paintball.data.Game
 
 interface GameService {
 
-    fun getGame(): Game?
+    fun getGame(): Game
 }

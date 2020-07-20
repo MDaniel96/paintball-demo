@@ -1,4 +1,4 @@
-package demo.server.paintball.data
+package demo.app.paintball.data.model
 
 class Player {
     var name: String = ""

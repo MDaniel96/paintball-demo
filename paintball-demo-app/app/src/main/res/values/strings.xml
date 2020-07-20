@@ -6,4 +6,9 @@
     <string name="done">Done</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="your_name">Your name</string>
+    <string name="join_red">Join red</string>
+    <string name="view_players">View players</string>
+    <string name="join_blue">Join blue</string>
+    <string name="start_game">Start game</string>
+    <string name="refresh">refresh</string>
 </resources>

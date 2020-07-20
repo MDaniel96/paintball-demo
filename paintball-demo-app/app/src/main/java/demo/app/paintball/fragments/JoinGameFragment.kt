@@ -9,18 +9,18 @@ import androidx.fragment.app.DialogFragment
 import demo.app.paintball.R
 import kotlinx.android.synthetic.main.fragment_player_name.*
 
-class PlayerNameFragment : DialogFragment() {
+class JoinGameFragment : DialogFragment() {
 
-    private lateinit var listener: PlayerNameSentListener
+    private lateinit var listener: JoinGameListener
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
         try {
             listener = if (targetFragment != null) {
-                targetFragment as PlayerNameSentListener
+                targetFragment as JoinGameListener
             } else {
-                activity as PlayerNameSentListener
+                activity as JoinGameListener
             }
         } catch (e: ClassCastException) {
             throw RuntimeException(e)
@@ -39,13 +39,15 @@ class PlayerNameFragment : DialogFragment() {
         btnDone.setOnClickListener{
             val name = etPlayerName.text.toString()
             if (name != "") {
-                listener.onNameSent(etPlayerName.text.toString())
+                listener.onJoinGame(etPlayerName.text.toString())
                 dismiss()
+            } else {
+                etPlayerName.error = "Please write something"
             }
         }
     }
 
-    interface PlayerNameSentListener {
-        fun onNameSent(name: String)
+    interface JoinGameListener {
+        fun onJoinGame(name: String)
     }
 }
