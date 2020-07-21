@@ -1,6 +1,6 @@
 package demo.server.paintball.data
 
-object Game {
+class Game {
     var name: String = ""
     var type: String = ""
     var time: Int = 0

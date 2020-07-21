@@ -1,13 +1,16 @@
 package demo.app.paintball.data.game.rest
 
 import demo.app.paintball.data.game.GameManager
-import demo.app.paintball.data.game.GameManagerListener
 import demo.app.paintball.data.model.Game
+import demo.app.paintball.util.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class GameManagerImpl(override var listener: GameManagerListener) : GameManager {
+class GameManagerImpl(
+    override var listener: GameManager.SuccessListener,
+    override var errorListener: GameManager.ErrorListener
+) : GameManager {
 
     private val gameService: GameService = GameService.create()
 
@@ -18,7 +21,31 @@ class GameManagerImpl(override var listener: GameManagerListener) : GameManager 
             }
 
             override fun onFailure(call: Call<Game>, t: Throwable) {
-                listener.getGameFailure(t)
+                errorListener.getGameFailure(t)
+            }
+        })
+    }
+
+    override fun createGame(game: Game) {
+        gameService.createGame(game).enqueue(object : Callback<Any> {
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                listener.createGameSuccess()
+            }
+
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                errorListener.createGameFailure(t)
+            }
+        })
+    }
+
+    override fun deleteGame() {
+        gameService.deleteGame().enqueue(object : Callback<Any> {
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                toast("Game deleted")
+            }
+
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                errorListener.deleteGameFailure(t)
             }
         })
     }

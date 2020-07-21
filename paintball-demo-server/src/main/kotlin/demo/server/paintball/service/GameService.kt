@@ -4,5 +4,13 @@ import demo.server.paintball.data.Game
 
 interface GameService {
 
-    fun getGame(): Game
+    companion object {
+        var game: Game? = null
+    }
+
+    fun getGame(): Game?
+
+    fun createGame(game: Game)
+
+    fun deleteGame()
 }
