@@ -1,6 +1,7 @@
 package demo.server.paintball.controller
 
 import demo.server.paintball.data.Game
+import demo.server.paintball.data.Player
 import demo.server.paintball.service.GameService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -27,4 +28,10 @@ class GameController(val gameService: GameService) {
 
     @DeleteMapping
     fun deleteGame() = ResponseEntity.ok(gameService.deleteGame())
+
+    @PostMapping("/red")
+    fun joinRed(@RequestBody player: Player) = ResponseEntity.ok(gameService.addRedPlayer(player))
+
+    @PostMapping("/blue")
+    fun joinBlue(@RequestBody player: Player) = ResponseEntity.ok(gameService.addBluePlayer(player))
 }

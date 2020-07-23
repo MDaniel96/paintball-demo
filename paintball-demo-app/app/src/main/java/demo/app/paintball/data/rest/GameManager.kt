@@ -1,6 +1,7 @@
-package demo.app.paintball.data.game
+package demo.app.paintball.data.rest
 
 import demo.app.paintball.data.model.Game
+import demo.app.paintball.data.model.Player
 import retrofit2.Response
 
 interface GameManager {
@@ -9,32 +10,24 @@ interface GameManager {
 
     var errorListener: ErrorListener
 
-    /**
-     * Gets current game or no game
-     */
     fun getGame()
 
-    /**
-     * Creates game
-     */
     fun createGame(game: Game)
 
-    /**
-     * Deletes game
-     */
     fun deleteGame()
 
-    /**
-     * Listeners
-     */
+    fun addRedPlayer(player: Player)
+
+    fun addBluePlayer(player: Player)
+
     interface SuccessListener {
         fun getGameSuccess(response: Response<Game>)
         fun createGameSuccess()
+        fun addRedPlayerSuccess()
+        fun addBluePlayerSuccess()
     }
 
     interface ErrorListener {
-        fun getGameFailure(t: Throwable)
-        fun createGameFailure(t: Throwable)
-        fun deleteGameFailure(t: Throwable)
+        fun handleError(t: Throwable)
     }
 }

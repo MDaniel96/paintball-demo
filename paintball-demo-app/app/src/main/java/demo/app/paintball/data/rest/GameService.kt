@@ -1,8 +1,9 @@
-package demo.app.paintball.data.game.rest
+package demo.app.paintball.data.rest
 
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
+import demo.app.paintball.data.model.Player
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,6 +22,12 @@ interface GameService {
 
     @DELETE("/api/game")
     fun deleteGame(): Call<Any>
+
+    @POST("/api/game/red")
+    fun addRedPlayer(@Body player: Player): Call<Any>
+
+    @POST("/api/game/blue")
+    fun addBluePlayer(@Body player: Player): Call<Any>
 
     companion object {
         val BASE_URL = PaintballApplication.context.getString(R.string.baseUrl)

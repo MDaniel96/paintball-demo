@@ -1,7 +1,7 @@
-package demo.app.paintball.data.game.rest
+package demo.app.paintball.data.rest
 
-import demo.app.paintball.data.game.GameManager
 import demo.app.paintball.data.model.Game
+import demo.app.paintball.data.model.Player
 import demo.app.paintball.util.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -12,7 +12,8 @@ class GameManagerImpl(
     override var errorListener: GameManager.ErrorListener
 ) : GameManager {
 
-    private val gameService: GameService = GameService.create()
+    private val gameService: GameService =
+        GameService.create()
 
     override fun getGame() {
         gameService.getGame().enqueue(object : Callback<Game> {
@@ -21,7 +22,7 @@ class GameManagerImpl(
             }
 
             override fun onFailure(call: Call<Game>, t: Throwable) {
-                errorListener.getGameFailure(t)
+                errorListener.handleError(t)
             }
         })
     }
@@ -33,7 +34,7 @@ class GameManagerImpl(
             }
 
             override fun onFailure(call: Call<Any>, t: Throwable) {
-                errorListener.createGameFailure(t)
+                errorListener.handleError(t)
             }
         })
     }
@@ -45,7 +46,31 @@ class GameManagerImpl(
             }
 
             override fun onFailure(call: Call<Any>, t: Throwable) {
-                errorListener.deleteGameFailure(t)
+                errorListener.handleError(t)
+            }
+        })
+    }
+
+    override fun addRedPlayer(player: Player) {
+        gameService.addRedPlayer(player).enqueue(object : Callback<Any> {
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                listener.addRedPlayerSuccess()
+            }
+
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                errorListener.handleError(t)
+            }
+        })
+    }
+
+    override fun addBluePlayer(player: Player) {
+        gameService.addBluePlayer(player).enqueue(object : Callback<Any> {
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                listener.addBluePlayerSuccess()
+            }
+
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                errorListener.handleError(t)
             }
         })
     }

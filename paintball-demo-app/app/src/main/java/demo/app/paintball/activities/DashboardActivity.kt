@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import demo.app.paintball.R
-import demo.app.paintball.data.game.GameManager
-import demo.app.paintball.data.game.rest.GameManagerImpl
 import demo.app.paintball.data.model.Game
+import demo.app.paintball.data.rest.GameManager
+import demo.app.paintball.data.rest.GameManagerImpl
 import demo.app.paintball.fragments.CreateGameFragment
 import demo.app.paintball.fragments.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
@@ -33,7 +33,7 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
 
         btnCreateGame.setOnClickListener {
             val createGameFragment = CreateGameFragment()
-            createGameFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.TitleDialog);
+            createGameFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.TitleDialog)
             createGameFragment.show(supportFragmentManager, "TAG")
         }
     }
@@ -73,5 +73,11 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
             putExtra("IS_ADMIN", true)
         }
         startActivity(intent)
+    }
+
+    override fun addRedPlayerSuccess() {
+    }
+
+    override fun addBluePlayerSuccess() {
     }
 }

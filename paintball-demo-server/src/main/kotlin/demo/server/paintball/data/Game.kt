@@ -5,15 +5,9 @@ class Game {
     var type: String = ""
     var time: Int = 0
     var admin: String = ""
-    var redTeam: List<Player>? = null
-    var blueTeam: List<Player>? = null
+    var redTeam: MutableList<Player> = mutableListOf()
+    var blueTeam: MutableList<Player> = mutableListOf()
 
     val playerCnt: Int
-        get() {
-            return if (redTeam != null && blueTeam != null) {
-                redTeam!!.size + blueTeam!!.size
-            } else {
-                0
-            }
-        }
+        get() = redTeam.size + blueTeam.size
 }

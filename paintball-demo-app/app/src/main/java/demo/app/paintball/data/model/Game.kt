@@ -5,7 +5,7 @@ class Game {
     var type: String = ""
     var time: Int = 0
     var admin: String = ""
-    var redTeam: List<Player>? = null
-    var blueTeam: List<Player>? = null
+    var redTeam: MutableList<Player> = mutableListOf()
+    var blueTeam: MutableList<Player> = mutableListOf()
     val playerCnt: Int = 0
 }

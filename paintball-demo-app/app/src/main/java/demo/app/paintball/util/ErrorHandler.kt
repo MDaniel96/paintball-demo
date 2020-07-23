@@ -1,18 +1,10 @@
 package demo.app.paintball.util
 
-import demo.app.paintball.data.game.GameManager
+import demo.app.paintball.data.rest.GameManager
 
 object ErrorHandler : GameManager.ErrorListener {
 
-    override fun getGameFailure(t: Throwable) {
-        toast("$t")
-    }
-
-    override fun createGameFailure(t: Throwable) {
-        toast("$t")
-    }
-
-    override fun deleteGameFailure(t: Throwable) {
+    override fun handleError(t: Throwable) {
         toast("$t")
     }
 }

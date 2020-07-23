@@ -18,4 +18,10 @@
     <string name="game_time">Game time</string>
     <string name="create">Create</string>
     <string name="fill_out">Please fill out this part</string>
+    <string name="waiting_for_admin">Waiting for admin</string>
+    <string name="admin_is">Admin: %1$s</string>
+    <string name="player_cnt">%1$d players</string>
+    <string name="view_players_">View players (%1$d)</string>
+    <string name="joined_blue">Joined blue</string>
+    <string name="joined_red">Joined red</string>
 </resources>
