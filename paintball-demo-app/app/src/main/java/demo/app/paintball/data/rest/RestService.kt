@@ -4,7 +4,7 @@ import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.model.Player
 import retrofit2.Response
 
-interface GameManager {
+interface RestService {
 
     var listener: SuccessListener
 

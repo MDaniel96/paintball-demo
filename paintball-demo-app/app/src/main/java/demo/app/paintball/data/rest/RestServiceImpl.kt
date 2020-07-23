@@ -7,16 +7,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class GameManagerImpl(
-    override var listener: GameManager.SuccessListener,
-    override var errorListener: GameManager.ErrorListener
-) : GameManager {
+class RestServiceImpl(
+    override var listener: RestService.SuccessListener,
+    override var errorListener: RestService.ErrorListener
+) : RestService {
 
-    private val gameService: GameService =
-        GameService.create()
+    private val gameApi: GameApi = GameApi.create()
 
     override fun getGame() {
-        gameService.getGame().enqueue(object : Callback<Game> {
+        gameApi.getGame().enqueue(object : Callback<Game> {
             override fun onResponse(call: Call<Game>, response: Response<Game>) {
                 listener.getGameSuccess(response)
             }
@@ -28,7 +27,7 @@ class GameManagerImpl(
     }
 
     override fun createGame(game: Game) {
-        gameService.createGame(game).enqueue(object : Callback<Any> {
+        gameApi.createGame(game).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 listener.createGameSuccess()
             }
@@ -40,7 +39,7 @@ class GameManagerImpl(
     }
 
     override fun deleteGame() {
-        gameService.deleteGame().enqueue(object : Callback<Any> {
+        gameApi.deleteGame().enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 toast("Game deleted")
             }
@@ -52,7 +51,7 @@ class GameManagerImpl(
     }
 
     override fun addRedPlayer(player: Player) {
-        gameService.addRedPlayer(player).enqueue(object : Callback<Any> {
+        gameApi.addRedPlayer(player).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 listener.addRedPlayerSuccess()
             }
@@ -64,7 +63,7 @@ class GameManagerImpl(
     }
 
     override fun addBluePlayer(player: Player) {
-        gameService.addBluePlayer(player).enqueue(object : Callback<Any> {
+        gameApi.addBluePlayer(player).enqueue(object : Callback<Any> {
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 listener.addBluePlayerSuccess()
             }

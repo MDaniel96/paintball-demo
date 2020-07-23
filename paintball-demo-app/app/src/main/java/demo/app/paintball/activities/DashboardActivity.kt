@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
-import demo.app.paintball.data.rest.GameManager
-import demo.app.paintball.data.rest.GameManagerImpl
+import demo.app.paintball.data.rest.RestService
+import demo.app.paintball.data.rest.RestServiceImpl
 import demo.app.paintball.fragments.CreateGameFragment
 import demo.app.paintball.fragments.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
@@ -16,9 +16,9 @@ import retrofit2.Response
 
 class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener,
     CreateGameFragment.CreateGameListener,
-    GameManager.SuccessListener {
+    RestService.SuccessListener {
 
-    private lateinit var gameManager: GameManager
+    private lateinit var restService: RestService
 
     private lateinit var playerName: String
 
@@ -41,11 +41,11 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
     override fun onResume() {
         super.onResume()
 
-        gameManager = GameManagerImpl(
+        restService = RestServiceImpl(
             listener = this,
             errorListener = ErrorHandler
         )
-        gameManager.getGame()
+        restService.getGame()
     }
 
     override fun onJoinGame(playerName: String) {
@@ -58,7 +58,7 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
 
     override fun onCreateGame(playerName: String, game: Game) {
         this.playerName = playerName
-        gameManager.createGame(game)
+        restService.createGame(game)
     }
 
     override fun getGameSuccess(response: Response<Game>) {

@@ -12,7 +12,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 
-interface GameService {
+interface GameApi {
 
     @GET("/api/game")
     fun getGame(): Call<Game>
@@ -32,12 +32,12 @@ interface GameService {
     companion object {
         val BASE_URL = PaintballApplication.context.getString(R.string.baseUrl)
 
-        fun create(): GameService {
+        fun create(): GameApi {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .build()
-            return retrofit.create(GameService::class.java)
+            return retrofit.create(GameApi::class.java)
         }
     }
 }

@@ -1,5 +1,6 @@
 package demo.app.paintball.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,22 +10,24 @@ import androidx.core.content.ContextCompat
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.model.Player
-import demo.app.paintball.data.mqtt.MqttHelper
-import demo.app.paintball.data.rest.GameManager
-import demo.app.paintball.data.rest.GameManagerImpl
+import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.mqtt.MqttServiceImpl
+import demo.app.paintball.data.rest.RestService
+import demo.app.paintball.data.rest.RestServiceImpl
 import demo.app.paintball.fragments.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_join_game.*
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken
-import org.eclipse.paho.client.mqttv3.MqttCallbackExtended
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import retrofit2.Response
 
 
-class JoinGameActivity : AppCompatActivity(), GameManager.SuccessListener {
+class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
+    MqttService.SuccessListener {
 
-    private lateinit var gameManager: GameManager
+    private lateinit var restService: RestService
+
+    private lateinit var mqttService: MqttService
 
     private var game: Game? = null
 
@@ -34,14 +37,17 @@ class JoinGameActivity : AppCompatActivity(), GameManager.SuccessListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_game)
 
-        gameManager = GameManagerImpl(
+        restService = RestServiceImpl(
             listener = this,
             errorListener = ErrorHandler
         )
-        gameManager.getGame()
+        restService.getGame()
         initPlayer()
         setUpStartGameButton()
         setUpTeamButtons()
+        mqttService = MqttServiceImpl(
+            listener = this
+        )
     }
 
     private fun initPlayer() {
@@ -58,29 +64,17 @@ class JoinGameActivity : AppCompatActivity(), GameManager.SuccessListener {
             btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
             btnStartGame.setOnClickListener {
-                val mqttHelper = MqttHelper(applicationContext)
-                mqttHelper.setCallback(object : MqttCallbackExtended {
-                    override fun connectComplete(b: Boolean, s: String) {
-                        toast("Connected to MQTT broker")
-                    }
-
-                    override fun connectionLost(throwable: Throwable) {}
-                    override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
-                        toast("MQTT message arrived: $mqttMessage")
-                    }
-
-                    override fun deliveryComplete(iMqttDeliveryToken: IMqttDeliveryToken) {}
-                })
+                mqttService.publish("game", "start")
             }
         }
     }
 
     private fun setUpTeamButtons() {
         btnJoinRed.setOnClickListener {
-            gameManager.addRedPlayer(player)
+            restService.addRedPlayer(player)
         }
         btnJoinBlue.setOnClickListener {
-            gameManager.addBluePlayer(player)
+            restService.addBluePlayer(player)
         }
         btnViewRed.setOnClickListener {
             val viewPlayersFragment = ViewPlayersFragment.newInstance(game?.redTeam)
@@ -120,15 +114,28 @@ class JoinGameActivity : AppCompatActivity(), GameManager.SuccessListener {
     }
 
     override fun addRedPlayerSuccess() {
-        gameManager.getGame()
+        restService.getGame()
         cvRed.setCardBackgroundColor(ContextCompat.getColor(this, R.color.redTeam))
         btnJoinRed.text = getString(R.string.joined_red)
     }
 
     override fun addBluePlayerSuccess() {
-        gameManager.getGame()
+        restService.getGame()
         cvBlue.setCardBackgroundColor(ContextCompat.getColor(this, R.color.blueTeam))
         btnJoinBlue.text = getString(R.string.joined_blue)
+    }
+
+    override fun connectComplete() {
+        mqttService.subscribe("game")
+    }
+
+    override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
+        TODO("message parser")
+        if (topic == "game" && mqttMessage.toString() == "start") {
+            toast("Game starting")
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onBackPressed() {
@@ -146,7 +153,7 @@ class JoinGameActivity : AppCompatActivity(), GameManager.SuccessListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_refresh -> {
-                gameManager.getGame()
+                restService.getGame()
                 toast("Fetching game info")
             }
         }
@@ -159,7 +166,7 @@ class JoinGameActivity : AppCompatActivity(), GameManager.SuccessListener {
         builder.setMessage("If you exit, the game will be deleted. Are you sure?")
         builder.setPositiveButton("Yes") { _, _ ->
             super.onBackPressed()
-            gameManager.deleteGame()
+            restService.deleteGame()
         }
         builder.setNeutralButton("Cancel") { _, _ ->
         }
