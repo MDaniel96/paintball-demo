@@ -7,7 +7,9 @@ import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 
 
-class MqttServiceImpl(override var listener: MqttService.SuccessListener) : MqttService {
+class MqttServiceImpl : MqttService {
+
+    override lateinit var listener: MqttService.SuccessListener
 
     var mqttAndroidClient: MqttAndroidClient = MqttAndroidClient(
         PaintballApplication.context,

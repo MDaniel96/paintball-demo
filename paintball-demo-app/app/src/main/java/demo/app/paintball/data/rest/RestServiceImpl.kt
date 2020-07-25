@@ -7,12 +7,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RestServiceImpl(
-    override var listener: RestService.SuccessListener,
-    override var errorListener: RestService.ErrorListener
-) : RestService {
+class RestServiceImpl : RestService {
 
     private val gameApi: GameApi = GameApi.create()
+
+    override lateinit var listener: RestService.SuccessListener
+
+    override lateinit var errorListener: RestService.ErrorListener
 
     override fun getGame() {
         gameApi.getGame().enqueue(object : Callback<Game> {

@@ -41,10 +41,9 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
     override fun onResume() {
         super.onResume()
 
-        restService = RestServiceImpl(
-            listener = this,
-            errorListener = ErrorHandler
-        )
+        restService = RestServiceImpl()
+        restService.listener = this
+        restService.errorListener = ErrorHandler
         restService.getGame()
     }
 

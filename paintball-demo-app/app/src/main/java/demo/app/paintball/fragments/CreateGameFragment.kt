@@ -70,12 +70,12 @@ class CreateGameFragment : DialogFragment() {
                 gameName -> etGameName.error = errorMsg
                 gameTime -> etGameTime.error = errorMsg
                 else -> {
-                    val game = Game().apply {
-                        this.name = gameName
-                        this.type = gameType
-                        this.time = gameTime.toInt()
-                        this.admin = playerName
-                    }
+                    val game = Game(
+                        name = gameName,
+                        type = gameType,
+                        time = gameTime.toInt(),
+                        admin = playerName
+                    )
                     listener.onCreateGame(playerName, game)
                     dismiss()
                 }

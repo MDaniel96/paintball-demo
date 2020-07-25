@@ -37,25 +37,25 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_game)
 
-        restService = RestServiceImpl(
-            listener = this,
-            errorListener = ErrorHandler
-        )
+        restService = RestServiceImpl()
+        restService.listener = this
+        restService.errorListener = ErrorHandler
         restService.getGame()
+
+        mqttService = MqttServiceImpl()
+        mqttService.listener = this
+
         initPlayer()
         setUpStartGameButton()
         setUpTeamButtons()
-        mqttService = MqttServiceImpl(
-            listener = this
-        )
     }
 
     private fun initPlayer() {
-        player = Player().apply {
-            name = intent.getStringExtra("PLAYER_NAME")!!
-            isAdmin = intent.getBooleanExtra("IS_ADMIN", false)
+        player = Player(
+            name = intent.getStringExtra("PLAYER_NAME")!!,
+            isAdmin = intent.getBooleanExtra("IS_ADMIN", false),
             deviceName = "player1"
-        }
+        )
     }
 
     private fun setUpStartGameButton() {
@@ -130,12 +130,12 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
     }
 
     override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
-        TODO("message parser")
         if (topic == "game" && mqttMessage.toString() == "start") {
             toast("Game starting")
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
+        TODO("message parser")
     }
 
     override fun onBackPressed() {
