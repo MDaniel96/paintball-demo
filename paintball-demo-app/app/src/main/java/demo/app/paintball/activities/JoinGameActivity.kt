@@ -131,7 +131,6 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
 
     override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
         if (topic == "game" && mqttMessage.toString() == "start") {
-            toast("Game starting")
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
