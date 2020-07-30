@@ -8,15 +8,15 @@ import android.graphics.Shader
 import android.graphics.drawable.BitmapDrawable
 import demo.app.paintball.R
 
-class Background(private val context: Context) : Renderable {
+class Map(private val context: Context) : Renderable {
 
     companion object {
         var areaTopX = 0
         var areaTopY = 570
 
-        var minZoom = 2.8
-        var maxZoom = 1.5
-        var maxScaleFactor = 2
+        const val minZoom = 4.8
+        const val maxZoom = 1.5
+        const val maxScaleFactor = 2
 
         var playerPosX = 2897
         var playerPosY = 4050

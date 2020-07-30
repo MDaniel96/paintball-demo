@@ -57,6 +57,10 @@ class RenderLoop(
         renderer.setPlayerPosition(posX, posY)
     }
 
+    fun setPlayerOrientation(degree: Float) {
+        renderer.setPlayerOrientation(degree)
+    }
+
     fun zoom(scaleFactor: Float) {
         renderer.zoom(scaleFactor)
     }

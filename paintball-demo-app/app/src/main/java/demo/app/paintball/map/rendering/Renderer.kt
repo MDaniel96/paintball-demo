@@ -2,7 +2,7 @@ package demo.app.paintball.map.rendering
 
 import android.content.Context
 import android.graphics.Canvas
-import demo.app.paintball.map.model.Background
+import demo.app.paintball.map.model.Map
 import demo.app.paintball.map.model.Player
 import demo.app.paintball.map.model.Renderable
 import demo.app.paintball.util.clear
@@ -14,11 +14,11 @@ class Renderer(
 ) {
     private val entitiesToDraw = mutableListOf<Renderable>()
 
-    private val background = Background(context)
+    private val map = Map(context)
     private val player = Player(context)
 
     init {
-        background.setSize(width, height)
+        map.setSize(width, height)
         player.setSize(width, height)
 
         entitiesToDraw.add(player)
@@ -30,16 +30,20 @@ class Renderer(
 
     fun draw(canvas: Canvas) {
         canvas.clear()
-        background.render(canvas)
+        map.render(canvas)
         entitiesToDraw.forEach { it.render(canvas) }
     }
 
     fun setPlayerPosition(posX: Int, posY: Int) {
-        Background.playerPosX = posX
-        Background.playerPosY = posY
+        Map.playerPosX = posX
+        Map.playerPosY = posY
+    }
+
+    fun setPlayerOrientation(degree: Float) {
+        player.setOrientation(degree)
     }
 
     fun zoom(scaleFactor: Float) {
-        background.scale(scaleFactor)
+        map.scale(scaleFactor)
     }
 }

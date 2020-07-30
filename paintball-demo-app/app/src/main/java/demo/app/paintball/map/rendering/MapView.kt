@@ -55,6 +55,10 @@ class MapView : SurfaceView {
         renderLoop?.setPlayerPosition(posX, posY)
     }
 
+    fun setPlayerOrientation(degree: Float) {
+        renderLoop?.setPlayerOrientation(degree)
+    }
+
     fun zoom(scaleFactor: Float) {
         renderLoop?.zoom(scaleFactor)
     }

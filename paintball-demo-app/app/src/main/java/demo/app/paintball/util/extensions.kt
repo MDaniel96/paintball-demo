@@ -12,3 +12,7 @@ fun toast(text: String) {
 fun Canvas.clear() {
     this.drawColor(Color.DKGRAY)
 }
+
+fun Float.toDegree() = Math.toDegrees(this.toDouble()).toFloat()
+
+fun Float.to2PIRadiant() = if (this < 0) (2 * Math.PI + this).toFloat() else this

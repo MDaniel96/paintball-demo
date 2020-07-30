@@ -1,4 +1,4 @@
-package demo.app.paintball.util
+package demo.app.paintball.map.sensors
 
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
@@ -8,7 +8,7 @@ import android.view.View.OnTouchListener
 import demo.app.paintball.PaintballApplication
 
 
-class ScalingDetector(val scalingListener: ScalingListener) : OnTouchListener,
+class ScaleSensor(val scaleListener: ScaleListener) : OnTouchListener,
     OnScaleGestureListener {
 
     private val gestureScale: ScaleGestureDetector =
@@ -28,14 +28,12 @@ class ScalingDetector(val scalingListener: ScalingListener) : OnTouchListener,
 
     override fun onScale(detector: ScaleGestureDetector): Boolean {
         scaleFactor *= detector.scaleFactor
+        // Prevent our view from becoming too small, too big
         scaleFactor = if (scaleFactor < 1) 1F else scaleFactor
         scaleFactor = if (scaleFactor > 2) 2F else scaleFactor
-        // prevent our view from becoming too small, too big //
-        scaleFactor = (scaleFactor * 100).toInt().toFloat() / 100
         // Change precision to help with jitter when user just rests their fingers //
-//        view.scaleX = scaleFactor
-//        view.scaleY = scaleFactor
-        scalingListener.onScale(scaleFactor)
+        scaleFactor = (scaleFactor * 100).toInt().toFloat() / 100
+        scaleListener.onScaleChanged(scaleFactor)
         return true
     }
 
@@ -48,7 +46,7 @@ class ScalingDetector(val scalingListener: ScalingListener) : OnTouchListener,
         inScale = false
     }
 
-    interface ScalingListener {
-        fun onScale(scaleFactor: Float)
+    interface ScaleListener {
+        fun onScaleChanged(scaleFactor: Float)
     }
 }
