@@ -6,8 +6,11 @@ import demo.app.paintball.util.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RestServiceImpl : RestService {
+@Singleton
+class RestServiceImpl @Inject constructor() : RestService {
 
     private val gameApi: GameApi = GameApi.create()
 

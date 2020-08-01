@@ -5,9 +5,11 @@ import demo.app.paintball.R
 import demo.app.paintball.util.toast
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
+import javax.inject.Inject
+import javax.inject.Singleton
 
-
-class MqttServiceImpl : MqttService {
+@Singleton
+class MqttServiceImpl @Inject constructor() : MqttService {
 
     override lateinit var listener: MqttService.SuccessListener
 

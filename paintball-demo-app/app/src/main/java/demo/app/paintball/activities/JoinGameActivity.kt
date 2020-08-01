@@ -7,27 +7,32 @@ import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.data.mqtt.MqttServiceImpl
 import demo.app.paintball.data.rest.RestService
-import demo.app.paintball.data.rest.RestServiceImpl
 import demo.app.paintball.fragments.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_join_game.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import retrofit2.Response
-
+import javax.inject.Inject
 
 class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
     MqttService.SuccessListener {
 
-    private lateinit var restService: RestService
+    @Inject
+    lateinit var restService: RestService
 
-    private lateinit var mqttService: MqttService
+    @Inject
+    lateinit var mqttService: MqttService
+
+    @Inject
+    lateinit var playerService: PlayerService
 
     private var game: Game? = null
 
@@ -37,25 +42,19 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_game)
 
-        restService = RestServiceImpl()
-        restService.listener = this
-        restService.errorListener = ErrorHandler
+        playerService = PaintballApplication.services.player()
+        restService = PaintballApplication.services.rest().apply {
+            listener = this@JoinGameActivity
+            errorListener = ErrorHandler
+        }
+        mqttService = PaintballApplication.services.mqtt().apply {
+            listener = this@JoinGameActivity
+        }
+
         restService.getGame()
-
-        mqttService = MqttServiceImpl()
-        mqttService.listener = this
-
-        initPlayer()
+        player = playerService.player
         setUpStartGameButton()
         setUpTeamButtons()
-    }
-
-    private fun initPlayer() {
-        player = Player(
-            name = intent.getStringExtra("PLAYER_NAME")!!,
-            isAdmin = intent.getBooleanExtra("IS_ADMIN", false),
-            deviceName = "player1"
-        )
     }
 
     private fun setUpStartGameButton() {
@@ -117,12 +116,14 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         restService.getGame()
         cvRed.setCardBackgroundColor(ContextCompat.getColor(this, R.color.redTeam))
         btnJoinRed.text = getString(R.string.joined_red)
+        playerService.player.team = "RED"
     }
 
     override fun addBluePlayerSuccess() {
         restService.getGame()
         cvBlue.setCardBackgroundColor(ContextCompat.getColor(this, R.color.blueTeam))
         btnJoinBlue.text = getString(R.string.joined_blue)
+        playerService.player.team = "BLUE"
     }
 
     override fun connectComplete() {
@@ -134,7 +135,6 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
-        TODO("message parser")
     }
 
     override fun onBackPressed() {

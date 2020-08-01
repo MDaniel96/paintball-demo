@@ -4,21 +4,28 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
+import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.rest.RestService
-import demo.app.paintball.data.rest.RestServiceImpl
 import demo.app.paintball.fragments.CreateGameFragment
 import demo.app.paintball.fragments.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import retrofit2.Response
+import javax.inject.Inject
 
 class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener,
     CreateGameFragment.CreateGameListener,
     RestService.SuccessListener {
 
-    private lateinit var restService: RestService
+    @Inject
+    lateinit var restService: RestService
+
+    @Inject
+    lateinit var playerService: PlayerService
 
     private lateinit var playerName: String
 
@@ -26,11 +33,11 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        playerService = PaintballApplication.services.player()
         btnJoinGame.setOnClickListener {
             val playerNameFragment = JoinGameFragment()
             playerNameFragment.show(supportFragmentManager, "TAG")
         }
-
         btnCreateGame.setOnClickListener {
             val createGameFragment = CreateGameFragment()
             createGameFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.TitleDialog)
@@ -41,17 +48,16 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
     override fun onResume() {
         super.onResume()
 
-        restService = RestServiceImpl()
-        restService.listener = this
-        restService.errorListener = ErrorHandler
+        restService = PaintballApplication.services.rest().apply {
+            listener = this@DashboardActivity
+            errorListener = ErrorHandler
+        }
         restService.getGame()
     }
 
     override fun onJoinGame(playerName: String) {
-        val intent = Intent(this, JoinGameActivity::class.java).apply {
-            putExtra("PLAYER_NAME", playerName)
-            putExtra("IS_ADMIN", false)
-        }
+        playerService.player = Player(name = playerName, isAdmin = false)
+        val intent = Intent(this, JoinGameActivity::class.java)
         startActivity(intent)
     }
 
@@ -67,10 +73,8 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
     }
 
     override fun createGameSuccess() {
-        val intent = Intent(this, JoinGameActivity::class.java).apply {
-            putExtra("PLAYER_NAME", playerName)
-            putExtra("IS_ADMIN", true)
-        }
+        playerService.player = Player(name = playerName, isAdmin = true)
+        val intent = Intent(this, JoinGameActivity::class.java)
         startActivity(intent)
     }
 
