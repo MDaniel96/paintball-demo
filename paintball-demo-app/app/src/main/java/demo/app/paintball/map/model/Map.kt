@@ -1,14 +1,14 @@
 package demo.app.paintball.map.model
 
-import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.Shader
 import android.graphics.drawable.BitmapDrawable
+import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 
-class Map(private val context: Context) : Renderable {
+class Map : Renderable {
 
     companion object {
         var areaTopX = 0
@@ -18,25 +18,22 @@ class Map(private val context: Context) : Renderable {
         const val maxZoom = 1.5
         const val maxScaleFactor = 2
 
+        var zoom = minZoom
+
         var playerPosX = 2897
         var playerPosY = 4050
     }
 
-    private val image = BitmapFactory.decodeResource(context.resources, R.drawable.car_map)
+    private val image =
+        BitmapFactory.decodeResource(PaintballApplication.context.resources, R.drawable.car_map)
+
+    private lateinit var bitmapDrawable: BitmapDrawable
 
     private var screenWidth: Int = 0
     private var screenHeight: Int = 0
-    private lateinit var bitmapDrawable: BitmapDrawable
 
-    private var imageX = 0
-    private var imageY = 0
-
-    var topX = areaTopX
-    var topY = areaTopY
-    var zoom = minZoom
-
-    var translateX = 0
-    var translateY = 0
+    private var translateX = 0
+    private var translateY = 0
 
     override fun step() {
     }
@@ -45,10 +42,7 @@ class Map(private val context: Context) : Renderable {
         screenWidth = x
         screenHeight = y
 
-        imageX = image.width
-        imageY = image.height
-
-        bitmapDrawable = BitmapDrawable(context.resources, image)
+        bitmapDrawable = BitmapDrawable(PaintballApplication.context.resources, image)
         bitmapDrawable.tileModeX = Shader.TileMode.MIRROR
         bitmapDrawable.tileModeY = Shader.TileMode.MIRROR
     }
@@ -56,14 +50,14 @@ class Map(private val context: Context) : Renderable {
     override fun render(canvas: Canvas) {
         calculateTranslate()
 
-        val src = Rect(0, 0, imageX, imageY)
-        val dest = Rect(
+        val src = Rect(0, 0, image.width, image.height)
+        val dst = Rect(
             translateX,
             translateY,
-            translateX + (imageX / zoom).toInt(),
-            translateY + (imageY / zoom).toInt()
+            translateX + (image.width / zoom).toInt(),
+            translateY + (image.height / zoom).toInt()
         )
-        canvas.drawBitmap(bitmapDrawable.bitmap, src, dest, null)
+        canvas.drawBitmap(bitmapDrawable.bitmap, src, dst, null)
     }
 
     private fun calculateTranslate() {

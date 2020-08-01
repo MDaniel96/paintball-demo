@@ -1,21 +1,15 @@
 package demo.app.paintball.map.rendering
 
-import android.content.Context
 import android.graphics.Canvas
 
-class RenderLoop(
-    context: Context,
-    private val view: MapView,
-    width: Int,
-    height: Int
-) : Thread() {
+class RenderLoop(private val view: MapView, width: Int, height: Int) : Thread() {
 
     companion object {
         private const val FPS: Long = 30
         private const val TIME_BETWEEN_FRAMES = 1000 / FPS
     }
 
-    private val renderer = Renderer(context, width, height)
+    private val renderer = Renderer(width, height)
 
     var running = false
 

@@ -42,7 +42,7 @@ class MapView : SurfaceView {
                 width: Int,
                 height: Int
             ) {
-                val loop = RenderLoop(context, this@MapView, width, height)
+                val loop = RenderLoop(this@MapView, width, height)
                 loop.running = true
                 loop.start()
 

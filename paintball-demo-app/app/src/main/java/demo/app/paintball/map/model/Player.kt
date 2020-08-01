@@ -1,11 +1,11 @@
 package demo.app.paintball.map.model
 
-import android.content.Context
 import android.graphics.*
+import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 
 
-class Player(context: Context) : Renderable {
+class Player : Renderable {
 
     companion object {
         const val arrowSize = 3
@@ -19,7 +19,10 @@ class Player(context: Context) : Renderable {
     private val matrix = Matrix()
 
     private val image: Bitmap =
-        BitmapFactory.decodeResource(context.resources, R.drawable.player_arrow)
+        BitmapFactory.decodeResource(
+            PaintballApplication.context.resources,
+            R.drawable.player_arrow
+        )
 
     override fun step() {
     }
