@@ -9,5 +9,8 @@ import org.springframework.stereotype.Component
 class AppConfig {
 
     @Value("\${environment}")
-    val environment = "test"
+    val environment = ""
+
+    @Value("\${mqtt.broker.url}")
+    val mqttBrokerUrl = ""
 }
