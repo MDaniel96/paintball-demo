@@ -1,4 +1,4 @@
-package demo.app.paintball.map.model
+package demo.app.paintball.map.renderables
 
 import android.graphics.BitmapFactory
 import android.graphics.Canvas

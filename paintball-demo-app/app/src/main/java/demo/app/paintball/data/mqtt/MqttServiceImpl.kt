@@ -31,7 +31,7 @@ class MqttServiceImpl @Inject constructor() : MqttService {
             }
 
             override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
-                listener.messageArrived(topic, mqttMessage)
+                listener.messageArrived(Topic.find(topic), mqttMessage)
             }
 
             override fun connectionLost(throwable: Throwable) {}
@@ -56,15 +56,15 @@ class MqttServiceImpl @Inject constructor() : MqttService {
         })
     }
 
-    override fun subscribe(topic: String) {
-        mqttAndroidClient.subscribe(topic, 0, null)
+    override fun subscribe(topic: Topic) {
+        mqttAndroidClient.subscribe(topic.value, 0, null)
     }
 
-    override fun unsubscribe(topic: String) {
-        mqttAndroidClient.unsubscribe(topic)
+    override fun unsubscribe(topic: Topic) {
+        mqttAndroidClient.unsubscribe(topic.value)
     }
 
-    override fun publish(topic: String, message: String) {
-        mqttAndroidClient.publish(topic, message.toByteArray(), 0, false)
+    override fun publish(topic: Topic, message: String) {
+        mqttAndroidClient.publish(topic.value, message.toByteArray(), 0, false)
     }
 }

@@ -1,10 +1,10 @@
-package demo.app.paintball.map.model
+package demo.app.paintball.map.renderables
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
 
-abstract class Dot : Renderable {
+abstract class Dot(val name: String) : Renderable {
 
     companion object {
         const val dotSize = 3
@@ -12,8 +12,8 @@ abstract class Dot : Renderable {
 
     protected abstract val image: Bitmap
 
-    protected abstract var posX: Int
-    protected abstract var posY: Int
+    abstract var posX: Int
+    abstract var posY: Int
 
     private var screenWidth: Int = 0
     private var screenHeight: Int = 0

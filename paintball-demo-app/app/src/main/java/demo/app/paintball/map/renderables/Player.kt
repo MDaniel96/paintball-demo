@@ -1,4 +1,4 @@
-package demo.app.paintball.map.model
+package demo.app.paintball.map.renderables
 
 import android.graphics.*
 import demo.app.paintball.PaintballApplication
@@ -14,10 +14,10 @@ class Player : Renderable {
     }
 
     private var screenCenterX = 0F
+
     private var screenCenterY = 0F
 
     private val matrix = Matrix()
-
     private val image: Bitmap =
         BitmapFactory.decodeResource(
             PaintballApplication.context.resources,

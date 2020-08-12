@@ -1,15 +1,15 @@
-package demo.app.paintball.map.model
+package demo.app.paintball.map.renderables
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 
-class Enemy : Dot() {
+class BluePlayer(name: String) : Dot(name) {
 
     override val image: Bitmap =
-        BitmapFactory.decodeResource(PaintballApplication.context.resources, R.drawable.red)
+        BitmapFactory.decodeResource(PaintballApplication.context.resources, R.drawable.blue)
 
-    override var posX = 4185
+    override var posX = 1485
     override var posY = 4105
 }

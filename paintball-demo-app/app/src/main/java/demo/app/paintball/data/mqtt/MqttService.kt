@@ -6,14 +6,14 @@ interface MqttService {
 
     var listener: SuccessListener
 
-    fun subscribe(topic: String)
+    fun subscribe(topic: Topic)
 
-    fun unsubscribe(topic: String)
+    fun unsubscribe(topic: Topic)
 
-    fun publish(topic: String, message: String)
+    fun publish(topic: Topic, message: String)
 
     interface SuccessListener {
         fun connectComplete()
-        fun messageArrived(topic: String, mqttMessage: MqttMessage)
+        fun messageArrived(topic: Topic, mqttMessage: MqttMessage)
     }
 }

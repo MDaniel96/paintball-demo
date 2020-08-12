@@ -6,16 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
-import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.mqtt.Topic
+import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
-import demo.app.paintball.map.model.Map
+import demo.app.paintball.map.renderables.Map
+import demo.app.paintball.map.rendering.MapView
 import demo.app.paintball.map.sensors.Gyroscope
 import demo.app.paintball.map.sensors.ScaleSensor
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toDegree
-import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_map.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import retrofit2.Response
@@ -33,23 +34,20 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
     @Inject
     lateinit var playerService: PlayerService
 
-    private lateinit var gyroscope: Gyroscope
-
     private var game: Game? = null
 
-    private lateinit var player: Player
+    private lateinit var gyroscope: Gyroscope
+
+    private lateinit var map: MapView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
-
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        mapView.setOnTouchListener(
-            ScaleSensor(scaleListener = this)
-        )
-        gyroscope = Gyroscope(
-            gyroscopeListener = this
-        )
+
+        map = mapView
+        map.setOnTouchListener(ScaleSensor(scaleListener = this))
+        gyroscope = Gyroscope(gyroscopeListener = this)
 
         playerService = PaintballApplication.services.player()
         restService = PaintballApplication.services.rest().apply {
@@ -61,8 +59,6 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         }
 
         restService.getGame()
-        player = playerService.player
-        toast(player.name + " " + player.team)
     }
 
     override fun onResume() {
@@ -77,21 +73,38 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
 
     override fun onBackPressed() {
         while (true) {
-            mapView.setPlayerPosition(Map.playerPosX + 15, Map.playerPosY)
+            map.setPlayerPosition(Map.playerPosX + 15, Map.playerPosY)
             Thread.sleep(30)
         }
     }
 
     override fun onScaleChanged(scaleFactor: Float) {
-        mapView.zoom(scaleFactor)
+        map.zoom(scaleFactor)
     }
 
     override fun onOrientationChanged(radian: Float) {
-        mapView.setPlayerOrientation(radian.toDegree())
+        map.setPlayerOrientation(radian.toDegree())
     }
 
     override fun getGameSuccess(response: Response<Game>) {
         game = response.body()
+        addPlayersToMap()
+        mqttService.subscribe(getTeamTopic())
+    }
+
+    private fun addPlayersToMap() {
+        game?.redTeam
+            ?.filter { it.name != playerService.player.name }
+            ?.forEach { map.addRedPlayer(it.name) }
+        game?.blueTeam
+            ?.filter { it.name != playerService.player.name }
+            ?.forEach { map.addBluePlayer(it.name) }
+    }
+
+    private fun getTeamTopic() = when (playerService.player.team) {
+        "RED" -> Topic.RED_TEAM
+        "BLUE" -> Topic.BLUE_TEAM
+        else -> Topic.BLUE_TEAM
     }
 
     override fun createGameSuccess() {
@@ -106,6 +119,14 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
     override fun connectComplete() {
     }
 
-    override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
+    override fun messageArrived(topic: Topic, mqttMessage: MqttMessage) {
+        when (topic) {
+            Topic.RED_TEAM, Topic.BLUE_TEAM -> {
+                val message = PositionMessage.parse(mqttMessage.toString())
+                map.setDotPosition(message.playerName, message.posX, message.posY)
+            }
+            Topic.GAME -> {
+            }
+        }
     }
 }

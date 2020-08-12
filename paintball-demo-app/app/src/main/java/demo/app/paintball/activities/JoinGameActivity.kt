@@ -10,8 +10,9 @@ import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
-import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.mqtt.Topic
+import demo.app.paintball.data.mqtt.messages.GameMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.fragments.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
@@ -36,8 +37,6 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
 
     private var game: Game? = null
 
-    private lateinit var player: Player
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_game)
@@ -52,28 +51,32 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         }
 
         restService.getGame()
-        player = playerService.player
         setUpStartGameButton()
         setUpTeamButtons()
     }
 
     private fun setUpStartGameButton() {
-        if (!player.isAdmin) {
+        if (!playerService.player.isAdmin) {
             btnStartGame.isEnabled = false
             btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
             btnStartGame.setOnClickListener {
-                mqttService.publish("game", "start")
+                val gameMessage = GameMessage.build(type = "start")
+                mqttService.publish(Topic.GAME, gameMessage.raw)
             }
         }
     }
 
     private fun setUpTeamButtons() {
         btnJoinRed.setOnClickListener {
-            restService.addRedPlayer(player)
+            if (playerService.player.team == null) {
+                restService.addRedPlayer(playerService.player)
+            }
         }
         btnJoinBlue.setOnClickListener {
-            restService.addBluePlayer(player)
+            if (playerService.player.team == null) {
+                restService.addBluePlayer(playerService.player)
+            }
         }
         btnViewRed.setOnClickListener {
             val viewPlayersFragment = ViewPlayersFragment.newInstance(game?.redTeam)
@@ -127,20 +130,22 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
     }
 
     override fun connectComplete() {
-        mqttService.subscribe("game")
+        mqttService.subscribe(Topic.GAME)
     }
 
-    override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
-        if (topic == "game" && mqttMessage.toString() == "start") {
-            val intent = Intent(this, MapActivity::class.java)
-            startActivity(intent)
+    override fun messageArrived(topic: Topic, mqttMessage: MqttMessage) {
+        if (topic == Topic.GAME && GameMessage.parse(mqttMessage.toString()).type == "start") {
+            if (playerService.player.team != null) {
+                val intent = Intent(this, MapActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
     override fun onBackPressed() {
         when {
             game == null -> super.onBackPressed()
-            player.isAdmin -> showDeleteGameAlert()
+            playerService.player.isAdmin -> showDeleteGameAlert()
         }
     }
 

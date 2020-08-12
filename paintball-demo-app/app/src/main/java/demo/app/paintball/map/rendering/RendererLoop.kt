@@ -2,7 +2,7 @@ package demo.app.paintball.map.rendering
 
 import android.graphics.Canvas
 
-class RenderLoop(private val view: MapView, width: Int, height: Int) : Thread() {
+class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Thread() {
 
     companion object {
         private const val FPS: Long = 30
@@ -55,7 +55,19 @@ class RenderLoop(private val view: MapView, width: Int, height: Int) : Thread() 
         renderer.setPlayerOrientation(degree)
     }
 
+    fun setDotPosition(playerName: String, posX: Int, posY: Int) {
+        renderer.setDotPosition(playerName, posX, posY)
+    }
+
     fun zoom(scaleFactor: Float) {
         renderer.zoom(scaleFactor)
+    }
+
+    fun addRedPlayer(playerName: String) {
+        renderer.addRedPlayer(playerName)
+    }
+
+    fun addBluePlayer(playerName: String) {
+        renderer.addBluePlayer(playerName)
     }
 }

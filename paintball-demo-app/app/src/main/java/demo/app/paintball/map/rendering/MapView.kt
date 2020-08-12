@@ -1,65 +1,20 @@
 package demo.app.paintball.map.rendering
 
-import android.content.Context
-import android.util.AttributeSet
-import android.view.SurfaceHolder
-import android.view.SurfaceView
+import android.view.View
 
-class MapView : SurfaceView {
+interface MapView {
 
-    private var renderLoop: RenderLoop? = null
+    fun setPlayerPosition(posX: Int, posY: Int)
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    )
+    fun setDotPosition(playerName: String, posX: Int, posY: Int)
 
-    init {
-        holder.addCallback(object : SurfaceHolder.Callback {
-            override fun surfaceCreated(holder: SurfaceHolder) {
-                // empty
-            }
+    fun setPlayerOrientation(degree: Float)
 
-            override fun surfaceDestroyed(holder: SurfaceHolder) {
-                var retry = true
-                renderLoop?.running = false
-                while (retry) {
-                    try {
-                        renderLoop?.join()
-                        retry = false
-                    } catch (e: InterruptedException) {
-                        e.printStackTrace()
-                    }
-                }
-            }
+    fun addRedPlayer(playerName: String)
 
-            override fun surfaceChanged(
-                holder: SurfaceHolder,
-                format: Int,
-                width: Int,
-                height: Int
-            ) {
-                val loop = RenderLoop(this@MapView, width, height)
-                loop.running = true
-                loop.start()
+    fun addBluePlayer(playerName: String)
 
-                renderLoop = loop
-            }
-        })
-    }
+    fun zoom(scaleFactor: Float)
 
-    fun setPlayerPosition(posX: Int, posY: Int) {
-        renderLoop?.setPlayerPosition(posX, posY)
-    }
-
-    fun setPlayerOrientation(degree: Float) {
-        renderLoop?.setPlayerOrientation(degree)
-    }
-
-    fun zoom(scaleFactor: Float) {
-        renderLoop?.zoom(scaleFactor)
-    }
+    fun setOnTouchListener(listener: View.OnTouchListener)
 }
