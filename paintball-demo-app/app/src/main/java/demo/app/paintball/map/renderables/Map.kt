@@ -25,7 +25,10 @@ class Map : Renderable {
     }
 
     private val image =
-        BitmapFactory.decodeResource(PaintballApplication.context.resources, R.drawable.car_map)
+        BitmapFactory.decodeResource(
+            PaintballApplication.context.resources,
+            R.drawable.img_map_gyenes
+        )
 
     private lateinit var bitmapDrawable: BitmapDrawable
 

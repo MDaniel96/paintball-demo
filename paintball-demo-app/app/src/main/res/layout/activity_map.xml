@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,4 +8,128 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/fabLayoutDisplayEnemy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fabMargin"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/fabTextViewDisplayEnemy"
+            style="@style/buttonHint"
+            android:text="@string/spy_on_enemy" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabDisplayEnemy"
+            android:layout_width="@dimen/fab"
+            android:layout_height="@dimen/fab"
+            android:backgroundTint="@color/primaryLightColor"
+            android:rotation="-120"
+            android:src="@drawable/ic_spyglass"
+            app:fabCustomSize="@dimen/fab" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fabLayoutLeaveGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fabMargin"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/fabTextViewLeaveGame"
+            style="@style/buttonHint"
+            android:text="@string/i_m_shoot" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabLeaveGame"
+            android:layout_width="@dimen/fab"
+            android:layout_height="@dimen/fab"
+            android:backgroundTint="@color/primaryLightColor"
+            android:rotation="-120"
+            android:src="@drawable/ic_man_shot"
+            app:fabCustomSize="@dimen/fab" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabActivateButtons"
+        android:layout_width="@dimen/fab"
+        android:layout_height="@dimen/fab"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fabMargin"
+        android:backgroundTint="@color/lightGreen"
+        android:rotation="-180"
+        android:src="@drawable/ic_unfold_more"
+        app:fabCustomSize="@dimen/fab" />
+
+    <LinearLayout
+        android:id="@+id/gameDetailLayout"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/darkTransparentGray"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvBlueTeam"
+                style="@style/playerCount"
+                android:text="10/12"
+                android:textColor="@color/blueTeam" />
+
+            <TextView
+                style="@style/gameDetailText"
+                android:text="@string/players" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/gameDetailText"
+                android:text="@string/time" />
+
+            <TextView
+                android:id="@+id/tvRemainingTime"
+                style="@style/playerCount"
+                android:text="4:45"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvRedTeam"
+                style="@style/playerCount"
+                android:text="9/12"
+                android:textColor="@color/redTeam" />
+
+            <TextView
+                style="@style/gameDetailText"
+                android:text="@string/players" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

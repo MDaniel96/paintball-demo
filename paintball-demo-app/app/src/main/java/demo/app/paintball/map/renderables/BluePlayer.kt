@@ -8,7 +8,10 @@ import demo.app.paintball.R
 class BluePlayer(name: String) : Dot(name) {
 
     override val image: Bitmap =
-        BitmapFactory.decodeResource(PaintballApplication.context.resources, R.drawable.blue)
+        BitmapFactory.decodeResource(
+            PaintballApplication.context.resources,
+            R.drawable.ic_blue_player
+        )
 
     override var posX = 1485
     override var posY = 4105

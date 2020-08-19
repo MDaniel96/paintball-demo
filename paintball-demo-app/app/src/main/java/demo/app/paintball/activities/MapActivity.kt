@@ -3,6 +3,7 @@ package demo.app.paintball.activities
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
@@ -40,6 +41,8 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
 
     private lateinit var map: MapView
 
+    private var isFabOpen = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
@@ -59,6 +62,13 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         }
 
         restService.getGame()
+        fabActivateButtons.setOnClickListener {
+            if (!isFabOpen) {
+                showButtons()
+            } else {
+                hideButtons()
+            }
+        }
     }
 
     override fun onResume() {
@@ -80,6 +90,14 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
 
     override fun onScaleChanged(scaleFactor: Float) {
         map.zoom(scaleFactor)
+    }
+
+    override fun onZoomIn() {
+        hideButtons()
+    }
+
+    override fun onZoomOut() {
+        gameDetailLayout.animate().translationX(0F)
     }
 
     override fun onOrientationChanged(radian: Float) {
@@ -128,5 +146,49 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
             Topic.GAME -> {
             }
         }
+    }
+
+    private fun showButtons() {
+        isFabOpen = true
+        fabActivateButtons.setImageDrawable(
+            ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.ic_unfold_less,
+                null
+            )
+        )
+        fabActivateButtons.animate().rotation(180F)
+
+        fabLayoutLeaveGame.animate().translationY(-resources.getDimension(R.dimen.fab1Translate))
+        fabLeaveGame.animate().rotation(0F)
+        fabTextViewLeaveGame.animate().alpha(1F).duration = 600
+
+        fabLayoutDisplayEnemy.animate().translationY(-resources.getDimension(R.dimen.fab2Translate))
+        fabDisplayEnemy.animate().rotation(0F)
+        fabTextViewDisplayEnemy.animate().alpha(1F).duration = 600
+
+        gameDetailLayout.animate().translationX(0F)
+    }
+
+    private fun hideButtons() {
+        isFabOpen = false
+        fabActivateButtons.setImageDrawable(
+            ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.ic_unfold_more,
+                null
+            )
+        )
+        fabActivateButtons.animate().rotation(-180F)
+
+        fabLayoutLeaveGame.animate().translationY(0F)
+        fabLeaveGame.animate().rotation(-120F)
+        fabTextViewLeaveGame.animate().alpha(0F).duration = 300
+
+        fabLayoutDisplayEnemy.animate().translationY(0F)
+        fabDisplayEnemy.animate().rotation(-120F)
+        fabTextViewDisplayEnemy.animate().alpha(0F).duration = 300
+
+        gameDetailLayout.animate().translationX(-300F)
     }
 }

@@ -21,7 +21,7 @@ class Player : Renderable {
     private val image: Bitmap =
         BitmapFactory.decodeResource(
             PaintballApplication.context.resources,
-            R.drawable.player_arrow
+            R.drawable.ic_player_arrow
         )
 
     override fun step() {

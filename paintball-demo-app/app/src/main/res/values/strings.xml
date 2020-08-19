@@ -24,4 +24,8 @@
     <string name="view_players_">View players (%1$d)</string>
     <string name="joined_blue">Joined blue</string>
     <string name="joined_red">Joined red</string>
+    <string name="i_m_shoot">I\'m shot</string>
+    <string name="spy_on_enemy">Spy on enemy</string>
+    <string name="players">players</string>
+    <string name="time">Time:</string>
 </resources>
