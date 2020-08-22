@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service
 import kotlin.random.Random
 
 @Service
-class MockService(private val appConfig: AppConfig) {
+class TestService(private val appConfig: AppConfig) {
 
-    fun initTestPlayers() {
+    fun initPlayers() {
         if (appConfig.environment == "test") {
             val redPlayer1 = Player().apply { name = "Dani" }
             val bluePlayer1 = Player().apply { name = "Mate" }
@@ -23,7 +23,7 @@ class MockService(private val appConfig: AppConfig) {
         }
     }
 
-    fun getTestPositions(playerName: String, startX: Int, startY: Int, step: Int): List<String> {
+    fun getPositions(playerName: String, startX: Int, startY: Int, step: Int): List<String> {
         val positions = mutableListOf<String>()
         val randomRange = Random.nextInt(200, 400)
         var startX_ = startX

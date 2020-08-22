@@ -1,7 +1,7 @@
 package demo.server.paintball.controller
 
 import demo.server.paintball.config.AppConfig
-import demo.server.paintball.mock.MockService
+import demo.server.paintball.mock.TestService
 import demo.server.paintball.service.GameService
 import demo.server.paintball.service.MqttService
 import org.springframework.web.bind.annotation.PostMapping
@@ -12,42 +12,53 @@ import kotlin.concurrent.schedule
 import kotlin.random.Random
 
 @RestController
-@RequestMapping(MqttController.BASE_URL)
-class MqttController(val mqttService: MqttService,
-                     val mockService: MockService,
-                     val appConfig: AppConfig) {
+@RequestMapping(MqttTestController.BASE_URL)
+class MqttTestController(val mqttService: MqttService,
+                         val testService: TestService,
+                         val appConfig: AppConfig) {
 
     companion object {
         const val BASE_URL = "/api/mqtt"
         const val RED_TEAM_TOPIC = "positions/redTeam"
         const val BLUE_TEAM_TOPIC = "positions/blueTeam"
+        const val POSITION_DELAY = 40L
     }
 
-    @PostMapping("test/positions")
-    fun sendTestPositions() {
+    private lateinit var timer: Timer
+
+    @PostMapping("test/positions/start")
+    fun startPositionSending() {
+        timer = Timer()
         if (appConfig.environment == "test") {
             val redTeam = GameService.game?.redTeam
             val blueTeam = GameService.game?.blueTeam
             redTeam?.filter { !it.isAdmin }?.forEach {
-                val testPositions = mockService.getTestPositions(it.name, 4000, 4000, 10)
+                val testPositions = testService.getPositions(it.name, 4000, 4000, 10)
                 var i = 0
-                Timer().schedule(0, Random.nextLong(50, 150)) {
+                timer.schedule(POSITION_DELAY, Random.nextLong(50, 150)) {
+                    if (i < testPositions.size - 1) i++ else i = 0
                     mqttService.publish(
                             topic = RED_TEAM_TOPIC,
-                            message = testPositions[i++]
+                            message = testPositions[i]
                     )
                 }
             }
             blueTeam?.filter { !it.isAdmin }?.forEach {
-                val testPositions = mockService.getTestPositions(it.name, 2000, 4000, 10)
+                val testPositions = testService.getPositions(it.name, 2000, 4000, 10)
                 var i = 0
-                Timer().schedule(0, Random.nextLong(50, 150)) {
+                timer.schedule(POSITION_DELAY, Random.nextLong(50, 150)) {
+                    if (i < testPositions.size - 1) i++ else i = 0
                     mqttService.publish(
                             topic = BLUE_TEAM_TOPIC,
-                            message = testPositions[i++]
+                            message = testPositions[i]
                     )
                 }
             }
         }
+    }
+
+    @PostMapping("test/positions/stop")
+    fun stopPositionSending() {
+        timer.cancel()
     }
 }

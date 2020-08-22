@@ -1,5 +1,8 @@
 package demo.app.paintball.data.mqtt.messages
 
+import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.mqtt.Topic
+
 class GameMessage {
 
     var raw: String = ""
@@ -24,5 +27,10 @@ class GameMessage {
                 this.type = type
                 this.playerName = playerName
             }
+
+    }
+
+    fun publish(mqttService: MqttService) {
+        mqttService.publish(Topic.GAME, raw)
     }
 }

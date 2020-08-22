@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import kotlinx.android.synthetic.main.fragment_join_game.*
 
@@ -39,7 +38,7 @@ class JoinGameFragment : DialogFragment() {
 
         btnDone.setOnClickListener{
             val name = etPlayerName.text.toString()
-            val errorMsg = PaintballApplication.context.getString(R.string.fill_out)
+            val errorMsg = getString(R.string.fill_out)
 
             if (name != "") {
                 listener.onJoinGame(etPlayerName.text.toString())

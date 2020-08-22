@@ -2,17 +2,17 @@ package demo.server.paintball.service
 
 import demo.server.paintball.data.Game
 import demo.server.paintball.data.Player
-import demo.server.paintball.mock.MockService
+import demo.server.paintball.mock.TestService
 import org.springframework.stereotype.Service
 
 @Service
-class GameServiceImpl(val mockService: MockService) : GameService {
+class GameServiceImpl(val testService: TestService) : GameService {
 
     override fun getGame() = GameService.game
 
     override fun createGame(game: Game) {
         GameService.game = game
-        mockService.initTestPlayers()
+        testService.initPlayers()
     }
 
     override fun deleteGame() {

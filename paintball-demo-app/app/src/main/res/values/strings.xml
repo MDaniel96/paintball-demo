@@ -28,4 +28,7 @@
     <string name="spy_on_enemy">Spy on enemy</string>
     <string name="players">players</string>
     <string name="time">Time:</string>
+    <string name="test_player">TestPlayer</string>
+    <string name="test_game">TestGame</string>
+    <string name="test_time">120</string>
 </resources>

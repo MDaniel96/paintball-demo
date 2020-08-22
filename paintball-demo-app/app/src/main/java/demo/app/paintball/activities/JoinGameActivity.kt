@@ -61,8 +61,8 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
             btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
             btnStartGame.setOnClickListener {
-                val gameMessage = GameMessage.build(type = "start")
-                mqttService.publish(Topic.GAME, gameMessage.raw)
+                GameMessage.build(type = "start")
+                    .publish(mqttService)
             }
         }
     }
@@ -93,13 +93,13 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
             tvGameName.text = it.name
             tvGameType.text = it.type
             tvGameAdmin.text =
-                String.format(resources.getString(R.string.admin_is), it.admin)
+                String.format(getString(R.string.admin_is), it.admin)
             tvGamePlayerCnt.text =
-                String.format(resources.getString(R.string.player_cnt), it.playerCnt)
+                String.format(getString(R.string.player_cnt), it.playerCnt)
             btnViewRed.text =
-                String.format(resources.getString(R.string.view_players_), it.redTeam.size)
+                String.format(getString(R.string.view_players_), it.redTeam.size)
             btnViewBlue.text =
-                String.format(resources.getString(R.string.view_players_), it.blueTeam.size)
+                String.format(getString(R.string.view_players_), it.blueTeam.size)
         }
     }
 

@@ -39,11 +39,10 @@ class Renderer(private val width: Int, private val height: Int) {
     }
 
     fun setDotPosition(playerName: String, posX: Int, posY: Int) {
-        // TODO: filter + foreach helyett: find + ?.apply
-        dotsToDraw.filter { it.name == playerName }
-            .forEach {
-                it.posX = posX
-                it.posY = posY
+        dotsToDraw.find { it.name == playerName }
+            ?.apply {
+                this.posX = posX
+                this.posY = posY
             }
     }
 

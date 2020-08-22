@@ -43,6 +43,11 @@ class CreateGameFragment : DialogFragment() {
         return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        initTestData()
+    }
+
     private fun setUpSpinner(view: View) {
         val spinner: Spinner = view.findViewById(R.id.spGameType)
         ArrayAdapter.createFromResource(
@@ -63,7 +68,7 @@ class CreateGameFragment : DialogFragment() {
             val gameName = etGameName.text.toString()
             val gameType = spGameType.selectedItem.toString()
             val gameTime = etGameTime.text.toString()
-            val errorMsg = PaintballApplication.context.getString(R.string.fill_out)
+            val errorMsg = getString(R.string.fill_out)
 
             when ("") {
                 playerName -> etPlayerName.error = errorMsg
@@ -80,6 +85,14 @@ class CreateGameFragment : DialogFragment() {
                     dismiss()
                 }
             }
+        }
+    }
+
+    private fun initTestData() {
+        if (getString(R.string.environment) == "test") {
+            etPlayerName.setText(getString(R.string.test_player))
+            etGameName.setText(getString(R.string.test_game))
+            etGameTime.setText(getString(R.string.test_time))
         }
     }
 

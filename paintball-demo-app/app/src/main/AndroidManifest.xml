@@ -15,17 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".activities.MapActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.JoinGameActivity" />
-        <activity android:name=".activities.DashboardActivity"></activity>
+        <activity
+            android:name=".activities.MapActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
