@@ -8,7 +8,7 @@ import android.graphics.drawable.BitmapDrawable
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 
-class Map : Renderable {
+class Map : Renderable() {
 
     companion object {
         var areaTopX = 0
@@ -32,18 +32,8 @@ class Map : Renderable {
 
     private lateinit var bitmapDrawable: BitmapDrawable
 
-    private var screenWidth: Int = 0
-    private var screenHeight: Int = 0
-
-    private var translateX = 0
-    private var translateY = 0
-
-    override fun step() {
-    }
-
     override fun setSize(x: Int, y: Int) {
-        screenWidth = x
-        screenHeight = y
+        super.setSize(x, y)
 
         bitmapDrawable = BitmapDrawable(PaintballApplication.context.resources, image)
         bitmapDrawable.tileModeX = Shader.TileMode.MIRROR
@@ -51,7 +41,8 @@ class Map : Renderable {
     }
 
     override fun render(canvas: Canvas) {
-        calculateTranslate()
+        val translateX = (screenWidth / 2 - playerPosX / zoom).toInt()
+        val translateY = (screenHeight / 2 - playerPosY / zoom).toInt()
 
         val src = Rect(0, 0, image.width, image.height)
         val dst = Rect(
@@ -61,11 +52,6 @@ class Map : Renderable {
             translateY + (image.height / zoom).toInt()
         )
         canvas.drawBitmap(bitmapDrawable.bitmap, src, dst, null)
-    }
-
-    private fun calculateTranslate() {
-        translateX = (screenWidth / 2 - playerPosX / zoom).toInt()
-        translateY = (screenHeight / 2 - playerPosY / zoom).toInt()
     }
 
     // rescaling(2): https://en.wikipedia.org/wiki/Feature_scaling

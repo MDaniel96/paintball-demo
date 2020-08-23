@@ -12,7 +12,4 @@ class BluePlayer(name: String) : Dot(name) {
             PaintballApplication.context.resources,
             R.drawable.ic_blue_player
         )
-
-    override var posX = 1485
-    override var posY = 4105
 }

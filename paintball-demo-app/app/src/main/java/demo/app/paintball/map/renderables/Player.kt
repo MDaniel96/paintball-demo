@@ -5,10 +5,10 @@ import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 
 
-class Player : Renderable {
+class Player : Renderable() {
 
     companion object {
-        const val arrowSize = 3
+        const val size = 3
         const val phoneOrientation = 90.0F  // east
         const val mapOrientation = 270.0F  // ~ west
     }
@@ -24,10 +24,9 @@ class Player : Renderable {
             R.drawable.ic_player_arrow
         )
 
-    override fun step() {
-    }
-
     override fun setSize(x: Int, y: Int) {
+        super.setSize(x, y)
+
         screenCenterX = (x / 2).toFloat()
         screenCenterY = (y / 2).toFloat()
 
@@ -43,8 +42,8 @@ class Player : Renderable {
         val dst = RectF(
             screenCenterX,
             screenCenterY,
-            screenCenterX + image.width.toFloat() / arrowSize,
-            screenCenterY + image.height.toFloat() / arrowSize
+            screenCenterX + image.width.toFloat() / size,
+            screenCenterY + image.height.toFloat() / size
         )
         matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
 
@@ -52,8 +51,8 @@ class Player : Renderable {
         val mapDegree = (phoneDegree - mapOrientation) % 360.0F
         matrix.postRotate(
             mapDegree,
-            screenCenterX + (image.width / 2) / arrowSize,
-            screenCenterY + (image.height / 2) / arrowSize
+            screenCenterX + (image.width / 2) / size,
+            screenCenterY + (image.height / 2) / size
         )
     }
 }

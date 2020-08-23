@@ -2,11 +2,18 @@ package demo.app.paintball.map.renderables
 
 import android.graphics.Canvas
 
-interface Renderable {
+abstract class Renderable {
 
-    fun step()
+    protected var screenWidth = 0
+    protected var screenHeight = 0
 
-    fun setSize(x: Int, y: Int)
+    open fun setSize(x: Int, y: Int) {
+        screenWidth = x
+        screenHeight = y
+    }
 
-    fun render(canvas: Canvas)
+    open fun step() {
+    }
+
+    abstract fun render(canvas: Canvas)
 }

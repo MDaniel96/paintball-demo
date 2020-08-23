@@ -3,50 +3,44 @@ package demo.app.paintball.map.renderables
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
+import android.os.SystemClock
 
-abstract class Dot(val name: String) : Renderable {
+abstract class Dot(val name: String) : Renderable() {
 
     companion object {
-        const val dotSize = 3
+        const val size = 3
+        const val MAX_MS_BETWEEN_POSITION_UPDATES = 3000
     }
 
     protected abstract val image: Bitmap
 
-    abstract var posX: Int
-    abstract var posY: Int
+    var posX: Int = 0
+    var posY: Int = 0
+        set(value) {
+            field = value
+            lastUpdate = SystemClock.uptimeMillis()
+        }
 
-    private var screenWidth: Int = 0
-    private var screenHeight: Int = 0
-
-    private var translateX = 0
-    private var translateY = 0
-
-    override fun step() {
-    }
-
-    override fun setSize(x: Int, y: Int) {
-        screenWidth = x
-        screenHeight = y
-    }
+    private var lastUpdate: Long = SystemClock.uptimeMillis()
 
     override fun render(canvas: Canvas) {
-        calculateTranslate()
+        if (isVisible()) {
+            val distanceFromPlayerX = (Map.playerPosX - posX) / Map.zoom
+            val distanceFromPlayerY = (Map.playerPosY - posY) / Map.zoom
+            val translateX = (screenWidth / 2 - distanceFromPlayerX).toInt()
+            val translateY = (screenHeight / 2 - distanceFromPlayerY).toInt()
 
-        val src = Rect(0, 0, image.width, image.height)
-        val dst = Rect(
-            translateX,
-            translateY,
-            translateX + image.width / dotSize,
-            translateY + image.height / dotSize
-        )
-        canvas.drawBitmap(image, src, dst, null)
+            val src = Rect(0, 0, image.width, image.height)
+            val dst = Rect(
+                translateX,
+                translateY,
+                translateX + image.width / size,
+                translateY + image.height / size
+            )
+            canvas.drawBitmap(image, src, dst, null)
+        }
     }
 
-    private fun calculateTranslate() {
-        val distanceFromPlayerX = (Map.playerPosX - posX) / Map.zoom
-        val distanceFromPlayerY = (Map.playerPosY - posY) / Map.zoom
-
-        translateX = (screenWidth / 2 - distanceFromPlayerX).toInt()
-        translateY = (screenHeight / 2 - distanceFromPlayerY).toInt()
-    }
+    private fun isVisible() =
+        (SystemClock.uptimeMillis() - lastUpdate) < MAX_MS_BETWEEN_POSITION_UPDATES
 }
