@@ -9,26 +9,41 @@
         android:layout_height="match_parent" />
 
     <LinearLayout
-        android:id="@+id/fabLayoutDisplayEnemy"
+        android:id="@+id/fabLayoutSpying"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fabMargin"
+        android:layout_margin="@dimen/fab_margin"
         android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/fabTextViewDisplayEnemy"
+            android:id="@+id/fabTextViewSpying"
             style="@style/buttonHint"
             android:text="@string/spy_on_enemy" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabDisplayEnemy"
-            android:layout_width="@dimen/fab"
-            android:layout_height="@dimen/fab"
-            android:backgroundTint="@color/primaryLightColor"
-            android:rotation="-120"
-            android:src="@drawable/ic_spyglass"
-            app:fabCustomSize="@dimen/fab" />
+        <LinearLayout
+            android:layout_width="@dimen/fab_inner_layout_size"
+            android:layout_height="@dimen/fab_inner_layout_size"
+            android:gravity="center">
+
+            <view
+                android:id="@+id/fabSpying"
+                class="mbanje.kurt.fabbutton.FabButton"
+                android:layout_width="@dimen/fab_spying_size"
+                android:layout_height="@dimen/fab_spying_size"
+                android:color="@color/primaryLightColor"
+                android:indeterminate="false"
+                android:max="100"
+                android:src="@drawable/ic_spyglass"
+                android:visibility="visible"
+                app:fbb_autoStart="true"
+                app:fbb_hideProgressOnComplete="true"
+                app:fbb_progressColor="@color/white"
+                app:fbb_progressWidthRatio="0.11"
+                app:fbb_showEndBitmap="false"
+                app:fbb_showShadow="true" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -36,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fabMargin"
+        android:layout_margin="@dimen/fab_margin"
         android:gravity="center_vertical">
 
         <TextView
@@ -44,26 +59,42 @@
             style="@style/buttonHint"
             android:text="@string/i_m_shoot" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabLeaveGame"
-            android:layout_width="@dimen/fab"
-            android:layout_height="@dimen/fab"
-            android:backgroundTint="@color/primaryLightColor"
-            android:rotation="-120"
-            android:src="@drawable/ic_man_shot"
-            app:fabCustomSize="@dimen/fab" />
+        <LinearLayout
+            android:id="@+id/fabInnerLayoutLeaveGame"
+            android:layout_width="@dimen/fab_inner_layout_size"
+            android:layout_height="@dimen/fab_inner_layout_size"
+            android:gravity="center">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabLeaveGame"
+                android:layout_width="@dimen/fab_size"
+                android:layout_height="@dimen/fab_size"
+                android:rotation="-120"
+                android:src="@drawable/ic_man_shot"
+                app:backgroundTint="@color/primaryLightColor"
+                app:fabCustomSize="@dimen/fab_size" />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabActivateButtons"
-        android:layout_width="@dimen/fab"
-        android:layout_height="@dimen/fab"
+    <LinearLayout
+        android:id="@+id/fabLayoutActivateButtons"
+        android:layout_width="@dimen/fab_inner_layout_size"
+        android:layout_height="@dimen/fab_inner_layout_size"
         android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fabMargin"
-        android:backgroundTint="@color/lightGreen"
-        android:rotation="-180"
-        android:src="@drawable/ic_unfold_more"
-        app:fabCustomSize="@dimen/fab" />
+        android:layout_margin="@dimen/fab_margin"
+        android:gravity="center">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabActivateButtons"
+            android:layout_width="@dimen/fab_activate_size"
+            android:layout_height="@dimen/fab_activate_size"
+            android:rotation="-180"
+            android:src="@drawable/ic_unfold_more"
+            app:backgroundTint="@color/lightGreen"
+            app:fabCustomSize="@dimen/fab_activate_size" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/gameDetailLayout"

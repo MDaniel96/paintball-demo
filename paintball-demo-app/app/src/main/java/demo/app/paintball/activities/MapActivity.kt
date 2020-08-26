@@ -3,8 +3,10 @@ package demo.app.paintball.activities
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.mqtt.MqttService
@@ -15,16 +17,23 @@ import demo.app.paintball.map.renderables.Map
 import demo.app.paintball.map.rendering.MapView
 import demo.app.paintball.map.sensors.Gyroscope
 import demo.app.paintball.map.sensors.ScaleSensor
-import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.*
 import demo.app.paintball.util.services.PlayerService
-import demo.app.paintball.util.toDegree
 import kotlinx.android.synthetic.main.activity_map.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import retrofit2.Response
+import java.util.*
 import javax.inject.Inject
+import kotlin.concurrent.schedule
+
 
 class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.GyroscopeListener,
     RestService.SuccessListener, MqttService.SuccessListener {
+
+    companion object {
+        const val SPYING_TIME = 7_000L
+        const val SPYING_RECHARGE_TIME = 12_000L
+    }
 
     @Inject
     lateinit var restService: RestService
@@ -36,12 +45,13 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
     lateinit var playerService: PlayerService
 
     private var game: Game? = null
+    private var isFabOpen = false
 
     private lateinit var gyroscope: Gyroscope
-
     private lateinit var map: MapView
+    private lateinit var fabProgressDisplayer: FabProgressDisplayer
 
-    private var isFabOpen = false
+    private val timer = Timer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +70,33 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         mqttService = PaintballApplication.services.mqtt().apply {
             listener = this@MapActivity
         }
-
         restService.getGame()
+
         fabActivateButtons.setOnClickListener {
             if (!isFabOpen) {
                 showButtons()
             } else {
                 hideButtons()
+            }
+        }
+
+        fabProgressDisplayer = FabProgressDisplayer(fabSpying, this)
+        fabSpying.setOnClickListener {
+            mqttService.subscribe(playerService.player.getEnemyTopic())
+            fabSpying.isEnabled = false
+            fabSpying.setColor(ContextCompat.getColor(context, R.color.lightTrasparentGray))
+
+            timer.schedule(SPYING_TIME) {
+                runOnUiThread {
+                    mqttService.unsubscribe(playerService.player.getEnemyTopic())
+                    fabProgressDisplayer.show(SPYING_RECHARGE_TIME)
+                }
+            }
+            timer.schedule(SPYING_TIME + SPYING_RECHARGE_TIME) {
+                runOnUiThread {
+                    fabSpying.isEnabled = true
+                    fabSpying.setColor(ContextCompat.getColor(context, R.color.primaryLightColor))
+                }
             }
         }
     }
@@ -107,7 +137,7 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
     override fun getGameSuccess(response: Response<Game>) {
         game = response.body()
         addPlayersToMap()
-        mqttService.subscribe(getTeamTopic())
+        mqttService.subscribe(playerService.player.getTeamTopic())
     }
 
     private fun addPlayersToMap() {
@@ -117,12 +147,6 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         game?.blueTeam
             ?.filter { it.name != playerService.player.name }
             ?.forEach { map.addBluePlayer(it.name) }
-    }
-
-    private fun getTeamTopic() = when (playerService.player.team) {
-        "RED" -> Topic.RED_TEAM
-        "BLUE" -> Topic.BLUE_TEAM
-        else -> Topic.BLUE_TEAM
     }
 
     override fun createGameSuccess() {
@@ -159,13 +183,15 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         )
         fabActivateButtons.animate().rotation(180F)
 
-        fabLayoutLeaveGame.animate().translationY(-resources.getDimension(R.dimen.fab1Translate))
+        fabLayoutLeaveGame.animate()
+            .translationY(-resources.getDimension(R.dimen.fab_leave_game_translate))
         fabLeaveGame.animate().rotation(0F)
         fabTextViewLeaveGame.animate().alpha(1F).duration = 600
 
-        fabLayoutDisplayEnemy.animate().translationY(-resources.getDimension(R.dimen.fab2Translate))
-        fabDisplayEnemy.animate().rotation(0F)
-        fabTextViewDisplayEnemy.animate().alpha(1F).duration = 600
+        fabLayoutSpying.animate()
+            .translationY(-resources.getDimension(R.dimen.fab_spying_translate))
+        fabSpying.animate().rotation(0F)
+        fabTextViewSpying.animate().alpha(1F).duration = 600
 
         gameDetailLayout.animate().translationX(0F)
     }
@@ -185,9 +211,9 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         fabLeaveGame.animate().rotation(-120F)
         fabTextViewLeaveGame.animate().alpha(0F).duration = 300
 
-        fabLayoutDisplayEnemy.animate().translationY(0F)
-        fabDisplayEnemy.animate().rotation(-120F)
-        fabTextViewDisplayEnemy.animate().alpha(0F).duration = 300
+        fabLayoutSpying.animate().translationY(0F)
+        fabSpying.animate().rotation(-120F)
+        fabTextViewSpying.animate().alpha(0F).duration = 300
 
         gameDetailLayout.animate().translationX(-300F)
     }

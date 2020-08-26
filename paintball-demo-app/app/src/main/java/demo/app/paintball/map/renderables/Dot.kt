@@ -9,7 +9,7 @@ abstract class Dot(val name: String) : Renderable() {
 
     companion object {
         const val size = 3
-        const val MAX_MS_BETWEEN_POSITION_UPDATES = 3000
+        const val MAX_TIME_BETWEEN_POSITION_UPDATES = 1_500
     }
 
     protected abstract val image: Bitmap
@@ -42,5 +42,5 @@ abstract class Dot(val name: String) : Renderable() {
     }
 
     private fun isVisible() =
-        (SystemClock.uptimeMillis() - lastUpdate) < MAX_MS_BETWEEN_POSITION_UPDATES
+        (SystemClock.uptimeMillis() - lastUpdate) < MAX_TIME_BETWEEN_POSITION_UPDATES
 }

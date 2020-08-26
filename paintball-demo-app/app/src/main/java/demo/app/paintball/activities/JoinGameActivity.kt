@@ -51,40 +51,16 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         }
 
         restService.getGame()
-        setUpStartGameButton()
-        setUpTeamButtons()
     }
 
-    private fun setUpStartGameButton() {
-        if (!playerService.player.isAdmin) {
-            btnStartGame.isEnabled = false
-            btnStartGame.text = getString(R.string.waiting_for_admin)
+    override fun getGameSuccess(response: Response<Game>) {
+        if (response.code() == 404) {
+            toast("No game found")
         } else {
-            btnStartGame.setOnClickListener {
-                GameMessage.build(type = "start")
-                    .publish(mqttService)
-            }
-        }
-    }
-
-    private fun setUpTeamButtons() {
-        btnJoinRed.setOnClickListener {
-            if (playerService.player.team == null) {
-                restService.addRedPlayer(playerService.player)
-            }
-        }
-        btnJoinBlue.setOnClickListener {
-            if (playerService.player.team == null) {
-                restService.addBluePlayer(playerService.player)
-            }
-        }
-        btnViewRed.setOnClickListener {
-            val viewPlayersFragment = ViewPlayersFragment.newInstance(game?.redTeam)
-            viewPlayersFragment.show(supportFragmentManager, "TAG")
-        }
-        btnViewBlue.setOnClickListener {
-            val viewPlayersFragment = ViewPlayersFragment.newInstance(game?.blueTeam)
-            viewPlayersFragment.show(supportFragmentManager, "TAG")
+            game = response.body()
+            initTexts()
+            initStartGameButton()
+            initTeamButtons()
         }
     }
 
@@ -103,12 +79,36 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         }
     }
 
-    override fun getGameSuccess(response: Response<Game>) {
-        if (response.code() == 404) {
-            toast("No game found")
+    private fun initStartGameButton() {
+        if (!playerService.player.isAdmin) {
+            btnStartGame.isEnabled = false
+            btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
-            game = response.body()
-            initTexts()
+            btnStartGame.setOnClickListener {
+                GameMessage.build(type = "start")
+                    .publish(mqttService)
+            }
+        }
+    }
+
+    private fun initTeamButtons() {
+        btnJoinRed.setOnClickListener {
+            if (playerService.player.team == null) {
+                restService.addRedPlayer(playerService.player)
+            }
+        }
+        btnJoinBlue.setOnClickListener {
+            if (playerService.player.team == null) {
+                restService.addBluePlayer(playerService.player)
+            }
+        }
+        btnViewRed.setOnClickListener {
+            val viewPlayersFragment = ViewPlayersFragment.newInstance(game?.redTeam)
+            viewPlayersFragment.show(supportFragmentManager, "TAG")
+        }
+        btnViewBlue.setOnClickListener {
+            val viewPlayersFragment = ViewPlayersFragment.newInstance(game?.blueTeam)
+            viewPlayersFragment.show(supportFragmentManager, "TAG")
         }
     }
 
