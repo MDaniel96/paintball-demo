@@ -15,8 +15,8 @@ import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.map.renderables.Map
 import demo.app.paintball.map.rendering.MapView
+import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
-import demo.app.paintball.map.sensors.ScaleSensor
 import demo.app.paintball.util.*
 import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.activity_map.*
@@ -27,7 +27,7 @@ import javax.inject.Inject
 import kotlin.concurrent.schedule
 
 
-class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.GyroscopeListener,
+class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener,
     RestService.SuccessListener, MqttService.SuccessListener {
 
     companion object {
@@ -47,6 +47,10 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
     private var game: Game? = null
     private var isFabOpen = false
 
+    private var screenHeight = 0F
+    private var mainButtonsPanelTranslate = 0F
+    private var chatButtonsPanelTranslate = 0F
+
     private lateinit var gyroscope: Gyroscope
     private lateinit var map: MapView
     private lateinit var fabProgressDisplayer: FabProgressDisplayer
@@ -57,9 +61,11 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        screenHeight = resources.displayMetrics.heightPixels.toFloat()
+        chatButtonsPanelTranslate = screenHeight
 
         map = mapView
-        map.setOnTouchListener(ScaleSensor(scaleListener = this))
+        map.setOnTouchListener(GestureSensor(gestureListener = this, scrollPanel = buttonsPanel))
         gyroscope = Gyroscope(gyroscopeListener = this)
 
         playerService = PaintballApplication.services.player()
@@ -130,6 +136,26 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         gameDetailLayout.animate().translationX(0F)
     }
 
+    override fun onScrollUp() {
+        if (isFabOpen) {
+            mainButtonsPanelTranslate = -screenHeight
+            chatButtonsPanelTranslate = 0F
+
+            mainButtonsLayout.animate().translationY(mainButtonsPanelTranslate)
+            chatButtonsLayout.animate().translationY(chatButtonsPanelTranslate)
+        }
+    }
+
+    override fun onScrollDown() {
+        if (isFabOpen) {
+            mainButtonsPanelTranslate = 0F
+            chatButtonsPanelTranslate = screenHeight
+
+            mainButtonsLayout.animate().translationY(mainButtonsPanelTranslate)
+            chatButtonsLayout.animate().translationY(chatButtonsPanelTranslate)
+        }
+    }
+
     override fun onOrientationChanged(radian: Float) {
         map.setPlayerOrientation(radian.toDegree())
     }
@@ -175,13 +201,13 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
     private fun showButtons() {
         isFabOpen = true
         fabActivateButtons.setImageDrawable(
-            ResourcesCompat.getDrawable(
-                resources,
-                R.drawable.ic_unfold_less,
-                null
-            )
+            ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_less, null)
         )
         fabActivateButtons.animate().rotation(180F)
+        gameDetailLayout.animate().translationX(0F)
+
+        // Main Buttons
+        mainButtonsLayout.animate().translationY(mainButtonsPanelTranslate)
 
         fabLayoutLeaveGame.animate()
             .translationY(-resources.getDimension(R.dimen.fab_leave_game_translate))
@@ -193,19 +219,30 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         fabSpying.animate().rotation(0F)
         fabTextViewSpying.animate().alpha(1F).duration = 600
 
-        gameDetailLayout.animate().translationX(0F)
+        // Chat buttons
+        chatButtonsLayout.animate().translationY(chatButtonsPanelTranslate)
+
+        fabLayoutActivateChat.animate()
+            .translationY(-resources.getDimension(R.dimen.fab_leave_game_translate))
+        fabActivateChat.animate().rotation(0F)
+        fabTextViewActivateChat.animate().alpha(1F).duration = 600
+
+        fabLayoutTeamChat.animate()
+            .translationY(-resources.getDimension(R.dimen.fab_spying_translate))
+        fabTeamChat.animate().rotation(0F)
+        fabTextViewTeamChat.animate().alpha(1F).duration = 600
     }
 
     private fun hideButtons() {
         isFabOpen = false
         fabActivateButtons.setImageDrawable(
-            ResourcesCompat.getDrawable(
-                resources,
-                R.drawable.ic_unfold_more,
-                null
-            )
+            ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_more, null)
         )
         fabActivateButtons.animate().rotation(-180F)
+        gameDetailLayout.animate().translationX(-300F)
+
+        // Main Buttons
+        mainButtonsLayout.animate().translationY(0F)
 
         fabLayoutLeaveGame.animate().translationY(0F)
         fabLeaveGame.animate().rotation(-120F)
@@ -215,6 +252,15 @@ class MapActivity : AppCompatActivity(), ScaleSensor.ScaleListener, Gyroscope.Gy
         fabSpying.animate().rotation(-120F)
         fabTextViewSpying.animate().alpha(0F).duration = 300
 
-        gameDetailLayout.animate().translationX(-300F)
+        // Chat buttons
+        chatButtonsLayout.animate().translationY(0F)
+
+        fabLayoutActivateChat.animate().translationY(0F)
+        fabActivateChat.animate().rotation(-120F)
+        fabTextViewActivateChat.animate().alpha(0F).duration = 300
+
+        fabLayoutTeamChat.animate().translationY(0F)
+        fabTeamChat.animate().rotation(-120F)
+        fabTextViewTeamChat.animate().alpha(0F).duration = 300
     }
 }

@@ -31,4 +31,6 @@
     <string name="test_player">TestPlayer</string>
     <string name="test_game">TestGame</string>
     <string name="test_time">120</string>
+    <string name="speak_with_team">Speak with team</string>
+    <string name="team_radio">Team radio</string>
 </resources>
