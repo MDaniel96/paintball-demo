@@ -9,8 +9,8 @@ import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.rest.RestService
-import demo.app.paintball.fragments.CreateGameFragment
-import demo.app.paintball.fragments.JoinGameFragment
+import demo.app.paintball.fragments.dialogs.CreateGameFragment
+import demo.app.paintball.fragments.dialogs.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.activity_dashboard.*

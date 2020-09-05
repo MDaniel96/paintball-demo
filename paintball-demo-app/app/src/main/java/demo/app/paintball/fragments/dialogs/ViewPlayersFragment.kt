@@ -1,4 +1,4 @@
-package demo.app.paintball.fragments
+package demo.app.paintball.fragments.dialogs
 
 import android.content.Context
 import android.os.Bundle

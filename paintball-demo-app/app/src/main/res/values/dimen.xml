@@ -5,7 +5,7 @@
     <dimen name="fab_inner_layout_size">75dp</dimen>
     <dimen name="fab_spying_size">72dp</dimen>
     <dimen name="fab_margin">30dp</dimen>
-    <dimen name="fab_leave_game_translate">80dp</dimen>
-    <dimen name="fab_spying_translate">160dp</dimen>
+    <dimen name="fab_bottom_button_translate">80dp</dimen>
+    <dimen name="fab_middle_button_translate">160dp</dimen>
     <dimen name="design_fab_image_size" tools:override="true">32dp</dimen>
 </resources>

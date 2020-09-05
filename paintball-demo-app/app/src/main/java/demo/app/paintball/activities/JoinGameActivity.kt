@@ -14,7 +14,7 @@ import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.Topic
 import demo.app.paintball.data.mqtt.messages.GameMessage
 import demo.app.paintball.data.rest.RestService
-import demo.app.paintball.fragments.ViewPlayersFragment
+import demo.app.paintball.fragments.dialogs.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toast
