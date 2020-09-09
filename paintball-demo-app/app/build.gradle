@@ -23,6 +23,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -54,6 +61,12 @@ dependencies {
 
     /* FAB progress indicator */
     implementation 'mbanje.kurt:fabbutton:1.2.1@aar'
+
+    /* Android BLE Library */
+    implementation 'no.nordicsemi.android:ble:2.2.4'
+
+    /* Apache for Matrixes */
+    implementation 'org.apache.commons:commons-math3:3.6.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
