@@ -34,4 +34,11 @@ class FabProgressDisplayer(private val button: FabButton, private val activity: 
         button.showProgress(true)
         runnable.run()
     }
+
+    fun stop() {
+        handler.removeCallbacks(runnable)
+        activity.runOnUiThread {
+            button.setProgress(MAX_PROGRESS_VALUE)
+        }
+    }
 }

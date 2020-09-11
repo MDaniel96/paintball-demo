@@ -30,11 +30,6 @@ import javax.inject.Inject
 class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener,
     RestService.SuccessListener, MqttService.SuccessListener {
 
-    companion object {
-        const val SPYING_TIME = 7_000L
-        const val SPYING_RECHARGE_TIME = 12_000L
-    }
-
     @Inject
     lateinit var restService: RestService
 

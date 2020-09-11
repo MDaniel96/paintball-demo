@@ -20,6 +20,11 @@ import kotlin.concurrent.schedule
 
 class MainButtonsFragmentImpl : MainButtonsFragment() {
 
+    companion object {
+        const val SPYING_TIME = 7_000L
+        const val SPYING_RECHARGE_TIME = 12_000L
+    }
+
     override lateinit var rootLayout: View
 
     override lateinit var btnBottom: View
@@ -46,7 +51,6 @@ class MainButtonsFragmentImpl : MainButtonsFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initFabSpyingButton()
         rootLayout = mainButtonsLayout
         btnBottom = fabLeaveGame
         btnBottomLayout = fabLayoutLeaveGame
@@ -54,6 +58,7 @@ class MainButtonsFragmentImpl : MainButtonsFragment() {
         btnMiddle = fabSpying
         btnMiddleLayout = fabLayoutSpying
         btnMiddleTextView = fabTextViewSpying
+        initFabSpyingButton()
     }
 
     private fun initFabSpyingButton() {
@@ -64,13 +69,13 @@ class MainButtonsFragmentImpl : MainButtonsFragment() {
             fabSpying.isEnabled = false
             fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
 
-            timer.schedule(MapActivity.SPYING_TIME) {
+            timer.schedule(SPYING_TIME) {
                 rootActivity.runOnUiThread {
                     mqttService.unsubscribe(playerService.player.getEnemyTopic())
-                    fabProgressDisplayer.show(MapActivity.SPYING_RECHARGE_TIME)
+                    fabProgressDisplayer.show(SPYING_RECHARGE_TIME)
                 }
             }
-            timer.schedule(MapActivity.SPYING_TIME + MapActivity.SPYING_RECHARGE_TIME) {
+            timer.schedule(SPYING_TIME + SPYING_RECHARGE_TIME) {
                 rootActivity.runOnUiThread {
                     fabSpying.isEnabled = true
                     fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.primaryLightColor))
