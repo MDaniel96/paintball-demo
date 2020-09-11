@@ -1,7 +1,7 @@
 package demo.app.paintball.map.renderables
 
 import android.graphics.*
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
 
 
@@ -18,11 +18,7 @@ class Player : Renderable() {
     private var screenCenterY = 0F
 
     private val matrix = Matrix()
-    private val image: Bitmap =
-        BitmapFactory.decodeResource(
-            PaintballApplication.context.resources,
-            R.drawable.ic_player_arrow
-        )
+    private val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.ic_player_arrow)
 
     override fun setSize(x: Int, y: Int) {
         super.setSize(x, y)

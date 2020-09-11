@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.Shader
 import android.graphics.drawable.BitmapDrawable
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
 
 class Map : Renderable() {
@@ -24,18 +24,14 @@ class Map : Renderable() {
         var playerPosY = 4050
     }
 
-    private val image =
-        BitmapFactory.decodeResource(
-            PaintballApplication.context.resources,
-            R.drawable.img_map_gyenes
-        )
+    private val image = BitmapFactory.decodeResource(context.resources, R.drawable.img_map_gyenes)
 
     private lateinit var bitmapDrawable: BitmapDrawable
 
     override fun setSize(x: Int, y: Int) {
         super.setSize(x, y)
 
-        bitmapDrawable = BitmapDrawable(PaintballApplication.context.resources, image)
+        bitmapDrawable = BitmapDrawable(context.resources, image)
         bitmapDrawable.tileModeX = Shader.TileMode.MIRROR
         bitmapDrawable.tileModeY = Shader.TileMode.MIRROR
     }

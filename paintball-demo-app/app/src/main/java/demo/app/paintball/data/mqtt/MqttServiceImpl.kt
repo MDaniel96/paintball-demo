@@ -1,7 +1,10 @@
 package demo.app.paintball.data.mqtt
 
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
+import demo.app.paintball.data.mqtt.messages.ChatMessage
+import demo.app.paintball.data.mqtt.messages.GameMessage
+import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.util.toast
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
@@ -11,13 +14,12 @@ import javax.inject.Singleton
 @Singleton
 class MqttServiceImpl @Inject constructor() : MqttService {
 
-    override lateinit var listener: MqttService.SuccessListener
+    override var gameListener: MqttService.GameListener? = null
+    override var positionListener: MqttService.PositionListener? = null
+    override var chatListener: MqttService.ChatListener? = null
 
-    var mqttAndroidClient: MqttAndroidClient = MqttAndroidClient(
-        PaintballApplication.context,
-        PaintballApplication.context.getString(R.string.mqttBroker),
-        MqttClient.generateClientId()
-    )
+    var mqttAndroidClient: MqttAndroidClient =
+        MqttAndroidClient(context, context.getString(R.string.mqttBroker), MqttClient.generateClientId())
 
     init {
         setCallback()
@@ -27,11 +29,22 @@ class MqttServiceImpl @Inject constructor() : MqttService {
     private fun setCallback() {
         mqttAndroidClient.setCallback(object : MqttCallbackExtended {
             override fun connectComplete(b: Boolean, s: String) {
-                listener.connectComplete()
+                gameListener?.connectComplete()
             }
 
             override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
-                listener.messageArrived(Topic.find(topic), mqttMessage)
+                val rawMessage = mqttMessage.toString()
+                when (Topic.find(topic)) {
+                    Topic.GAME -> {
+                        gameListener?.gameMessageArrived(GameMessage.parse(rawMessage))
+                    }
+                    Topic.POSITIONS_RED_TEAM, Topic.POSITIONS_BLUE_TEAM -> {
+                        positionListener?.positionMessageArrived(PositionMessage.parse(rawMessage))
+                    }
+                    Topic.CHAT_RED_TEAM, Topic.CHAT_BLUE_TEAM -> {
+                        chatListener?.chatMessageArrived(ChatMessage.parse(rawMessage))
+                    }
+                }
             }
 
             override fun connectionLost(throwable: Throwable) {}
@@ -51,7 +64,7 @@ class MqttServiceImpl @Inject constructor() : MqttService {
             }
 
             override fun onFailure(asyncActionToken: IMqttToken, exception: Throwable) {
-                toast("MQTT: Failed to connect to: ${PaintballApplication.context.getString(R.string.mqttBroker)}")
+                toast("MQTT: Failed to connect to: ${context.getString(R.string.mqttBroker)}")
             }
         })
     }

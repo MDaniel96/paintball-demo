@@ -1,6 +1,6 @@
 package demo.app.paintball.data.rest
 
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.model.Player
@@ -30,7 +30,7 @@ interface GameApi {
     fun addBluePlayer(@Body player: Player): Call<Any>
 
     companion object {
-        val BASE_URL = PaintballApplication.context.getString(R.string.baseUrl)
+        val BASE_URL = context.getString(R.string.baseUrl)
 
         fun create(): GameApi {
             val retrofit = Retrofit.Builder()

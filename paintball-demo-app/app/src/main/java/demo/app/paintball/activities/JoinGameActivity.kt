@@ -19,12 +19,10 @@ import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_join_game.*
-import org.eclipse.paho.client.mqttv3.MqttMessage
 import retrofit2.Response
 import javax.inject.Inject
 
-class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
-    MqttService.SuccessListener {
+class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttService.GameListener {
 
     @Inject
     lateinit var restService: RestService
@@ -42,14 +40,9 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         setContentView(R.layout.activity_join_game)
 
         playerService = PaintballApplication.services.player()
-        restService = PaintballApplication.services.rest().apply {
-            listener = this@JoinGameActivity
-            errorListener = ErrorHandler
-        }
-        mqttService = PaintballApplication.services.mqtt().apply {
-            listener = this@JoinGameActivity
-        }
-
+        restService =
+            PaintballApplication.services.rest().apply { listener = this@JoinGameActivity; errorListener = ErrorHandler }
+        mqttService = PaintballApplication.services.mqtt().apply { gameListener = this@JoinGameActivity }
         restService.getGame()
     }
 
@@ -133,8 +126,8 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener,
         mqttService.subscribe(Topic.GAME)
     }
 
-    override fun messageArrived(topic: Topic, mqttMessage: MqttMessage) {
-        if (topic == Topic.GAME && GameMessage.parse(mqttMessage.toString()).type == "start") {
+    override fun gameMessageArrived(message: GameMessage) {
+        if (message.type == "start") {
             if (playerService.player.team != null) {
                 val intent = Intent(this, MapActivity::class.java)
                 startActivity(intent)

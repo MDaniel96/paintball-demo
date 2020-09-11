@@ -8,7 +8,6 @@ import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.data.mqtt.Topic
 import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.fragments.buttons.ChatButtonsFragment
@@ -18,17 +17,17 @@ import demo.app.paintball.map.rendering.MapView
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
 import demo.app.paintball.util.ErrorHandler
-import demo.app.paintball.util.getTeamTopic
+import demo.app.paintball.util.getTeamChatTopic
+import demo.app.paintball.util.getTeamPositionsTopic
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toDegree
 import kotlinx.android.synthetic.main.activity_map.*
-import org.eclipse.paho.client.mqttv3.MqttMessage
 import retrofit2.Response
 import javax.inject.Inject
 
 
-class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener,
-    RestService.SuccessListener, MqttService.SuccessListener {
+class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener, RestService.SuccessListener,
+    MqttService.PositionListener {
 
     @Inject
     lateinit var restService: RestService
@@ -65,9 +64,11 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
         playerService = PaintballApplication.services.player()
         restService = PaintballApplication.services.rest().apply { listener = this@MapActivity; errorListener = ErrorHandler }
-        mqttService = PaintballApplication.services.mqtt().apply { listener = this@MapActivity }
+        mqttService = PaintballApplication.services.mqtt().apply { positionListener = this@MapActivity }
 
         restService.getGame()
+        mqttService.subscribe(playerService.player.getTeamChatTopic())
+        mqttService.subscribe(playerService.player.getTeamPositionsTopic())
 
         fabActivateButtons.setOnClickListener {
             if (isMapButtonsOpen) hideButtons() else showButtons()
@@ -120,7 +121,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     override fun getGameSuccess(response: Response<Game>) {
         game = response.body()
         addPlayersToMap()
-        mqttService.subscribe(playerService.player.getTeamTopic())
     }
 
     private fun addPlayersToMap() {
@@ -141,18 +141,8 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     override fun addBluePlayerSuccess() {
     }
 
-    override fun connectComplete() {
-    }
-
-    override fun messageArrived(topic: Topic, mqttMessage: MqttMessage) {
-        when (topic) {
-            Topic.RED_TEAM, Topic.BLUE_TEAM -> {
-                val message = PositionMessage.parse(mqttMessage.toString())
-                map.setDotPosition(message.playerName, message.posX, message.posY)
-            }
-            Topic.GAME -> {
-            }
-        }
+    override fun positionMessageArrived(message: PositionMessage) {
+        map.setDotPosition(message.playerName, message.posX, message.posY)
     }
 
     private fun showButtons() {

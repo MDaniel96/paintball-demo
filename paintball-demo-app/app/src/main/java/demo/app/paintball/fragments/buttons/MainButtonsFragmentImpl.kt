@@ -10,8 +10,8 @@ import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.activities.MapActivity
 import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.util.FabProgressDisplayer
-import demo.app.paintball.util.getEnemyTopic
+import demo.app.paintball.util.getEnemyPositionsTopic
+import demo.app.paintball.util.services.ButtonProgressDisplayService
 import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.fragment_main_buttons.*
 import java.util.*
@@ -45,7 +45,7 @@ class MainButtonsFragmentImpl : MainButtonsFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         playerService = PaintballApplication.services.player()
-        mqttService = PaintballApplication.services.mqtt().apply { listener = activity as MapActivity }
+        mqttService = PaintballApplication.services.mqtt().apply { positionListener = activity as MapActivity }
         return inflater.inflate(R.layout.fragment_main_buttons, container, false)
     }
 
@@ -63,15 +63,15 @@ class MainButtonsFragmentImpl : MainButtonsFragment() {
 
     private fun initFabSpyingButton() {
         val rootActivity = activity as Activity
-        val fabProgressDisplayer = FabProgressDisplayer(fabSpying, rootActivity)
+        val fabProgressDisplayer = ButtonProgressDisplayService(fabSpying, rootActivity)
         fabSpying.setOnClickListener {
-            mqttService.subscribe(playerService.player.getEnemyTopic())
+            mqttService.subscribe(playerService.player.getEnemyPositionsTopic())
             fabSpying.isEnabled = false
             fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
 
             timer.schedule(SPYING_TIME) {
                 rootActivity.runOnUiThread {
-                    mqttService.unsubscribe(playerService.player.getEnemyTopic())
+                    mqttService.unsubscribe(playerService.player.getEnemyPositionsTopic())
                     fabProgressDisplayer.show(SPYING_RECHARGE_TIME)
                 }
             }

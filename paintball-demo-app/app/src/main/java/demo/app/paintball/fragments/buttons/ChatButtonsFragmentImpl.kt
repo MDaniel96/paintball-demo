@@ -1,21 +1,31 @@
 package demo.app.paintball.fragments.buttons
 
+import android.Manifest
 import android.app.Activity
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.util.FabProgressDisplayer
-import demo.app.paintball.util.toast
+import demo.app.paintball.activities.MapActivity
+import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.mqtt.messages.ChatMessage
+import demo.app.paintball.util.fromHexToByteArray
+import demo.app.paintball.util.playAudio
+import demo.app.paintball.util.services.ButtonProgressDisplayService
+import demo.app.paintball.util.services.PlayerService
+import demo.app.paintball.util.services.RecordService
+import demo.app.paintball.util.toHexString
 import kotlinx.android.synthetic.main.fragment_chat_buttons.*
 import java.util.*
+import javax.inject.Inject
 import kotlin.concurrent.schedule
 
-
-class ChatButtonsFragmentImpl : ChatButtonsFragment() {
+class ChatButtonsFragmentImpl : ChatButtonsFragment(), MqttService.ChatListener {
 
     companion object {
         const val RECORDING_TIME = 4_000L
@@ -31,9 +41,19 @@ class ChatButtonsFragmentImpl : ChatButtonsFragment() {
     override lateinit var btnMiddleLayout: View
     override lateinit var btnMiddleTextView: View
 
+    @Inject
+    lateinit var mqttService: MqttService
+
+    @Inject
+    lateinit var playerService: PlayerService
+
+    private lateinit var recordService: RecordService
+
     private var recording = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mqttService = PaintballApplication.services.mqtt().apply { chatListener = this@ChatButtonsFragmentImpl }
+        playerService = PaintballApplication.services.player()
         return inflater.inflate(R.layout.fragment_chat_buttons, container, false)
     }
 
@@ -47,42 +67,63 @@ class ChatButtonsFragmentImpl : ChatButtonsFragment() {
         btnMiddleLayout = fabLayoutTeamChat
         btnMiddleTextView = fabTextViewTeamChat
         initFabTeamChat()
+        requestPermission()
     }
 
     private fun initFabTeamChat() {
         val rootActivity = activity as Activity
-        val fabProgressDisplayer = FabProgressDisplayer(fabTeamChat, rootActivity)
+        val buttonProgressDisplayService = ButtonProgressDisplayService(fabTeamChat, rootActivity)
         var timer = Timer()
-        val stop = {
+        val recordingStopped = {
             rootActivity.runOnUiThread {
-                stopRecording()
-                recording = false
                 timer.cancel()
+                val recordedBytes = recordService.stop()
+                ChatMessage.build(recordedBytes.toHexString(), playerService.player.name)
+                    .publish(mqttService, playerService.player)
+                recording = false
                 fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.primaryLightColor))
                 fabTeamChat.setIcon(R.drawable.ic_teamspeak, 0)
-                fabProgressDisplayer.stop()
+                buttonProgressDisplayService.stop()
             }
         }
         fabTeamChat.setOnClickListener {
             if (!recording) {
-                startRecording()
+                recordService = RecordService()
+                recordService.start()
                 recording = true
                 fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
                 fabTeamChat.setIcon(R.drawable.ic_stop, 0)
-                fabProgressDisplayer.show(RECORDING_TIME)
+                buttonProgressDisplayService.show(RECORDING_TIME)
                 timer = Timer()
-                timer.schedule(RECORDING_TIME) { stop() }
+                timer.schedule(RECORDING_TIME) { recordingStopped() }
             } else {
-                stop()
+                recordingStopped()
             }
         }
     }
 
-    private fun startRecording() {
-        toast("Started recording")
+    override fun chatMessageArrived(message: ChatMessage) {
+        if (playerService.player.name != message.playerName) {
+            val bytes = message.message.fromHexToByteArray()
+            bytes.playAudio()
+        }
     }
 
-    private fun stopRecording() {
-        toast("Stopped recording")
+    private fun requestPermission() {
+        // TODO replace permission check with library
+        // TODO on else and callback branches init media recorder
+        if (ContextCompat.checkSelfPermission(activity as MapActivity, Manifest.permission.RECORD_AUDIO) !=
+            PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+                activity as MapActivity,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            val permissions = arrayOf(
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            ActivityCompat.requestPermissions(activity as MapActivity, permissions, 0)
+        }
     }
 }

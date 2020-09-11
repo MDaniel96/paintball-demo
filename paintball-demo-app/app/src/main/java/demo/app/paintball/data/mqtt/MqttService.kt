@@ -1,10 +1,14 @@
 package demo.app.paintball.data.mqtt
 
-import org.eclipse.paho.client.mqttv3.MqttMessage
+import demo.app.paintball.data.mqtt.messages.ChatMessage
+import demo.app.paintball.data.mqtt.messages.GameMessage
+import demo.app.paintball.data.mqtt.messages.PositionMessage
 
 interface MqttService {
 
-    var listener: SuccessListener
+    var gameListener: GameListener?
+    var positionListener: PositionListener?
+    var chatListener: ChatListener?
 
     fun subscribe(topic: Topic)
 
@@ -12,8 +16,16 @@ interface MqttService {
 
     fun publish(topic: Topic, message: String)
 
-    interface SuccessListener {
+    interface GameListener {
         fun connectComplete()
-        fun messageArrived(topic: Topic, mqttMessage: MqttMessage)
+        fun gameMessageArrived(message: GameMessage)
+    }
+
+    interface PositionListener {
+        fun positionMessageArrived(message: PositionMessage)
+    }
+
+    interface ChatListener {
+        fun chatMessageArrived(message: ChatMessage)
     }
 }

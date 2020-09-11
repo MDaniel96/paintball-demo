@@ -27,7 +27,6 @@ class GameMessage {
                 this.type = type
                 this.playerName = playerName
             }
-
     }
 
     fun publish(mqttService: MqttService) {

@@ -45,11 +45,7 @@ class ViewPlayersFragment : DialogFragment() {
     private fun setUpList(view: View) {
         players?.let {
             val listView = view.findViewById<ListView>(R.id.lsPlayers)
-            val adapter = ArrayAdapter<String>(
-                PaintballApplication.context,
-                android.R.layout.simple_expandable_list_item_1,
-                it
-            )
+            val adapter = ArrayAdapter<String>(PaintballApplication.context, android.R.layout.simple_expandable_list_item_1, it)
             listView.adapter = adapter
         }
     }
