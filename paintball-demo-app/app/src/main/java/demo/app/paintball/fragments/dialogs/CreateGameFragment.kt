@@ -20,16 +20,23 @@ class CreateGameFragment : DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        setStyle(STYLE_NORMAL, R.style.TitleDialog)
 
         try {
-            listener = activity as CreateGameListener
+            listener = if (targetFragment != null) {
+                targetFragment as CreateGameListener
+            } else {
+                activity as CreateGameListener
+            }
         } catch (e: ClassCastException) {
             throw RuntimeException(e)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_create_game, container, false)
         dialog?.setTitle(R.string.create_game)
         setUpSpinner(view)
@@ -82,7 +89,7 @@ class CreateGameFragment : DialogFragment() {
     }
 
     private fun initTestData() {
-        if (resources.getBoolean(R.bool.testGameTexts)) {
+        if (getString(R.string.environment) == "test") {
             etPlayerName.setText(getString(R.string.test_player))
             etGameName.setText(getString(R.string.test_game))
             etGameTime.setText(getString(R.string.test_time))

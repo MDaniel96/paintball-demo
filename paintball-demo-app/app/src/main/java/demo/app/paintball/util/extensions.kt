@@ -1,14 +1,9 @@
 package demo.app.paintball.util
 
-import android.Manifest
-import android.app.Activity
-import android.content.pm.PackageManager
 import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.mqtt.Topic
@@ -81,13 +76,4 @@ fun ByteArray.playAudio() {
             it.release()
         }
     }
-}
-
-// ====================================
-//  PERMISSIONS
-// ====================================
-
-fun Activity.checkPermissions(permissions: List<String>) {
-    permissions.filter { ContextCompat.checkSelfPermission(context, it) != PackageManager.PERMISSION_GRANTED }
-        .map { ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 0) }
 }

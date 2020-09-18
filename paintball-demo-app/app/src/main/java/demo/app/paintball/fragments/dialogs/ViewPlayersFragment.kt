@@ -32,13 +32,21 @@ class ViewPlayersFragment : DialogFragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val view = inflater.inflate(R.layout.fragment_view_players, container, false)
+        setUpList(view)
+        return view
+    }
+
+    private fun setUpList(view: View) {
         players?.let {
             val listView = view.findViewById<ListView>(R.id.lsPlayers)
             val adapter = ArrayAdapter<String>(PaintballApplication.context, android.R.layout.simple_expandable_list_item_1, it)
             listView.adapter = adapter
         }
-        return view
     }
 }

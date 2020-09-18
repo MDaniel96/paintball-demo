@@ -33,8 +33,4 @@
     <string name="test_time">120</string>
     <string name="speak_with_team">Speak with team</string>
     <string name="team_radio">Team radio</string>
-    <string name="connect">Connect</string>
-    <string name="connect_your_tag">Connect your tag</string>
-    <string name="no_tags_found">No tags found</string>
-    <string name="test_tag">Test tag</string>
 </resources>
