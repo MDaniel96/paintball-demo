@@ -3,23 +3,23 @@ package demo.app.paintball.activities
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.rest.RestService
+import demo.app.paintball.fragments.dialogs.ConnectTagFragment
 import demo.app.paintball.fragments.dialogs.CreateGameFragment
 import demo.app.paintball.fragments.dialogs.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.checkPermissions
 import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import retrofit2.Response
 import javax.inject.Inject
 
-class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener,
-    CreateGameFragment.CreateGameListener,
-    RestService.SuccessListener {
+class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
+    JoinGameFragment.JoinGameListener, CreateGameFragment.CreateGameListener, ConnectTagFragment.ConnectTagListener {
 
     @Inject
     lateinit var restService: RestService
@@ -34,24 +34,26 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
         setContentView(R.layout.activity_dashboard)
 
         playerService = PaintballApplication.services.player()
-        btnJoinGame.setOnClickListener {
-            val playerNameFragment = JoinGameFragment()
-            playerNameFragment.show(supportFragmentManager, "TAG")
-        }
-        btnCreateGame.setOnClickListener {
-            val createGameFragment = CreateGameFragment()
-            createGameFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.TitleDialog)
-            createGameFragment.show(supportFragmentManager, "TAG")
+        btnCreateGame.setOnClickListener { CreateGameFragment().show(supportFragmentManager, "TAG") }
+        btnJoinGame.setOnClickListener { JoinGameFragment().show(supportFragmentManager, "TAG") }
+        btnConnectTag.setOnClickListener { ConnectTagFragment().show(supportFragmentManager, "TAG") }
+        checkTagsEnabled()
+        this.checkPermissions(arrayListOf(android.Manifest.permission.ACCESS_FINE_LOCATION))
+    }
+
+    private fun checkTagsEnabled() {
+        if (resources.getBoolean(R.bool.tagsEnabled)) {
+            btnCreateGame.isEnabled = false
+            btnJoinGame.isEnabled = false
+        } else {
+            btnConnectTag.isEnabled = false
         }
     }
 
     override fun onResume() {
         super.onResume()
-
-        restService = PaintballApplication.services.rest().apply {
-            listener = this@DashboardActivity
-            errorListener = ErrorHandler
-        }
+        restService =
+            PaintballApplication.services.rest().apply { listener = this@DashboardActivity; errorListener = ErrorHandler }
         restService.getGame()
     }
 
@@ -82,5 +84,11 @@ class DashboardActivity : AppCompatActivity(), JoinGameFragment.JoinGameListener
     }
 
     override fun addBluePlayerSuccess() {
+    }
+
+    override fun onTagConnected() {
+        btnCreateGame.isEnabled = true
+        btnJoinGame.isEnabled = true
+        btnConnectTag.isEnabled = false
     }
 }
