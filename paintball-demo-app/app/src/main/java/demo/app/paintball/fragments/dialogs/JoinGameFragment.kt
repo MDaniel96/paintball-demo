@@ -17,11 +17,7 @@ class JoinGameFragment : DialogFragment() {
         super.onAttach(context)
 
         try {
-            listener = if (targetFragment != null) {
-                targetFragment as JoinGameListener
-            } else {
-                activity as JoinGameListener
-            }
+            listener = activity as JoinGameListener
         } catch (e: ClassCastException) {
             throw RuntimeException(e)
         }
