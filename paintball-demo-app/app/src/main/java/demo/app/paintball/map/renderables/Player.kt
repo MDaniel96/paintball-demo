@@ -14,7 +14,6 @@ class Player : Renderable() {
     }
 
     private var screenCenterX = 0F
-
     private var screenCenterY = 0F
 
     private val matrix = Matrix()

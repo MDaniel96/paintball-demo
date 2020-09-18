@@ -12,7 +12,7 @@
         android:layout_width="280dp"
         android:layout_height="80dp"
         android:text="@string/create_game"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="200dp"
         style="@style/button"
         app:layout_constraintBottom_toTopOf="@+id/btnJoinGame"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,11 +25,24 @@
         android:layout_width="280dp"
         android:layout_height="80dp"
         android:text="@string/join_game"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         style="@style/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnConnectTag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCreateGame" />
+
+    <Button
+        android:id="@+id/btnConnectTag"
+        android:layout_width="280dp"
+        android:layout_height="80dp"
+        android:text="@string/connect_your_tag"
+        android:layout_marginTop="50dp"
+        style="@style/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnJoinGame" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
