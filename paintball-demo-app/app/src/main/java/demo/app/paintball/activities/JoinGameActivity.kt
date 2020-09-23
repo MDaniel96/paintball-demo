@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.Topic
 import demo.app.paintball.data.mqtt.messages.GameMessage
 import demo.app.paintball.data.rest.RestService
+import demo.app.paintball.data.rest.models.Game
 import demo.app.paintball.fragments.dialogs.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.services.PlayerService
@@ -127,11 +127,9 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     }
 
     override fun gameMessageArrived(message: GameMessage) {
-        if (message.type == "start") {
-            if (playerService.player.team != null) {
-                val intent = Intent(this, MapActivity::class.java)
-                startActivity(intent)
-            }
+        if (message.type == "start" && playerService.player.team != null) {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
         }
     }
 

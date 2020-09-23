@@ -110,7 +110,7 @@ class ChatButtonsFragmentImpl : ChatButtonsFragment(), MqttService.ChatListener 
     }
 
     private fun requestPermission() {
-        // TODO replace permission check with library
+        // TODO replace permission check with library / extension, when app starts
         // TODO on else and callback branches init media recorder
         if (ContextCompat.checkSelfPermission(activity as MapActivity, Manifest.permission.RECORD_AUDIO) !=
             PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(

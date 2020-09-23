@@ -1,6 +1,6 @@
 package demo.app.paintball.util.services
 
-import demo.app.paintball.data.model.Player
+import demo.app.paintball.data.rest.models.Player
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,4 +1,4 @@
-package demo.app.paintball.data.model
+package demo.app.paintball.data.rest.models
 
 class Game(
     var name: String = "",

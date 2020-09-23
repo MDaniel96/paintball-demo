@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.data.model.Game
-import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.rest.RestService
+import demo.app.paintball.data.rest.models.Game
+import demo.app.paintball.data.rest.models.Player
 import demo.app.paintball.fragments.dialogs.ConnectTagFragment
 import demo.app.paintball.fragments.dialogs.CreateGameFragment
 import demo.app.paintball.fragments.dialogs.JoinGameFragment

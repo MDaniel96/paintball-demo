@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication.Companion.context
-import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.mqtt.Topic
+import demo.app.paintball.data.rest.models.Player
 import java.io.File
 
 fun toast(text: String, duration: Int = Toast.LENGTH_SHORT) {

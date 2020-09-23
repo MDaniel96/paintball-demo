@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.data.model.Game
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
+import demo.app.paintball.data.rest.models.Game
 import demo.app.paintball.fragments.buttons.ChatButtonsFragment
 import demo.app.paintball.fragments.buttons.MainButtonsFragment
 import demo.app.paintball.map.renderables.Map

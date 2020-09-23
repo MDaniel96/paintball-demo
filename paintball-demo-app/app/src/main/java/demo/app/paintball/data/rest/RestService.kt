@@ -1,7 +1,7 @@
 package demo.app.paintball.data.rest
 
-import demo.app.paintball.data.model.Game
-import demo.app.paintball.data.model.Player
+import demo.app.paintball.data.rest.models.Game
+import demo.app.paintball.data.rest.models.Player
 import retrofit2.Response
 
 interface RestService {

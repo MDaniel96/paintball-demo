@@ -18,26 +18,38 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
+import demo.app.paintball.data.ble.BleService
+import demo.app.paintball.data.ble.BleServiceImpl
+import demo.app.paintball.data.ble.data.BlePositionData
+import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.fragment_connect_tag.*
 import java.util.*
+import javax.inject.Inject
 import kotlin.collections.HashSet
 import kotlin.concurrent.timerTask
 
-class ConnectTagFragment : DialogFragment() {
+class ConnectTagFragment : DialogFragment(), BleServiceImpl.BleServiceListener {
 
     companion object {
         const val BLE_SCAN_PERIOD = 500L
     }
 
+    @Inject
+    lateinit var bleService: BleService
+
     private lateinit var listener: ConnectTagListener
     private lateinit var listAdapter: ArrayAdapter<String>
     private lateinit var bleScanner: BluetoothLeScanner
+
+    private val timer = Timer()
 
     private var foundTags = HashSet<BluetoothDevice>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         setStyle(STYLE_NORMAL, R.style.TitleDialog)
+
+        bleService = PaintballApplication.services.ble().also { it.addListener(this@ConnectTagFragment) }
 
         try {
             listener = activity as ConnectTagListener
@@ -48,7 +60,7 @@ class ConnectTagFragment : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_connect_tag, container, false)
-        dialog?.setTitle(R.string.connect_your_tag)
+        dialog?.setTitle(R.string.searching_tags)
 
         listAdapter = ArrayAdapter(
             PaintballApplication.context,
@@ -58,11 +70,12 @@ class ConnectTagFragment : DialogFragment() {
         )
         val lsAvailableDevices = view.findViewById<ListView>(R.id.lsAvailableDevices)
         lsAvailableDevices.adapter = listAdapter
-        lsAvailableDevices.setOnItemClickListener { adapterView, v, position, id ->
-            // TODO: connect to tag
-            foundTags.elementAt(position).name
-            listener.onTagConnected()
-            this.dismiss()
+        lsAvailableDevices.setOnItemClickListener { _, _, position, _ ->
+            val foundTag = foundTags.elementAt(position)
+            dialog?.setTitle(getString(R.string.connecting_to_tag, foundTag.name))
+            progressBar.visibility = View.VISIBLE
+            lsAvailableDevices.visibility = View.GONE
+            bleService.connectDevice(foundTag)
         }
         return view
     }
@@ -81,12 +94,12 @@ class ConnectTagFragment : DialogFragment() {
         }
         bleScanner.startScan(scanning)
         progressBar.visibility = View.VISIBLE
-        val timer = Timer()
         timer.schedule(timerTask {
             (listener as Activity).runOnUiThread {
                 if (foundTags.isNotEmpty()) {
                     stopScan()
                     timer.cancel()
+                    dialog?.setTitle(R.string.select_your_tag)
                 }
             }
         }, 0L, BLE_SCAN_PERIOD)
@@ -107,6 +120,26 @@ class ConnectTagFragment : DialogFragment() {
                 foundTags.add(result.device)
             }
         }
+    }
+
+    override fun onBleConnected(connection: BleService) {
+        toast("Tag connected")
+        progressBar.visibility = View.GONE
+        listener.onTagConnected()
+        this.dismiss()
+    }
+
+    override fun onBlePositionDataReceived(connection: BleService, data: BlePositionData) {
+    }
+
+    override fun onBleDisconnected(connection: BleService) {
+        toast("Tag disconnected")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        timer.cancel()
+        bleService.removeListener(this)
     }
 
     interface ConnectTagListener {

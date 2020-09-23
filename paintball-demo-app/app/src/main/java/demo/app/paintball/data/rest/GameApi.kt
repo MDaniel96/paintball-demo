@@ -2,8 +2,8 @@ package demo.app.paintball.data.rest
 
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
-import demo.app.paintball.data.model.Game
-import demo.app.paintball.data.model.Player
+import demo.app.paintball.data.rest.models.Game
+import demo.app.paintball.data.rest.models.Player
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -37,7 +37,7 @@
         android:id="@+id/btnConnectTag"
         android:layout_width="280dp"
         android:layout_height="80dp"
-        android:text="@string/connect_your_tag"
+        android:text="@string/select_your_tag"
         android:layout_marginTop="50dp"
         style="@style/button"
         app:layout_constraintBottom_toBottomOf="parent"

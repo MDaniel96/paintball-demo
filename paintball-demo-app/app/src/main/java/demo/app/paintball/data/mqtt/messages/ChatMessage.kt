@@ -1,7 +1,7 @@
 package demo.app.paintball.data.mqtt.messages
 
-import demo.app.paintball.data.model.Player
 import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.rest.models.Player
 import demo.app.paintball.util.getTeamChatTopic
 
 class ChatMessage {

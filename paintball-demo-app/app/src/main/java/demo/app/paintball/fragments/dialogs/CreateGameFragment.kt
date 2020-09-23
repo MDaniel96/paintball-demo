@@ -10,7 +10,7 @@ import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.data.model.Game
+import demo.app.paintball.data.rest.models.Game
 import kotlinx.android.synthetic.main.fragment_create_game.*
 import kotlinx.android.synthetic.main.fragment_join_game.etPlayerName
 

@@ -10,7 +10,7 @@ import android.widget.ListView
 import androidx.fragment.app.DialogFragment
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.data.model.Player
+import demo.app.paintball.data.rest.models.Player
 
 class ViewPlayersFragment : DialogFragment() {
 
