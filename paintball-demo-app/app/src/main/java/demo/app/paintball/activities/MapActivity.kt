@@ -261,20 +261,30 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         }, 3000L)
     }
 
-    private val zk = MatrixUtils.createRealMatrix(3, 1)
-    private val qa = MatrixUtils.createRealMatrix(3, 6)
-    private val positionCalculator = PositionCalculator(this)
+    private val ancno = 8
+    private val anccomb = ancno * (ancno - 1) / 2
+    private var zk = MatrixUtils.createRealMatrix(anccomb, 1)
+    private val qa = MatrixUtils.createRealMatrix(anccomb, 6)
+    private var q_prev = MatrixUtils.createRealMatrix(2, 1)
+    private var positionCalculator = PositionCalculator(this)
+    private var trid = 0
 
     override fun onBLEConnected(connection: BluetoothController) {
         bluetoothController.setRangingMode(BluetoothController.BLE_RANGING_SERVICE_MODE_TAG_RANGING)
 
         // qa
-        val a1: DoubleArray = doubleArrayOf(2000.0, 5535.0, 1500.0)
-        val a2: DoubleArray = doubleArrayOf(4500.0, 5515.0, 1500.0)
-        val a3: DoubleArray = doubleArrayOf(6298.0, 5515.0, 1500.0)
-        val anchors: Array<DoubleArray> = arrayOf(a1, a2, a3)
+        val a0: DoubleArray = doubleArrayOf(0.0, 0.0, 1100.0)
+        val a1: DoubleArray = doubleArrayOf(3795.0, 0.0, 1100.0)
+        val a2: DoubleArray = doubleArrayOf(-80.0, 4135.0, 1100.0)
+        val a3: DoubleArray = doubleArrayOf(3795.0, 4135.0, 1100.0)
+        val a4: DoubleArray = doubleArrayOf(0.0, 0.0, 0.0)
+        val a5: DoubleArray = doubleArrayOf(0.0, 0.0, 0.0)
+        val a6: DoubleArray = doubleArrayOf(0.0, 0.0, 0.0)
+        val a7: DoubleArray = doubleArrayOf(0.0, 0.0, 0.0)
+
+        val anchors: Array<DoubleArray> = arrayOf(a0, a1, a2, a3, a4, a5, a6, a7)
         var k = 0
-        for (i in 1..2) {
+        for (i in 1..(ancno - 1)) {
             for (j in 0..i - 1) {
                 qa.setEntry(k, 0, anchors.get(i).get(0))
                 qa.setEntry(k, 1, anchors.get(i).get(1))
@@ -285,6 +295,20 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
                 k++
             }
         }
+        // q_prev
+        var xacc = 0.0
+        var yacc = 0.0
+        var n = 0
+        for (i in 0..ancno - 1) {
+            if (anchors.get(i).get(2) != 0.0) {
+                xacc = xacc + anchors.get(i).get(0)
+                yacc = yacc + anchors.get(i).get(1)
+                n++
+            }
+        }
+        q_prev.setEntry(0, 0, xacc / n)
+        q_prev.setEntry(1, 0, yacc / n)
+
     }
 
     override fun onBLEDataReceived(connection: BluetoothController, data: SensorTagRangingData?) {
@@ -299,11 +323,15 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         //  POSITION CALCULATION
         //==========================
 
-        zk.setEntry(0, 0, data?.ranges?.get(1)!!.toDouble())
-        zk.setEntry(1, 0, data.ranges?.get(2)!!.toDouble())
-        zk.setEntry(2, 0, data.ranges?.get(3)!!.toDouble())
+        trid = data?.ranges?.get(0)!!.toInt()
+        for (i in 0..anccomb - 1) {
+            zk.setEntry(i, 0, data?.ranges?.get(i + 1)!!.toDouble())
+        }
 
-        positionCalculator.calculate(zk, qa)
+        println("trid: ${trid}")
+
+        positionCalculator.calculate(zk, qa, q_prev)
+
     }
 
     override fun onBLEDisconnected(connection: BluetoothController) {
