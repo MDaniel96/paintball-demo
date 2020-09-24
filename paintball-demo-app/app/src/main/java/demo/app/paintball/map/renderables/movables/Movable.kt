@@ -1,11 +1,14 @@
-package demo.app.paintball.map.renderables
+package demo.app.paintball.map.renderables.movables
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.os.SystemClock
+import demo.app.paintball.map.renderables.Map
+import demo.app.paintball.map.renderables.Player
+import demo.app.paintball.map.renderables.Renderable
 
-abstract class Dot(val name: String) : Renderable() {
+abstract class Movable(val name: String) : Renderable() {
 
     companion object {
         const val size = 3
@@ -25,8 +28,8 @@ abstract class Dot(val name: String) : Renderable() {
 
     override fun render(canvas: Canvas) {
         if (isVisible()) {
-            val distanceFromPlayerX = (Map.playerPosX - posX) / Map.zoom
-            val distanceFromPlayerY = (Map.playerPosY - posY) / Map.zoom
+            val distanceFromPlayerX = (Player.posX - posX) / Map.zoom
+            val distanceFromPlayerY = (Player.posY - posY) / Map.zoom
             val translateX = (screenWidth / 2 - distanceFromPlayerX).toInt()
             val translateY = (screenHeight / 2 - distanceFromPlayerY).toInt()
 

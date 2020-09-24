@@ -11,6 +11,9 @@ class Player : Renderable() {
         const val size = 3
         const val phoneOrientation = 90.0F  // east
         const val mapOrientation = 270.0F  // ~ west
+
+        var posX = 2897
+        var posY = 4050
     }
 
     private var screenCenterX = 0F

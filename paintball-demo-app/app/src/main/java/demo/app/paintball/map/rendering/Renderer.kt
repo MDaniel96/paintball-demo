@@ -1,13 +1,17 @@
 package demo.app.paintball.map.rendering
 
 import android.graphics.Canvas
-import demo.app.paintball.map.renderables.*
 import demo.app.paintball.map.renderables.Map
+import demo.app.paintball.map.renderables.Player
+import demo.app.paintball.map.renderables.Renderable
+import demo.app.paintball.map.renderables.movables.BluePlayer
+import demo.app.paintball.map.renderables.movables.Movable
+import demo.app.paintball.map.renderables.movables.RedPlayer
 import demo.app.paintball.util.clear
 
 class Renderer(private val width: Int, private val height: Int) {
 
-    private val dotsToDraw = mutableListOf<Dot>()
+    private val movables = mutableListOf<Movable>()
 
     private val map = Map()
     private val player = Player()
@@ -19,27 +23,27 @@ class Renderer(private val width: Int, private val height: Int) {
 
     fun step() {
         player.step()
-        dotsToDraw.forEach(Renderable::step)
+        movables.forEach(Renderable::step)
     }
 
     fun draw(canvas: Canvas) {
         canvas.clear()
         map.render(canvas)
         player.render(canvas)
-        dotsToDraw.forEach { it.render(canvas) }
+        movables.forEach { it.render(canvas) }
     }
 
     fun setPlayerPosition(posX: Int, posY: Int) {
-        Map.playerPosX = posX
-        Map.playerPosY = posY
+        Player.posX = posX
+        Player.posY = posY
     }
 
     fun setPlayerOrientation(degree: Float) {
         player.setOrientation(degree)
     }
 
-    fun setDotPosition(playerName: String, posX: Int, posY: Int) {
-        dotsToDraw.find { it.name == playerName }
+    fun setMovablePosition(movableName: String, posX: Int, posY: Int) {
+        movables.find { it.name == movableName }
             ?.apply {
                 this.posX = posX
                 this.posY = posY
@@ -53,12 +57,12 @@ class Renderer(private val width: Int, private val height: Int) {
     fun addRedPlayer(playerName: String) {
         val redPlayer = RedPlayer(playerName)
         redPlayer.setSize(width, height)
-        dotsToDraw.add(redPlayer)
+        movables.add(redPlayer)
     }
 
     fun addBluePlayer(playerName: String) {
         val bluePlayer = BluePlayer(playerName)
         bluePlayer.setSize(width, height)
-        dotsToDraw.add(bluePlayer)
+        movables.add(bluePlayer)
     }
 }

@@ -12,13 +12,10 @@ import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
 import demo.app.paintball.fragments.buttons.ChatButtonsFragment
 import demo.app.paintball.fragments.buttons.MainButtonsFragment
-import demo.app.paintball.map.renderables.Map
-import demo.app.paintball.map.rendering.MapView
+import demo.app.paintball.map.MapView
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
 import demo.app.paintball.util.ErrorHandler
-import demo.app.paintball.util.getTeamChatTopic
-import demo.app.paintball.util.getTeamPositionsTopic
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toDegree
 import kotlinx.android.synthetic.main.activity_map.*
@@ -86,10 +83,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     }
 
     override fun onBackPressed() {
-        while (true) {
-            map.setPlayerPosition(Map.playerPosX + 15, Map.playerPosY)
-            Thread.sleep(30)
-        }
     }
 
     override fun onScaleChanged(scaleFactor: Float) {
@@ -142,7 +135,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     }
 
     override fun positionMessageArrived(message: PositionMessage) {
-        map.setDotPosition(message.playerName, message.posX, message.posY)
+        map.setMovablePosition(message.playerName, message.posX, message.posY)
     }
 
     private fun showButtons() {

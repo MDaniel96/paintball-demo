@@ -55,8 +55,8 @@ class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Threa
         renderer.setPlayerOrientation(degree)
     }
 
-    fun setDotPosition(playerName: String, posX: Int, posY: Int) {
-        renderer.setDotPosition(playerName, posX, posY)
+    fun setMovablePosition(playerName: String, posX: Int, posY: Int) {
+        renderer.setMovablePosition(playerName, posX, posY)
     }
 
     fun zoom(scaleFactor: Float) {

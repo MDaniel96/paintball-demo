@@ -11,17 +11,11 @@ import demo.app.paintball.R
 class Map : Renderable() {
 
     companion object {
-        var areaTopX = 0
-        var areaTopY = 570
-
         const val minZoom = 4.8
         const val maxZoom = 1.5
         const val maxScaleFactor = 2
 
         var zoom = minZoom
-
-        var playerPosX = 2897
-        var playerPosY = 4050
     }
 
     private val image = BitmapFactory.decodeResource(context.resources, R.drawable.img_map_gyenes)
@@ -37,8 +31,8 @@ class Map : Renderable() {
     }
 
     override fun render(canvas: Canvas) {
-        val translateX = (screenWidth / 2 - playerPosX / zoom).toInt()
-        val translateY = (screenHeight / 2 - playerPosY / zoom).toInt()
+        val translateX = (screenWidth / 2 - Player.posX / zoom).toInt()
+        val translateY = (screenHeight / 2 - Player.posY / zoom).toInt()
 
         val src = Rect(0, 0, image.width, image.height)
         val dst = Rect(

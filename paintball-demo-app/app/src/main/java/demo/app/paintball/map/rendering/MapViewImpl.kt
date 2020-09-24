@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import demo.app.paintball.map.MapView
 
 class MapViewImpl : SurfaceView, MapView {
 
@@ -11,11 +12,7 @@ class MapViewImpl : SurfaceView, MapView {
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    )
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     init {
         holder.addCallback(object : SurfaceHolder.Callback {
@@ -36,12 +33,7 @@ class MapViewImpl : SurfaceView, MapView {
                 }
             }
 
-            override fun surfaceChanged(
-                holder: SurfaceHolder,
-                format: Int,
-                width: Int,
-                height: Int
-            ) {
+            override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
                 val loop = RenderLoop(this@MapViewImpl, width, height)
                 loop.running = true
                 loop.start()
@@ -55,8 +47,8 @@ class MapViewImpl : SurfaceView, MapView {
         renderLoop?.setPlayerPosition(posX, posY)
     }
 
-    override fun setDotPosition(playerName: String, posX: Int, posY: Int) {
-        renderLoop?.setDotPosition(playerName, posX, posY)
+    override fun setMovablePosition(playerName: String, posX: Int, posY: Int) {
+        renderLoop?.setMovablePosition(playerName, posX, posY)
     }
 
     override fun setPlayerOrientation(degree: Float) {
