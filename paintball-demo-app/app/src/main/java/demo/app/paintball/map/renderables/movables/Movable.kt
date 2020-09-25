@@ -1,6 +1,5 @@
 package demo.app.paintball.map.renderables.movables
 
-import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.os.SystemClock
@@ -14,8 +13,6 @@ abstract class Movable(val name: String) : Renderable() {
         const val size = 3
         const val MAX_TIME_BETWEEN_POSITION_UPDATES = 1_500
     }
-
-    protected abstract val image: Bitmap
 
     var posX: Int = 0
     var posY: Int = 0

@@ -59,15 +59,19 @@ class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Threa
         renderer.setMovablePosition(playerName, posX, posY)
     }
 
-    fun zoom(scaleFactor: Float) {
-        renderer.zoom(scaleFactor)
-    }
-
     fun addRedPlayer(playerName: String) {
         renderer.addRedPlayer(playerName)
     }
 
     fun addBluePlayer(playerName: String) {
         renderer.addBluePlayer(playerName)
+    }
+
+    fun zoom(scaleFactor: Float) {
+        renderer.zoom(scaleFactor)
+    }
+
+    fun addAnchor(posX: Int, posY: Int) {
+        renderer.addAnchor(posX, posY)
     }
 }

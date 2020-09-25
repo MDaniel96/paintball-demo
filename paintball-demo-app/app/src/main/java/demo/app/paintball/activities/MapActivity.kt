@@ -13,9 +13,12 @@ import demo.app.paintball.data.rest.models.Game
 import demo.app.paintball.fragments.buttons.ChatButtonsFragment
 import demo.app.paintball.fragments.buttons.MainButtonsFragment
 import demo.app.paintball.map.MapView
+import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
 import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.getTeamChatTopic
+import demo.app.paintball.util.getTeamPositionsTopic
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toDegree
 import kotlinx.android.synthetic.main.activity_map.*
@@ -24,7 +27,7 @@ import javax.inject.Inject
 
 
 class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener, RestService.SuccessListener,
-    MqttService.PositionListener {
+    MqttService.PositionListener, MapViewImpl.MapViewCreatedListener {
 
     @Inject
     lateinit var restService: RestService
@@ -80,6 +83,12 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     override fun onPause() {
         super.onPause()
         gyroscope.stop()
+    }
+
+    override fun mapViewCreated() {
+        if (resources.getBoolean(R.bool.displayAnchors)) {
+            addAnchorsToMap()
+        }
     }
 
     override fun onBackPressed() {
@@ -160,5 +169,16 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
         mainButtons.hide()
         chatButtons.hide()
+    }
+
+    private fun addAnchorsToMap() {
+        // TODO: get this info from backend or config file
+        val anchors = listOf(
+            intArrayOf(1500, 3000, 1100),
+            intArrayOf(1500, 5000, 1100),
+            intArrayOf(5000, 3000, 1100),
+            intArrayOf(5000, 5000, 1100)
+        )
+        anchors.forEach { map.addAnchor(it[0], it[1]) }
     }
 }

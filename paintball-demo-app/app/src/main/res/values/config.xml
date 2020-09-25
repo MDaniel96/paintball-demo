@@ -3,6 +3,7 @@
 
     <bool name="testGameTexts">true</bool>
     <bool name="tagsEnabled">true</bool>
+    <bool name="displayAnchors">true</bool>
 
     <!-- AtollLaptop: http://192.168.0.105:8080 -->
     <string name="baseUrl">http://192.168.0.105:8080</string>

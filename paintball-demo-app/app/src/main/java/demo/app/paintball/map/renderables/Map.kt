@@ -1,9 +1,6 @@
 package demo.app.paintball.map.renderables
 
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
-import android.graphics.Rect
-import android.graphics.Shader
+import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
@@ -18,7 +15,7 @@ class Map : Renderable() {
         var zoom = minZoom
     }
 
-    private val image = BitmapFactory.decodeResource(context.resources, R.drawable.img_map_gyenes)
+    override val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.img_map_gyenes)
 
     private lateinit var bitmapDrawable: BitmapDrawable
 

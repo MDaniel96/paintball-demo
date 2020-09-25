@@ -19,8 +19,9 @@ class Player : Renderable() {
     private var screenCenterX = 0F
     private var screenCenterY = 0F
 
+    override val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.ic_player_arrow)
+
     private val matrix = Matrix()
-    private val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.ic_player_arrow)
 
     override fun setSize(x: Int, y: Int) {
         super.setSize(x, y)

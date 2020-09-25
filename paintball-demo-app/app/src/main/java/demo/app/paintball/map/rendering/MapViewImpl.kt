@@ -37,8 +37,8 @@ class MapViewImpl : SurfaceView, MapView {
                 val loop = RenderLoop(this@MapViewImpl, width, height)
                 loop.running = true
                 loop.start()
-
                 renderLoop = loop
+                (context as MapViewCreatedListener).mapViewCreated()
             }
         })
     }
@@ -65,5 +65,13 @@ class MapViewImpl : SurfaceView, MapView {
 
     override fun zoom(scaleFactor: Float) {
         renderLoop?.zoom(scaleFactor)
+    }
+
+    override fun addAnchor(posX: Int, posY: Int) {
+        renderLoop?.addAnchor(posX, posY)
+    }
+
+    interface MapViewCreatedListener {
+        fun mapViewCreated()
     }
 }

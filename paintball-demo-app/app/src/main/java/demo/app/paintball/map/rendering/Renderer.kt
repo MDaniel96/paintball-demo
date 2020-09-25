@@ -1,6 +1,7 @@
 package demo.app.paintball.map.rendering
 
 import android.graphics.Canvas
+import demo.app.paintball.map.renderables.Anchor
 import demo.app.paintball.map.renderables.Map
 import demo.app.paintball.map.renderables.Player
 import demo.app.paintball.map.renderables.Renderable
@@ -12,6 +13,7 @@ import demo.app.paintball.util.clear
 class Renderer(private val width: Int, private val height: Int) {
 
     private val movables = mutableListOf<Movable>()
+    private val anchors = mutableListOf<Anchor>()
 
     private val map = Map()
     private val player = Player()
@@ -24,6 +26,7 @@ class Renderer(private val width: Int, private val height: Int) {
     fun step() {
         player.step()
         movables.forEach(Renderable::step)
+        anchors.forEach(Renderable::step)
     }
 
     fun draw(canvas: Canvas) {
@@ -31,6 +34,7 @@ class Renderer(private val width: Int, private val height: Int) {
         map.render(canvas)
         player.render(canvas)
         movables.forEach { it.render(canvas) }
+        anchors.forEach { it.render(canvas) }
     }
 
     fun setPlayerPosition(posX: Int, posY: Int) {
@@ -50,10 +54,6 @@ class Renderer(private val width: Int, private val height: Int) {
             }
     }
 
-    fun zoom(scaleFactor: Float) {
-        map.scale(scaleFactor)
-    }
-
     fun addRedPlayer(playerName: String) {
         val redPlayer = RedPlayer(playerName)
         redPlayer.setSize(width, height)
@@ -64,5 +64,15 @@ class Renderer(private val width: Int, private val height: Int) {
         val bluePlayer = BluePlayer(playerName)
         bluePlayer.setSize(width, height)
         movables.add(bluePlayer)
+    }
+
+    fun zoom(scaleFactor: Float) {
+        map.scale(scaleFactor)
+    }
+
+    fun addAnchor(posX: Int, posY: Int) {
+        val anchor = Anchor(posX, posY)
+        anchor.setSize(width, height)
+        anchors.add(anchor)
     }
 }
