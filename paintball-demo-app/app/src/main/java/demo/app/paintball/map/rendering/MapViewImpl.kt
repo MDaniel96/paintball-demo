@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import demo.app.paintball.map.MapView
+import demo.app.paintball.util.xToMapPx
+import demo.app.paintball.util.yToMapPx
 
 class MapViewImpl : SurfaceView, MapView {
 
@@ -44,11 +46,11 @@ class MapViewImpl : SurfaceView, MapView {
     }
 
     override fun setPlayerPosition(posX: Int, posY: Int) {
-        renderLoop?.setPlayerPosition(posX, posY)
+        renderLoop?.setPlayerPosition(posX.xToMapPx(), posY.yToMapPx())
     }
 
     override fun setMovablePosition(playerName: String, posX: Int, posY: Int) {
-        renderLoop?.setMovablePosition(playerName, posX, posY)
+        renderLoop?.setMovablePosition(playerName, posX.xToMapPx(), posY.yToMapPx())
     }
 
     override fun setPlayerOrientation(degree: Float) {
@@ -68,7 +70,7 @@ class MapViewImpl : SurfaceView, MapView {
     }
 
     override fun addAnchor(posX: Int, posY: Int) {
-        renderLoop?.addAnchor(posX, posY)
+        renderLoop?.addAnchor(posX.xToMapPx(), posY.yToMapPx())
     }
 
     interface MapViewCreatedListener {

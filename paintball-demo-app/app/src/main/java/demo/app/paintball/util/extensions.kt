@@ -9,7 +9,9 @@ import android.media.MediaPlayer
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication.Companion.context
+import demo.app.paintball.R
 import demo.app.paintball.data.mqtt.Topic
 import demo.app.paintball.data.rest.models.Player
 import java.io.File
@@ -29,6 +31,25 @@ fun Canvas.clear() {
 fun Float.toDegree() = Math.toDegrees(this.toDouble()).toFloat()
 
 fun Float.to2PIRadiant() = if (this < 0) (2 * Math.PI + this).toFloat() else this
+
+fun Int.mmToPx(): Int {
+    val unitMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[0].toFloat()
+    val unitPx = context.resources.getInteger(R.integer.anchorOriginXPositionInPx).toFloat()
+    val imagePixel = context.resources.getInteger(R.integer.imageWidthPixels).toFloat()
+    val imageBitmap = ResourcesCompat.getDrawable(context.resources, R.drawable.img_map_gyenes, null)!!.intrinsicWidth.toFloat()
+
+    return ((this / unitMm * unitPx) * imageBitmap / imagePixel).toInt()
+}
+
+fun Int.xToMapPx(): Int {
+    val anchorXMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[0]
+    return (anchorXMm + this).mmToPx()
+}
+
+fun Int.yToMapPx(): Int {
+    val anchorYMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[1]
+    return (anchorYMm - this).mmToPx()
+}
 
 // ====================================
 //  TOPICS

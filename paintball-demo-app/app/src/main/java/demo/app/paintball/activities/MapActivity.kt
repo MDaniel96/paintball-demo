@@ -174,10 +174,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private fun addAnchorsToMap() {
         // TODO: get this info from backend or config file
         val anchors = listOf(
-            intArrayOf(1500, 3000, 1100),
-            intArrayOf(1500, 5000, 1100),
-            intArrayOf(5000, 3000, 1100),
-            intArrayOf(5000, 5000, 1100)
+            intArrayOf(0, 0, 1100),
+            intArrayOf(3800, 0, 1100),
+            intArrayOf(3800, 4100, 1100),
+            intArrayOf(0, 4100, 1100)
         )
         anchors.forEach { map.addAnchor(it[0], it[1]) }
     }

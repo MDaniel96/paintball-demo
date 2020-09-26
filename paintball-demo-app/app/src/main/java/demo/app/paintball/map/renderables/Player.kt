@@ -3,6 +3,8 @@ package demo.app.paintball.map.renderables
 import android.graphics.*
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
+import demo.app.paintball.util.xToMapPx
+import demo.app.paintball.util.yToMapPx
 
 
 class Player : Renderable() {
@@ -12,8 +14,8 @@ class Player : Renderable() {
         const val phoneOrientation = 90.0F  // east
         const val mapOrientation = 270.0F  // ~ west
 
-        var posX = 2897
-        var posY = 4050
+        var posX = 1800.xToMapPx()
+        var posY = 1500.yToMapPx()
     }
 
     private var screenCenterX = 0F
@@ -37,12 +39,15 @@ class Player : Renderable() {
     }
 
     fun setOrientation(degree: Float) {
+        val translateX = screenCenterX - (image.width / size / 2)
+        val translateY = screenCenterY - (image.height / size / 2)
+
         val src = RectF(0F, 0F, image.width.toFloat(), image.height.toFloat())
         val dst = RectF(
-            screenCenterX,
-            screenCenterY,
-            screenCenterX + image.width.toFloat() / size,
-            screenCenterY + image.height.toFloat() / size
+            translateX,
+            translateY,
+            translateX + image.width / size,
+            translateY + image.height / size
         )
         matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
 
@@ -50,8 +55,8 @@ class Player : Renderable() {
         val mapDegree = (phoneDegree - mapOrientation) % 360.0F
         matrix.postRotate(
             mapDegree,
-            screenCenterX + (image.width / 2) / size,
-            screenCenterY + (image.height / 2) / size
+            translateX + (image.width / 2) / size,
+            translateY + (image.height / 2) / size
         )
     }
 }

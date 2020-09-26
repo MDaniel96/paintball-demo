@@ -27,8 +27,8 @@ abstract class Movable(val name: String) : Renderable() {
         if (isVisible()) {
             val distanceFromPlayerX = (Player.posX - posX) / Map.zoom
             val distanceFromPlayerY = (Player.posY - posY) / Map.zoom
-            val translateX = (screenWidth / 2 - distanceFromPlayerX).toInt()
-            val translateY = (screenHeight / 2 - distanceFromPlayerY).toInt()
+            val translateX = (screenWidth / 2 - distanceFromPlayerX).toInt() - (image.width / size / 2)
+            val translateY = (screenHeight / 2 - distanceFromPlayerY).toInt() - (image.height / size / 2)
 
             val src = Rect(0, 0, image.width, image.height)
             val dst = Rect(

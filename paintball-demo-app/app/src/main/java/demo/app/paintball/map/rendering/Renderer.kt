@@ -32,9 +32,9 @@ class Renderer(private val width: Int, private val height: Int) {
     fun draw(canvas: Canvas) {
         canvas.clear()
         map.render(canvas)
-        player.render(canvas)
-        movables.forEach { it.render(canvas) }
         anchors.forEach { it.render(canvas) }
+        movables.forEach { it.render(canvas) }
+        player.render(canvas)
     }
 
     fun setPlayerPosition(posX: Int, posY: Int) {
