@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
+import demo.app.paintball.data.ble.BleService
+import demo.app.paintball.data.ble.BleServiceImpl
+import demo.app.paintball.data.ble.data.BlePositionData
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
@@ -16,18 +19,18 @@ import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
-import demo.app.paintball.util.ErrorHandler
-import demo.app.paintball.util.getTeamChatTopic
-import demo.app.paintball.util.getTeamPositionsTopic
+import demo.app.paintball.util.*
+import demo.app.paintball.util.positioning.PositionCalculator
+import demo.app.paintball.util.positioning.PositionCalculatorImpl
 import demo.app.paintball.util.services.PlayerService
-import demo.app.paintball.util.toDegree
 import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
 
 
 class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener, RestService.SuccessListener,
-    MqttService.PositionListener, MapViewImpl.MapViewCreatedListener {
+    MqttService.PositionListener, MapViewImpl.MapViewCreatedListener, BleServiceImpl.BleServiceListener,
+    PositionCalculator.PositionCalculatorListener {
 
     @Inject
     lateinit var restService: RestService
@@ -38,6 +41,9 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     @Inject
     lateinit var playerService: PlayerService
 
+    @Inject
+    lateinit var bleService: BleService
+
     private var game: Game? = null
     private var isMapButtonsOpen = false
 
@@ -46,6 +52,9 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private lateinit var chatButtons: ChatButtonsFragment
 
     private lateinit var gyroscope: Gyroscope
+
+    private lateinit var positionCalculator: PositionCalculator
+    private lateinit var anchors: List<IntArray>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,14 +74,19 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         playerService = PaintballApplication.services.player()
         restService = PaintballApplication.services.rest().apply { listener = this@MapActivity; errorListener = ErrorHandler }
         mqttService = PaintballApplication.services.mqtt().apply { positionListener = this@MapActivity }
+        bleService = PaintballApplication.services.ble().also { it.addListener(this@MapActivity) }
 
         restService.getGame()
         mqttService.subscribe(playerService.player.getTeamChatTopic())
         mqttService.subscribe(playerService.player.getTeamPositionsTopic())
+        bleService.startPositionSending()
 
         fabActivateButtons.setOnClickListener {
             if (isMapButtonsOpen) hideButtons() else showButtons()
         }
+
+        getAnchors()
+        positionCalculator = PositionCalculatorImpl(anchors).apply { listener = this@MapActivity }
     }
 
     override fun onResume() {
@@ -147,6 +161,22 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         map.setMovablePosition(message.playerName, message.posX, message.posY)
     }
 
+    override fun onBleConnected(connection: BleService) {
+        bleService.startPositionSending()
+    }
+
+    override fun onBlePositionDataReceived(connection: BleService, data: BlePositionData) {
+        positionCalculator.calculate(data)
+    }
+
+    override fun onBleDisconnected(connection: BleService) {
+        toast("Tag disconnected")
+    }
+
+    override fun onPositionCalculated(posX: Int, posY: Int) {
+        toast("${posX} | ${posY}")
+    }
+
     private fun showButtons() {
         isMapButtonsOpen = true
         fabActivateButtons.setImageDrawable(
@@ -171,14 +201,29 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         chatButtons.hide()
     }
 
-    private fun addAnchorsToMap() {
+    private fun getAnchors() {
         // TODO: get this info from backend or config file
-        val anchors = listOf(
+        anchors = listOf(
             intArrayOf(0, 0, 1100),
             intArrayOf(3800, 0, 1100),
+            intArrayOf(0, 4100, 1100),
             intArrayOf(3800, 4100, 1100),
-            intArrayOf(0, 4100, 1100)
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0),
+            intArrayOf(0, 0, 0)
         )
-        anchors.forEach { map.addAnchor(it[0], it[1]) }
+    }
+
+    private fun addAnchorsToMap() {
+        anchors
+            .filter { it[2] != 0 }
+            .forEach { map.addAnchor(it[0], it[1]) }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        bleService.removeListener(this)
+        bleService.disconnectDevice()
     }
 }

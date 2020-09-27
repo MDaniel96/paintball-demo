@@ -41,7 +41,7 @@ class BlePositionData(ts: Short = 0, ranges: ShortArray = shortArrayOf()) {
 
         private fun generateRanges(bb: ByteBuffer, anchorCount: Short): ShortArray {
             val ranges = ShortArray(anchorCount * (anchorCount - 1) / 2 + 1)
-            for (i in 0..ranges.size) {
+            for (i in ranges.indices) {
                 ranges[i] = bb.short
             }
             return ranges

@@ -33,7 +33,7 @@ class MqttTestController(val mqttService: MqttService,
             val redTeam = GameService.game?.redTeam
             val blueTeam = GameService.game?.blueTeam
             redTeam?.filter { !it.isAdmin }?.forEach {
-                val testPositions = testService.getPositions(it.name, 4000, 4000, 10)
+                val testPositions = testService.getPositions(it.name, 0, 0, 10)
                 var i = 0
                 timer.schedule(POSITION_DELAY, Random.nextLong(50, 150)) {
                     if (i < testPositions.size - 1) i++ else i = 0
@@ -44,7 +44,7 @@ class MqttTestController(val mqttService: MqttService,
                 }
             }
             blueTeam?.filter { !it.isAdmin }?.forEach {
-                val testPositions = testService.getPositions(it.name, 2000, 4000, 10)
+                val testPositions = testService.getPositions(it.name, 3000, 4000, 10)
                 var i = 0
                 timer.schedule(POSITION_DELAY, Random.nextLong(50, 150)) {
                     if (i < testPositions.size - 1) i++ else i = 0
