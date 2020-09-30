@@ -1,5 +1,7 @@
 package demo.app.paintball.util.positioning
 
+import android.os.Handler
+import android.os.Looper
 import android.os.SystemClock
 import demo.app.paintball.data.ble.data.BlePositionData
 import demo.app.paintball.util.toast
@@ -53,6 +55,8 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
      */
     private var qPrev = createRealMatrix(2, 1)
 
+    private val handler = Handler(Looper.getMainLooper())
+
     init {
         generateQa()
         initQPrev()
@@ -90,7 +94,7 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
 
     override fun calculate(data: BlePositionData) {
         this.data = data
-        runnable.run()
+        handler.post(runnable)
     }
 
     private val runnable = Runnable {
