@@ -27,7 +27,6 @@ import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
 
-
 class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener, RestService.SuccessListener,
     MqttService.PositionListener, MapViewImpl.MapViewCreatedListener, BleServiceImpl.BleServiceListener,
     PositionCalculator.PositionCalculatorListener {
@@ -174,7 +173,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     }
 
     override fun onPositionCalculated(posX: Int, posY: Int) {
-        toast("${posX} | ${posY}")
+        map.setPlayerPosition(posX, posY)
     }
 
     private fun showButtons() {

@@ -34,4 +34,7 @@
 
     <integer name="imageWidthPixels">2986</integer>
 
+    <!-- Gyenes: 270 (west) -->
+    <integer name="mapOrientation">290</integer>
+
 </resources>

@@ -8,6 +8,7 @@ import demo.app.paintball.util.toast
 import org.apache.commons.math3.linear.MatrixUtils
 import org.apache.commons.math3.linear.MatrixUtils.createRealMatrix
 import org.apache.commons.math3.linear.SingularMatrixException
+import java.util.*
 import kotlin.math.pow
 import kotlin.math.round
 import kotlin.math.sqrt
@@ -31,6 +32,11 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
         Tag height (now fixed)
          */
         const val ZT = 1100.0
+
+        /*
+        Number of last positions to be averaged
+         */
+        const val WINDOW_SIZE = 12
     }
 
     override lateinit var listener: PositionCalculator.PositionCalculatorListener
@@ -54,6 +60,9 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
     Previous position
      */
     private var qPrev = createRealMatrix(2, 1)
+
+    private val lastResultsX: Deque<Int> = LinkedList()
+    private val lastResultsY: Deque<Int> = LinkedList()
 
     private val handler = Handler(Looper.getMainLooper())
 
@@ -81,7 +90,7 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
         var xacc = 0.0
         var yacc = 0.0
         var n = 0
-        for (i in 0 until anchors.size) {
+        for (i in anchors.indices) {
             if (anchors[i][2] != 0) {
                 xacc += anchors[i][0]
                 yacc += anchors[i][1]
@@ -197,10 +206,19 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
                         "time: ${SystemClock.uptimeMillis() - start} ms"
             )
 
-            listener.onPositionCalculated(
-                posX = round(q.getEntry(0, 0)).toInt(),
-                posY = round(q.getEntry(1, 0)).toInt()
-            )
+            val resultX = round(q.getEntry(0, 0)).toInt()
+            val resultY = round(q.getEntry(1, 0)).toInt()
+            lastResultsX.addFirst(resultX)
+            lastResultsY.addFirst(resultY)
+            if (lastResultsX.size == WINDOW_SIZE) {
+                lastResultsX.removeLast()
+                lastResultsY.removeLast()
+            }
+
+            val posX = lastResultsX.average().toInt()
+            val posY = lastResultsY.average().toInt()
+            listener.onPositionCalculated(posX, posY)
+
         } catch (e: SingularMatrixException) {
             toast("Singular matrix exception: $e")
         }

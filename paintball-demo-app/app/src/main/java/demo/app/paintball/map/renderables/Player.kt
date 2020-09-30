@@ -12,7 +12,6 @@ class Player : Renderable() {
     companion object {
         const val size = 3
         const val phoneOrientation = 90.0F  // east
-        const val mapOrientation = 270.0F  // ~ west
 
         var posX = 1800.xToMapPx()
         var posY = 1500.yToMapPx()
@@ -51,6 +50,7 @@ class Player : Renderable() {
         )
         matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
 
+        val mapOrientation = context.resources.getInteger(R.integer.mapOrientation).toFloat()
         val phoneDegree = (degree + phoneOrientation) % 360.0F
         val mapDegree = (phoneDegree - mapOrientation) % 360.0F
         matrix.postRotate(
