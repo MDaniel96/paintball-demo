@@ -1,17 +1,13 @@
 package demo.app.paintball.fragments.buttons
 
-import android.Manifest
 import android.app.Activity
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
-import demo.app.paintball.activities.MapActivity
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.ChatMessage
 import demo.app.paintball.util.fromHexToByteArray
@@ -67,7 +63,6 @@ class ChatButtonsFragmentImpl : ChatButtonsFragment(), MqttService.ChatListener 
         btnMiddleLayout = fabLayoutTeamChat
         btnMiddleTextView = fabTextViewTeamChat
         initFabTeamChat()
-        requestPermission()
     }
 
     private fun initFabTeamChat() {
@@ -106,24 +101,6 @@ class ChatButtonsFragmentImpl : ChatButtonsFragment(), MqttService.ChatListener 
         if (playerService.player.name != message.playerName) {
             val bytes = message.message.fromHexToByteArray()
             bytes.playAudio()
-        }
-    }
-
-    private fun requestPermission() {
-        // TODO replace permission check with library / extension, when app starts
-        // TODO on else and callback branches init media recorder
-        if (ContextCompat.checkSelfPermission(activity as MapActivity, Manifest.permission.RECORD_AUDIO) !=
-            PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                activity as MapActivity,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            val permissions = arrayOf(
-                Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            )
-            ActivityCompat.requestPermissions(activity as MapActivity, permissions, 0)
         }
     }
 }

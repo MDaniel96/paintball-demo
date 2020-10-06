@@ -1,5 +1,6 @@
 package demo.app.paintball.activities
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,15 @@ import javax.inject.Inject
 class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
     JoinGameFragment.JoinGameListener, CreateGameFragment.CreateGameListener, ConnectTagFragment.ConnectTagListener {
 
+    companion object {
+        val permissionsNeeded = arrayListOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+    }
+
     @Inject
     lateinit var restService: RestService
 
@@ -38,7 +48,7 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
         btnJoinGame.setOnClickListener { JoinGameFragment().show(supportFragmentManager, "TAG") }
         btnConnectTag.setOnClickListener { ConnectTagFragment().show(supportFragmentManager, "TAG") }
         checkTagsEnabled()
-        this.checkPermissions(arrayListOf(android.Manifest.permission.ACCESS_FINE_LOCATION))
+        this.checkPermissions(permissionsNeeded)
     }
 
     private fun checkTagsEnabled() {

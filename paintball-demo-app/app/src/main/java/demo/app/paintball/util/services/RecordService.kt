@@ -31,7 +31,6 @@ class RecordService {
         var read: Int
         val data = ByteArray(16384)
         while (inputStream.read(data, 0, data.size).also { read = it } != -1) {
-            println("Recordinnggg")
             recordingOutputStream.write(data, 0, read)
         }
     }
