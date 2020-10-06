@@ -19,10 +19,13 @@ import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
-import demo.app.paintball.util.*
+import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.positioning.PositionCalculator
 import demo.app.paintball.util.positioning.PositionCalculatorImpl
 import demo.app.paintball.util.services.PlayerService
+import demo.app.paintball.util.setBackgroundTint
+import demo.app.paintball.util.toDegree
+import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -122,11 +125,15 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     override fun onScrollUp() {
         mainButtons.changeLevel(-1)
         chatButtons.changeLevel(0)
+        btnPagingChat.setBackgroundTint(R.color.transparentWhite)
+        btnPagingMain.setBackgroundTint(R.color.lightTrasparentGray)
     }
 
     override fun onScrollDown() {
         mainButtons.changeLevel(0)
         chatButtons.changeLevel(1)
+        btnPagingChat.setBackgroundTint(R.color.lightTrasparentGray)
+        btnPagingMain.setBackgroundTint(R.color.transparentWhite)
     }
 
     override fun onOrientationChanged(radian: Float) {
@@ -183,6 +190,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         )
         fabActivateButtons.animate().rotation(180F)
         gameDetailLayout.animate().translationX(0F)
+        buttonsPagingLayout.animate().translationX(-50F)
 
         mainButtons.show()
         chatButtons.show()
@@ -195,6 +203,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         )
         fabActivateButtons.animate().rotation(-180F)
         gameDetailLayout.animate().translationX(-300F)
+        buttonsPagingLayout.animate().translationX(0F)
 
         mainButtons.hide()
         chatButtons.hide()

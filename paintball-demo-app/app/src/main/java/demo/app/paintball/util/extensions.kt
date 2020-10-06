@@ -1,11 +1,13 @@
 package demo.app.paintball.util
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaPlayer
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -16,12 +18,21 @@ import demo.app.paintball.data.mqtt.Topic
 import demo.app.paintball.data.rest.models.Player
 import java.io.File
 
+// ====================================
+//  CONVENIENCE
+// ====================================
+
 fun toast(text: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(context, text, duration).show()
 }
 
 fun Canvas.clear() {
     this.drawColor(Color.DKGRAY)
+}
+
+@SuppressLint("NewApi")
+fun View.setBackgroundTint(colorId: Int) {
+    this.backgroundTintList = ContextCompat.getColorStateList(context, colorId)
 }
 
 // ====================================

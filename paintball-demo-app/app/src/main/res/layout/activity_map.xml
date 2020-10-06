@@ -44,6 +44,32 @@
                 app:fabCustomSize="@dimen/fab_activate_size" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/buttonsPagingLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="-10dp"
+            android:weightSum="2"
+            android:layout_gravity="center_vertical|end">
+
+            <Button
+                android:id="@+id/btnPagingMain"
+                style="@style/buttonPaging"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_paging_circle"
+                android:backgroundTint="@color/transparentWhite" />
+
+            <Button
+                android:id="@+id/btnPagingChat"
+                style="@style/buttonPaging"
+                android:layout_weight="1"
+                android:background="@drawable/shape_paging_circle"
+                android:backgroundTint="@color/lightTrasparentGray" />
+
+        </LinearLayout>
+
     </FrameLayout>
 
     <LinearLayout
