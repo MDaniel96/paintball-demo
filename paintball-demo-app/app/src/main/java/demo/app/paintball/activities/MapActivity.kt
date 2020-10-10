@@ -19,13 +19,10 @@ import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
-import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.*
 import demo.app.paintball.util.positioning.PositionCalculator
 import demo.app.paintball.util.positioning.PositionCalculatorImpl
 import demo.app.paintball.util.services.PlayerService
-import demo.app.paintball.util.setBackgroundTint
-import demo.app.paintball.util.toDegree
-import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -164,7 +161,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     }
 
     override fun positionMessageArrived(message: PositionMessage) {
-        map.setMovablePosition(message.playerName, message.posX, message.posY)
+        map.setMovablePosition(message.player.name, message.posX, message.posY)
     }
 
     override fun onBleConnected(connection: BleService) {
@@ -181,6 +178,8 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun onPositionCalculated(posX: Int, posY: Int) {
         map.setPlayerPosition(posX, posY)
+        PositionMessage.build(playerService.player, posX, posY)
+            .publish(mqttService)
     }
 
     private fun showButtons() {
@@ -212,10 +211,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private fun getAnchors() {
         // TODO: get this info from backend or config file
         anchors = listOf(
-            intArrayOf(0, 0, 1100),
-            intArrayOf(3800, 0, 1100),
-            intArrayOf(0, 4100, 1100),
-            intArrayOf(3800, 4100, 1100),
+            intArrayOf(0, 0, 800),
+            intArrayOf(15_000, 0, 800),
+            intArrayOf(0, 10000, 800),
+            intArrayOf(15_000, 8_700, 800),
             intArrayOf(0, 0, 0),
             intArrayOf(0, 0, 0),
             intArrayOf(0, 0, 0),

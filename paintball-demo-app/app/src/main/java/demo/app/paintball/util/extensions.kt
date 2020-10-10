@@ -47,7 +47,7 @@ fun Int.mmToPx(): Int {
     val unitMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[0].toFloat()
     val unitPx = context.resources.getInteger(R.integer.anchorOriginXPositionInPx).toFloat()
     val imagePixel = context.resources.getInteger(R.integer.imageWidthPixels).toFloat()
-    val imageBitmap = ResourcesCompat.getDrawable(context.resources, R.drawable.img_map_gyenes, null)!!.intrinsicWidth.toFloat()
+    val imageBitmap = ResourcesCompat.getDrawable(context.resources, R.drawable.map_garden, null)!!.intrinsicWidth.toFloat()
 
     return ((this / unitMm * unitPx) * imageBitmap / imagePixel).toInt()
 }
@@ -66,7 +66,7 @@ fun Int.yToMapPx(): Int {
 //  TOPICS
 // ====================================
 
-// TODO: refactor: create Team class -> RedTeam, Blueteam subclasses. store these infos in them
+// TODO: refactor to config classes: create Team class -> RedTeam, Blueteam subclasses. store these infos in them
 fun Player.getTeamPositionsTopic() = when (team) {
     "RED" -> Topic.POSITIONS_RED_TEAM
     "BLUE" -> Topic.POSITIONS_BLUE_TEAM

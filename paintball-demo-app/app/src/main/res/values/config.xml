@@ -13,28 +13,41 @@
     <!-- SERVER           -->
     <!-- ================ -->
 
-    <!-- AtollLaptop: http://192.168.0.105:8080 -->
-    <string name="baseUrl">http://192.168.0.105:8080</string>
-
-    <!-- DaniLaptop | AtollLaptop: tcp://192.168.0.17:1883 | tcp://192.168.0.105:1883 -->
-    <string name="mqttBroker">tcp://192.168.0.105:1883</string>
+    <!-- Ucp | LinkSys: 192.168.0.105 | 192.168.1.100 -->
+    <string name="serverURL">192.168.1.102</string>
 
     <!-- ================ -->
     <!-- MAP              -->
     <!-- ================ -->
 
+    <!-- TODO: extract to config constants object    -->
+    <!-- TODO: image name to config file             -->
+
     <!-- Anchor0's (x,y) position in mm from top left corner of image -->
+    <!-- Test: (5000, 10000) -->
+    <!-- Garden: (2470, 14600) -->
     <integer-array name="anchorOriginPositionInMm">
-        <item>5000</item>
-        <item>10000</item>
+        <item>2470</item>
+        <item>14600</item>
     </integer-array>
 
     <!-- Anchor0's x position in pixels from left edge of image -->
-    <integer name="anchorOriginXPositionInPx">800</integer>
+    <integer name="anchorOriginXPositionInPx">175</integer>
 
-    <integer name="imageWidthPixels">2986</integer>
+    <!-- Test: 2986 -->
+    <!-- Garden: 2049 -->
+    <integer name="imageWidthPixels">2049</integer>
 
     <!-- Gyenes: 270 (west) -->
-    <integer name="mapOrientation">290</integer>
+    <!-- Garden: 46 (north) -->
+    <integer name="mapOrientation">46</integer>
+
+    <!-- Gyenes: 48 (west) -->
+    <!-- Garden: 33 (north) -->
+    <integer name="minZoom">33</integer>
+
+    <!-- Gyenes: 15 (west) -->
+    <!-- Garden: 13 (north) -->
+    <integer name="maxZoom">13</integer>
 
 </resources>

@@ -8,14 +8,14 @@ import demo.app.paintball.R
 class Map : Renderable() {
 
     companion object {
-        const val minZoom = 4.8
-        const val maxZoom = 1.5
-        const val maxScaleFactor = 2
+        val MIN_ZOOM = (context.resources.getInteger(R.integer.minZoom) / 10).toDouble()
+        val MAX_ZOOM = (context.resources.getInteger(R.integer.maxZoom) / 10).toDouble()
+        const val MAX_SCALE_FACTOR = 2
 
-        var zoom = minZoom
+        var zoom = MIN_ZOOM
     }
 
-    override val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.img_map_gyenes)
+    override val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.map_garden)
 
     private lateinit var bitmapDrawable: BitmapDrawable
 
@@ -43,6 +43,6 @@ class Map : Renderable() {
 
     // rescaling(2): https://en.wikipedia.org/wiki/Feature_scaling
     fun scale(scaleFactor: Float) {
-        zoom = minZoom + (scaleFactor - 1) * (maxZoom - minZoom) / (maxScaleFactor - 1)
+        zoom = MIN_ZOOM + (scaleFactor - 1) * (MAX_ZOOM - MIN_ZOOM) / (MAX_SCALE_FACTOR - 1)
     }
 }

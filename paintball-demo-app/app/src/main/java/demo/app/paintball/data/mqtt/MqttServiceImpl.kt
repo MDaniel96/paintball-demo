@@ -19,7 +19,7 @@ class MqttServiceImpl @Inject constructor() : MqttService {
     override var chatListener: MqttService.ChatListener? = null
 
     var mqttAndroidClient: MqttAndroidClient =
-        MqttAndroidClient(context, context.getString(R.string.mqttBroker), MqttClient.generateClientId())
+        MqttAndroidClient(context, "tcp://${context.getString(R.string.serverURL)}:1883", MqttClient.generateClientId())
 
     init {
         setCallback()
@@ -64,7 +64,7 @@ class MqttServiceImpl @Inject constructor() : MqttService {
             }
 
             override fun onFailure(asyncActionToken: IMqttToken, exception: Throwable) {
-                toast("MQTT: Failed to connect to: ${context.getString(R.string.mqttBroker)}")
+                toast("MQTT: Failed to connect to: ${context.getString(R.string.serverURL)}")
             }
         })
     }

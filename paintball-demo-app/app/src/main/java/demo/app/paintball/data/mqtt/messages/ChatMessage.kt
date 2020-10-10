@@ -9,7 +9,7 @@ class ChatMessage {
     var raw: String = ""
     var message: String = ""
 
-    // TODO: refactor, insert playername and use it at publish
+    // TODO: refactor, insert playername and use it at publish (e.g.: PositionMessage)
     var playerName: String = ""
 
     companion object {
