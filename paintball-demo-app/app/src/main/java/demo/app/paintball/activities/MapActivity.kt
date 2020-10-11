@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
+import demo.app.paintball.config.Config
 import demo.app.paintball.data.ble.BleService
 import demo.app.paintball.data.ble.BleServiceImpl
 import demo.app.paintball.data.ble.data.BlePositionData
@@ -19,10 +20,13 @@ import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
-import demo.app.paintball.util.*
+import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.positioning.PositionCalculator
 import demo.app.paintball.util.positioning.PositionCalculatorImpl
 import demo.app.paintball.util.services.PlayerService
+import demo.app.paintball.util.setBackgroundTint
+import demo.app.paintball.util.toDegree
+import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -53,7 +57,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private lateinit var gyroscope: Gyroscope
 
     private lateinit var positionCalculator: PositionCalculator
-    private lateinit var anchors: List<IntArray>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,8 +87,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
             if (isMapButtonsOpen) hideButtons() else showButtons()
         }
 
-        getAnchors()
-        positionCalculator = PositionCalculatorImpl(anchors).apply { listener = this@MapActivity }
+        positionCalculator = PositionCalculatorImpl(Config.mapConfig.anchors).apply { listener = this@MapActivity }
     }
 
     override fun onResume() {
@@ -100,7 +102,9 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun mapViewCreated() {
         if (resources.getBoolean(R.bool.displayAnchors)) {
-            addAnchorsToMap()
+            Config.mapConfig.anchors
+                .filter { it[2] != 0 }
+                .forEach { map.addAnchor(it[0], it[1]) }
         }
     }
 
@@ -206,26 +210,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
         mainButtons.hide()
         chatButtons.hide()
-    }
-
-    private fun getAnchors() {
-        // TODO: get this info from backend or config file
-        anchors = listOf(
-            intArrayOf(0, 0, 800),
-            intArrayOf(15_000, 0, 800),
-            intArrayOf(0, 10000, 800),
-            intArrayOf(15_000, 8_700, 800),
-            intArrayOf(0, 0, 0),
-            intArrayOf(0, 0, 0),
-            intArrayOf(0, 0, 0),
-            intArrayOf(0, 0, 0)
-        )
-    }
-
-    private fun addAnchorsToMap() {
-        anchors
-            .filter { it[2] != 0 }
-            .forEach { map.addAnchor(it[0], it[1]) }
     }
 
     override fun onDestroy() {

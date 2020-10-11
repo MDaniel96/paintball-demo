@@ -3,19 +3,19 @@ package demo.app.paintball.map.renderables
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import demo.app.paintball.PaintballApplication.Companion.context
-import demo.app.paintball.R
+import demo.app.paintball.config.Config
 
 class Map : Renderable() {
 
     companion object {
-        val MIN_ZOOM = (context.resources.getInteger(R.integer.minZoom) / 10).toDouble()
-        val MAX_ZOOM = (context.resources.getInteger(R.integer.maxZoom) / 10).toDouble()
+        val MIN_ZOOM = Config.mapConfig.minZoom
+        val MAX_ZOOM = Config.mapConfig.maxZoom
         const val MAX_SCALE_FACTOR = 2
 
         var zoom = MIN_ZOOM
     }
 
-    override val image: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.map_garden)
+    override val image: Bitmap = BitmapFactory.decodeResource(context.resources, Config.mapConfig.imageDrawableId)
 
     private lateinit var bitmapDrawable: BitmapDrawable
 

@@ -1,53 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- ================ -->
-    <!-- GAME             -->
-    <!-- ================ -->
-
     <bool name="testGameTexts">true</bool>
     <bool name="tagsEnabled">true</bool>
     <bool name="displayAnchors">true</bool>
 
-    <!-- ================ -->
-    <!-- SERVER           -->
-    <!-- ================ -->
-
     <!-- Ucp | LinkSys: 192.168.0.105 | 192.168.1.100 -->
     <string name="serverURL">192.168.1.102</string>
 
-    <!-- ================ -->
-    <!-- MAP              -->
-    <!-- ================ -->
-
-    <!-- TODO: extract to config constants object    -->
-    <!-- TODO: image name to config file             -->
-
-    <!-- Anchor0's (x,y) position in mm from top left corner of image -->
-    <!-- Test: (5000, 10000) -->
-    <!-- Garden: (2470, 14600) -->
-    <integer-array name="anchorOriginPositionInMm">
-        <item>2470</item>
-        <item>14600</item>
-    </integer-array>
-
-    <!-- Anchor0's x position in pixels from left edge of image -->
-    <integer name="anchorOriginXPositionInPx">175</integer>
-
-    <!-- Test: 2986 -->
-    <!-- Garden: 2049 -->
-    <integer name="imageWidthPixels">2049</integer>
-
-    <!-- Gyenes: 270 (west) -->
-    <!-- Garden: 46 (north) -->
-    <integer name="mapOrientation">46</integer>
-
-    <!-- Gyenes: 48 (west) -->
-    <!-- Garden: 33 (north) -->
-    <integer name="minZoom">33</integer>
-
-    <!-- Gyenes: 15 (west) -->
-    <!-- Garden: 13 (north) -->
-    <integer name="maxZoom">13</integer>
+    <!-- garden | gyenes -->
+    <string name="map">garden</string>
 
 </resources>

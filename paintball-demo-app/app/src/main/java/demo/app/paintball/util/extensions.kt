@@ -13,7 +13,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication.Companion.context
-import demo.app.paintball.R
+import demo.app.paintball.config.Config
 import demo.app.paintball.data.mqtt.Topic
 import demo.app.paintball.data.rest.models.Player
 import java.io.File
@@ -44,21 +44,22 @@ fun Float.toDegree() = Math.toDegrees(this.toDouble()).toFloat()
 fun Float.to2PIRadiant() = if (this < 0) (2 * Math.PI + this).toFloat() else this
 
 fun Int.mmToPx(): Int {
-    val unitMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[0].toFloat()
-    val unitPx = context.resources.getInteger(R.integer.anchorOriginXPositionInPx).toFloat()
-    val imagePixel = context.resources.getInteger(R.integer.imageWidthPixels).toFloat()
-    val imageBitmap = ResourcesCompat.getDrawable(context.resources, R.drawable.map_garden, null)!!.intrinsicWidth.toFloat()
+    val unitMm = Config.mapConfig.anchorOriginPosX.toFloat()
+    val unitPx = Config.mapConfig.anchorOriginPxX.toFloat()
+    val imagePixel = Config.mapConfig.imageWidthPx.toFloat()
+    val imageBitmap =
+        ResourcesCompat.getDrawable(context.resources, Config.mapConfig.imageDrawableId, null)!!.intrinsicWidth.toFloat()
 
     return ((this / unitMm * unitPx) * imageBitmap / imagePixel).toInt()
 }
 
 fun Int.xToMapPx(): Int {
-    val anchorXMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[0]
+    val anchorXMm = Config.mapConfig.anchorOriginPosX
     return (anchorXMm + this).mmToPx()
 }
 
 fun Int.yToMapPx(): Int {
-    val anchorYMm = context.resources.getIntArray(R.array.anchorOriginPositionInMm)[1]
+    val anchorYMm = Config.mapConfig.anchorOriginPosY
     return (anchorYMm - this).mmToPx()
 }
 

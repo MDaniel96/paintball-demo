@@ -3,6 +3,7 @@ package demo.app.paintball.map.renderables
 import android.graphics.*
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.R
+import demo.app.paintball.config.Config
 import demo.app.paintball.util.xToMapPx
 import demo.app.paintball.util.yToMapPx
 
@@ -50,7 +51,7 @@ class Player : Renderable() {
         )
         matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
 
-        val mapOrientation = context.resources.getInteger(R.integer.mapOrientation).toFloat()
+        val mapOrientation = Config.mapConfig.mapOrientation.toFloat()
         val phoneDegree = (degree + phoneOrientation) % 360.0F
         val mapDegree = (phoneDegree - mapOrientation) % 360.0F
         matrix.postRotate(
