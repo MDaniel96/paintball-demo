@@ -3,7 +3,6 @@ package demo.app.paintball.activities
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication
 import demo.app.paintball.R
 import demo.app.paintball.config.Config
@@ -14,8 +13,6 @@ import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
-import demo.app.paintball.fragments.buttons.ChatButtonsFragment
-import demo.app.paintball.fragments.buttons.MainButtonsFragment
 import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
@@ -24,7 +21,6 @@ import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.positioning.PositionCalculator
 import demo.app.paintball.util.positioning.PositionCalculatorImpl
 import demo.app.paintball.util.services.PlayerService
-import demo.app.paintball.util.setBackgroundTint
 import demo.app.paintball.util.toDegree
 import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_map.*
@@ -48,11 +44,8 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     lateinit var bleService: BleService
 
     private var game: Game? = null
-    private var isMapButtonsOpen = false
 
     private lateinit var map: MapView
-    private lateinit var mainButtons: MainButtonsFragment
-    private lateinit var chatButtons: ChatButtonsFragment
 
     private lateinit var gyroscope: Gyroscope
 
@@ -64,13 +57,8 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         map = mapView
-        mainButtons = supportFragmentManager.findFragmentById(R.id.mainButtonsFragment) as MainButtonsFragment
-        chatButtons = supportFragmentManager.findFragmentById(R.id.chatButtonsFragment) as ChatButtonsFragment
 
-        mainButtons.initLevel(0)
-        chatButtons.initLevel(1)
-
-        map.setOnTouchListener(GestureSensor(gestureListener = this, scrollPanel = buttonsPanel))
+        map.setOnTouchListener(GestureSensor(gestureListener = this))
         gyroscope = Gyroscope(gyroscopeListener = this)
 
         playerService = PaintballApplication.services.player()
@@ -82,10 +70,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         mqttService.subscribe(playerService.player.getTeamChatTopic())
         mqttService.subscribe(playerService.player.getTeamPositionsTopic())
         bleService.startPositionSending()
-
-        fabActivateButtons.setOnClickListener {
-            if (isMapButtonsOpen) hideButtons() else showButtons()
-        }
 
         positionCalculator = PositionCalculatorImpl(Config.mapConfig.anchors).apply { listener = this@MapActivity }
     }
@@ -121,20 +105,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun onZoomOut() {
         gameDetailLayout.animate().translationX(0F)
-    }
-
-    override fun onScrollUp() {
-        mainButtons.changeLevel(-1)
-        chatButtons.changeLevel(0)
-        btnPagingChat.setBackgroundTint(R.color.transparentWhite)
-        btnPagingMain.setBackgroundTint(R.color.lightTrasparentGray)
-    }
-
-    override fun onScrollDown() {
-        mainButtons.changeLevel(0)
-        chatButtons.changeLevel(1)
-        btnPagingChat.setBackgroundTint(R.color.lightTrasparentGray)
-        btnPagingMain.setBackgroundTint(R.color.transparentWhite)
     }
 
     override fun onOrientationChanged(radian: Float) {
@@ -186,30 +156,8 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
             .publish(mqttService)
     }
 
-    private fun showButtons() {
-        isMapButtonsOpen = true
-        fabActivateButtons.setImageDrawable(
-            ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_less, null)
-        )
-        fabActivateButtons.animate().rotation(180F)
-        gameDetailLayout.animate().translationX(0F)
-        buttonsPagingLayout.animate().translationX(-50F)
-
-        mainButtons.show()
-        chatButtons.show()
-    }
-
     private fun hideButtons() {
-        isMapButtonsOpen = false
-        fabActivateButtons.setImageDrawable(
-            ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_more, null)
-        )
-        fabActivateButtons.animate().rotation(-180F)
         gameDetailLayout.animate().translationX(-300F)
-        buttonsPagingLayout.animate().translationX(0F)
-
-        mainButtons.hide()
-        chatButtons.hide()
     }
 
     override fun onDestroy() {

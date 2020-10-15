@@ -1,6 +1,5 @@
 package demo.app.paintball.map.sensors
 
-import android.content.res.Resources
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
@@ -10,7 +9,7 @@ import android.view.View.OnTouchListener
 import demo.app.paintball.PaintballApplication
 
 
-class GestureSensor(val gestureListener: GestureListener, val scrollPanel: View) : OnTouchListener,
+class GestureSensor(val gestureListener: GestureListener) : OnTouchListener,
     OnScaleGestureListener, GestureDetector.SimpleOnGestureListener() {
 
     companion object {
@@ -54,26 +53,10 @@ class GestureSensor(val gestureListener: GestureListener, val scrollPanel: View)
         return true
     }
 
-    override fun onScroll(e1: MotionEvent, e2: MotionEvent, dX: Float, dY: Float): Boolean {
-        val screenWidth = Resources.getSystem().displayMetrics.widthPixels
-        if (screenWidth - e1.x < scrollPanel.width) {
-            if (dY > scrollLimit && !up) {
-                gestureListener.onScrollUp()
-                up = true
-            } else if (dY < -scrollLimit && up) {
-                gestureListener.onScrollDown()
-                up = false
-            }
-        }
-        return false
-    }
-
     interface GestureListener {
         fun onScaleChanged(scaleFactor: Float)
         fun onZoomIn()
         fun onZoomOut()
-        fun onScrollUp()
-        fun onScrollDown()
     }
 
     override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
