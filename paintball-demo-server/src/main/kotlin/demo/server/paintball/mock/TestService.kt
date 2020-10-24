@@ -12,13 +12,16 @@ class TestService(private val appConfig: AppConfig) {
     fun initPlayers() {
         if (appConfig.environment == "test") {
             val redPlayer1 = Player().apply { name = "Dani" }
+            val redPlayer2 = Player().apply { name = "Akos" }
+            val redPlayer3 = Player().apply { name = "Progi" }
             val bluePlayer1 = Player().apply { name = "Mate" }
+            val bluePlayer2 = Player().apply { name = "Markolt" }
 
             GameService.game?.redTeam?.addAll(
-                    mutableListOf(redPlayer1)
+                    mutableListOf(redPlayer1, redPlayer2, redPlayer3)
             )
             GameService.game?.blueTeam?.addAll(
-                    mutableListOf(bluePlayer1)
+                    mutableListOf(bluePlayer1, bluePlayer2)
             )
         }
     }

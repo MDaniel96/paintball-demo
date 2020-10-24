@@ -21,7 +21,7 @@ import java.util.*
 import javax.inject.Inject
 import kotlin.concurrent.schedule
 
-class ChatButtonsFragmentImpl : ChatButtonsFragment(), MqttService.ChatListener {
+class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
 
     companion object {
         const val RECORDING_TIME = 4_000L

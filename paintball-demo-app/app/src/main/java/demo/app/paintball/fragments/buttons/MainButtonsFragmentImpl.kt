@@ -18,7 +18,7 @@ import java.util.*
 import javax.inject.Inject
 import kotlin.concurrent.schedule
 
-class MainButtonsFragmentImpl : MainButtonsFragment() {
+class MainButtonsFragmentImpl : MapButtonsFragment() {
 
     companion object {
         const val SPYING_TIME = 7_000L

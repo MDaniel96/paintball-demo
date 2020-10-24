@@ -14,19 +14,16 @@ import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
-import demo.app.paintball.fragments.buttons.ChatButtonsFragment
-import demo.app.paintball.fragments.buttons.MainButtonsFragment
+import demo.app.paintball.fragments.buttons.MapButtonsFragment
+import demo.app.paintball.fragments.panels.MapStatsPanel
 import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
 import demo.app.paintball.map.sensors.Gyroscope
-import demo.app.paintball.util.ErrorHandler
+import demo.app.paintball.util.*
 import demo.app.paintball.util.positioning.PositionCalculator
 import demo.app.paintball.util.positioning.PositionCalculatorImpl
 import demo.app.paintball.util.services.PlayerService
-import demo.app.paintball.util.setBackgroundTint
-import demo.app.paintball.util.toDegree
-import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -51,8 +48,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private var isMapButtonsOpen = false
 
     private lateinit var map: MapView
-    private lateinit var mainButtons: MainButtonsFragment
-    private lateinit var chatButtons: ChatButtonsFragment
+    private lateinit var mainButtons: MapButtonsFragment
+    private lateinit var chatButtons: MapButtonsFragment
+
+    private lateinit var statsPanel: MapStatsPanel
 
     private lateinit var gyroscope: Gyroscope
 
@@ -64,8 +63,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         map = mapView
-        mainButtons = supportFragmentManager.findFragmentById(R.id.mainButtonsFragment) as MainButtonsFragment
-        chatButtons = supportFragmentManager.findFragmentById(R.id.chatButtonsFragment) as ChatButtonsFragment
+        mainButtons = supportFragmentManager.findFragmentById(R.id.mainButtonsFragment) as MapButtonsFragment
+        chatButtons = supportFragmentManager.findFragmentById(R.id.chatButtonsFragment) as MapButtonsFragment
+
+        statsPanel = supportFragmentManager.findFragmentById(R.id.statsPanelFragment) as MapStatsPanel
 
         mainButtons.initLevel(0)
         chatButtons.initLevel(1)
@@ -120,7 +121,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     }
 
     override fun onZoomOut() {
-        gameDetailLayout.animate().translationX(0F)
+        statsPanel.show()
     }
 
     override fun onScrollUp() {
@@ -192,9 +193,9 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
             ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_less, null)
         )
         fabActivateButtons.animate().rotation(180F)
-        gameDetailLayout.animate().translationX(0F)
         buttonsPagingLayout.animate().translationX(-50F)
 
+        statsPanel.show()
         mainButtons.show()
         chatButtons.show()
     }
@@ -205,9 +206,9 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
             ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_more, null)
         )
         fabActivateButtons.animate().rotation(-180F)
-        gameDetailLayout.animate().translationX(-300F)
         buttonsPagingLayout.animate().translationX(0F)
 
+        statsPanel.hide()
         mainButtons.hide()
         chatButtons.hide()
     }

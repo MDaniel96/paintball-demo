@@ -2,13 +2,13 @@
 <resources>
 
     <bool name="testGameTexts">true</bool>
-    <bool name="tagsEnabled">true</bool>
+    <bool name="tagsEnabled">false</bool>
     <bool name="displayAnchors">true</bool>
 
     <!-- Ucp | LinkSys: 192.168.0.105 | 192.168.1.100 -->
     <string name="serverURL">192.168.1.102</string>
 
     <!-- garden | gyenes -->
-    <string name="map">garden</string>
+    <string name="map">gyenes</string>
 
 </resources>
