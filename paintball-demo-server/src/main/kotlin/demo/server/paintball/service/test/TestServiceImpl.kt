@@ -4,6 +4,7 @@ import demo.server.paintball.config.AppConfig
 import demo.server.paintball.data.Player
 import demo.server.paintball.service.GameService
 import demo.server.paintball.service.MqttService
+import org.springframework.core.io.ResourceLoader
 import org.springframework.stereotype.Service
 import java.util.*
 import kotlin.concurrent.schedule
@@ -12,12 +13,15 @@ import kotlin.random.Random
 @Service
 class TestServiceImpl(val gameService: GameService,
                       val mqttService: MqttService,
-                      val appConfig: AppConfig) : TestService {
+                      val appConfig: AppConfig,
+                      val resourceLoader: ResourceLoader) : TestService {
 
     companion object {
         const val GAME = "game"
         const val RED_TEAM_TOPIC = "positions/redTeam"
         const val BLUE_TEAM_TOPIC = "positions/blueTeam"
+        const val RED_TEAM_CHAT = "chat/redTeam"
+        const val BLUE_TEAM_CHAT = "chat/blueTeam"
     }
 
     private lateinit var timer: Timer
@@ -78,6 +82,13 @@ class TestServiceImpl(val gameService: GameService,
 
     override fun sendLeaveGameMessage(playerName: String) {
         mqttService.publish(topic = GAME, message = "LEAVE|$playerName")
+    }
+
+    override fun sendChatMessage(playerName: String) {
+        val resource = resourceLoader.getResource("classpath:test-chat-message.txt")
+        val message = resource.file.readLines()[0]
+        mqttService.publish(topic = RED_TEAM_CHAT, message = "$message|$playerName")
+        mqttService.publish(topic = BLUE_TEAM_CHAT, message = "$message|$playerName")
     }
 
     private fun getPositions(playerName: String, startX: Int, startY: Int, step: Int): List<String> {

@@ -9,4 +9,6 @@ interface TestService {
     fun stopPositionMessages()
 
     fun sendLeaveGameMessage(playerName: String)
+
+    fun sendChatMessage(playerName: String)
 }

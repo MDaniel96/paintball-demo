@@ -28,4 +28,9 @@ class MqttTestController(val testService: TestService) {
     fun sendLeaveGameMessage(@PathVariable playerName: String) {
         testService.sendLeaveGameMessage(playerName)
     }
+
+    @PostMapping("/chat-message/{playerName}")
+    fun sendChatMessage(@PathVariable playerName: String) {
+        testService.sendChatMessage(playerName)
+    }
 }

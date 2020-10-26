@@ -1,5 +1,6 @@
 package demo.app.paintball.fragments.buttons
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +12,10 @@ import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.ChatMessage
-import demo.app.paintball.util.fromHexToByteArray
-import demo.app.paintball.util.playAudio
+import demo.app.paintball.util.*
 import demo.app.paintball.util.services.ButtonProgressDisplayService
 import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.services.RecordService
-import demo.app.paintball.util.toHexString
 import kotlinx.android.synthetic.main.fragment_chat_buttons.*
 import java.util.*
 import javax.inject.Inject
@@ -47,6 +46,7 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
     private lateinit var recordService: RecordService
 
     private var recording = false
+    private var chatActivated = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mqttService = services.mqtt().apply { chatListener = this@ChatButtonsFragmentImpl }
@@ -65,6 +65,7 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
         btnMiddleLayout = fabLayoutTeamChat
         btnMiddleTextView = fabTextViewTeamChat
         initFabTeamChat()
+        initFabActivateTeamChat()
     }
 
     private fun initFabTeamChat() {
@@ -99,8 +100,24 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
         }
     }
 
+    @SuppressLint("NewApi")
+    private fun initFabActivateTeamChat() {
+        fabActivateChat.setOnClickListener {
+            if (chatActivated) {
+                fabActivateChat.setBackgroundTint(R.color.lightTrasparentGray)
+                fabActivateChat.setSrc(R.drawable.ic_volumeoff)
+                mqttService.unsubscribe(playerService.player.getTeamChatTopic())
+            } else {
+                fabActivateChat.setBackgroundTint(R.color.primaryLightColor)
+                fabActivateChat.setSrc(R.drawable.ic_volumeup)
+                mqttService.subscribe(playerService.player.getTeamChatTopic())
+            }
+            chatActivated = !chatActivated
+        }
+    }
+
     override fun chatMessageArrived(message: ChatMessage) {
-        if (playerService.player.name != message.playerName) {
+        if (chatActivated && playerService.player.name != message.playerName) {
             val bytes = message.message.fromHexToByteArray()
             bytes.playAudio()
         }

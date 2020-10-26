@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.config.Config
 import demo.app.paintball.data.mqtt.Topic
@@ -33,6 +34,10 @@ fun Canvas.clear() {
 @SuppressLint("NewApi")
 fun View.setBackgroundTint(colorId: Int) {
     this.backgroundTintList = ContextCompat.getColorStateList(context, colorId)
+}
+
+fun FloatingActionButton.setSrc(imageId: Int) {
+    this.setImageDrawable(ResourcesCompat.getDrawable(resources, imageId, null))
 }
 
 // ====================================
@@ -102,7 +107,7 @@ fun ByteArray.toHexString() = joinToString("") { "%02x".format(it) }
 fun String.fromHexToByteArray() = this.chunked(2).map { it.toInt(16).toByte() }.toByteArray()
 
 fun ByteArray.playAudio() {
-    val filePath = context.getCacheDir().toString() + "/teamChat.3gp"
+    val filePath = context.cacheDir.toString() + "/teamChat.3gp"
     File(filePath).run {
         writeBytes(this@playAudio)
     }

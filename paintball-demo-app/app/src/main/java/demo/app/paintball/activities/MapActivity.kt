@@ -3,7 +3,6 @@ package demo.app.paintball.activities
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.config.Config
@@ -205,9 +204,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     private fun showButtons() {
         isMapButtonsOpen = true
-        fabActivateButtons.setImageDrawable(
-            ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_less, null)
-        )
+        fabActivateButtons.setSrc(R.drawable.ic_unfold_less)
         fabActivateButtons.animate().rotation(180F)
         buttonsPagingLayout.animate().translationX(-50F)
 
@@ -218,9 +215,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     private fun hideButtons() {
         isMapButtonsOpen = false
-        fabActivateButtons.setImageDrawable(
-            ResourcesCompat.getDrawable(resources, R.drawable.ic_unfold_more, null)
-        )
+        fabActivateButtons.setSrc(R.drawable.ic_unfold_more)
         fabActivateButtons.animate().rotation(-180F)
         buttonsPagingLayout.animate().translationX(0F)
 
