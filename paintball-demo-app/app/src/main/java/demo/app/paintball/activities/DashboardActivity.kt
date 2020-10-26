@@ -4,7 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
@@ -43,7 +43,9 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        playerService = PaintballApplication.services.player()
+        playerService = services.player()
+        restService = services.rest().apply { listener = this@DashboardActivity; errorListener = ErrorHandler }
+
         btnCreateGame.setOnClickListener { CreateGameFragment().show(supportFragmentManager, "TAG") }
         btnJoinGame.setOnClickListener { JoinGameFragment().show(supportFragmentManager, "TAG") }
         btnConnectTag.setOnClickListener { ConnectTagFragment().show(supportFragmentManager, "TAG") }
@@ -60,13 +62,6 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        restService =
-            PaintballApplication.services.rest().apply { listener = this@DashboardActivity; errorListener = ErrorHandler }
-        restService.getGame()
-    }
-
     override fun onJoinGame(playerName: String) {
         playerService.player = Player(name = playerName, isAdmin = false)
         val intent = Intent(this, JoinGameActivity::class.java)
@@ -79,9 +74,6 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
     }
 
     override fun getGameSuccess(response: Response<Game>) {
-        if (response.code() != 404) {
-            btnCreateGame.isEnabled = false
-        }
     }
 
     override fun createGameSuccess() {

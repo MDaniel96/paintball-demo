@@ -66,6 +66,12 @@ class Renderer(private val width: Int, private val height: Int) {
         movables.add(bluePlayer)
     }
 
+    fun removePlayer(playerName: String) {
+        movables.find { it.name == playerName }?.let {
+            movables.remove(it)
+        }
+    }
+
     fun zoom(scaleFactor: Float) {
         map.scale(scaleFactor)
     }

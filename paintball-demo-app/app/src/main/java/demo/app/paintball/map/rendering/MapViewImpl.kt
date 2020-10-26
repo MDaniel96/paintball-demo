@@ -65,6 +65,10 @@ class MapViewImpl : SurfaceView, MapView {
         renderLoop?.addBluePlayer(playerName)
     }
 
+    override fun removePlayer(playerName: String) {
+        renderLoop?.removePlayer(playerName)
+    }
+
     override fun zoom(scaleFactor: Float) {
         renderLoop?.zoom(scaleFactor)
     }

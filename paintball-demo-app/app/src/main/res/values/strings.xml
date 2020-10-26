@@ -39,4 +39,6 @@
     <string name="test_tag">Test tag</string>
     <string name="searching_tags">Searching for tags</string>
     <string name="connecting_to_tag">Connecting to %1$s</string>
+    <string name="remaining_players">%1$d/%2$d</string>
+    <string name="player_left_the_game">%1$s left the game</string>
 </resources>

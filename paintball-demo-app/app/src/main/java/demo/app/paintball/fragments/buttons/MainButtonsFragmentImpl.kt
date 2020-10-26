@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.activities.MapActivity
 import demo.app.paintball.data.mqtt.MqttService
@@ -44,8 +45,9 @@ class MainButtonsFragmentImpl : MapButtonsFragment() {
     private val timer = Timer()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        playerService = PaintballApplication.services.player()
-        mqttService = PaintballApplication.services.mqtt().apply { positionListener = activity as MapActivity }
+        playerService = services.player()
+        mqttService = services.mqtt().apply { positionListener = activity as MapActivity }
+
         return inflater.inflate(R.layout.fragment_main_buttons, container, false)
     }
 

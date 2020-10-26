@@ -14,6 +14,8 @@ interface MapView {
 
     fun addBluePlayer(playerName: String)
 
+    fun removePlayer(playerName: String)
+
     fun zoom(scaleFactor: Float)
 
     fun addAnchor(posX: Int, posY: Int)

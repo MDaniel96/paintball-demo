@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.Topic
@@ -39,10 +39,9 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_game)
 
-        playerService = PaintballApplication.services.player()
-        restService =
-            PaintballApplication.services.rest().apply { listener = this@JoinGameActivity; errorListener = ErrorHandler }
-        mqttService = PaintballApplication.services.mqtt().apply { gameListener = this@JoinGameActivity }
+        playerService = services.player()
+        restService = services.rest().apply { listener = this@JoinGameActivity; errorListener = ErrorHandler }
+        mqttService = services.mqtt().apply { gameListener = this@JoinGameActivity }
         restService.getGame()
     }
 
@@ -78,7 +77,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
             btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
             btnStartGame.setOnClickListener {
-                GameMessage.build(type = "start")
+                GameMessage.build(GameMessage.Type.START)
                     .publish(mqttService)
             }
         }
@@ -127,7 +126,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     }
 
     override fun gameMessageArrived(message: GameMessage) {
-        if (message.type == "start" && playerService.player.team != null) {
+        if (message.type == GameMessage.Type.START && playerService.player.team != null) {
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }

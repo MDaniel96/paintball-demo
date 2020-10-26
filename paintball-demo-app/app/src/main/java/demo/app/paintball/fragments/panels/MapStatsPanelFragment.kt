@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import demo.app.paintball.R
+import demo.app.paintball.data.rest.models.Game
+import demo.app.paintball.data.rest.models.getRemainingPlayers
 import kotlinx.android.synthetic.main.fragment_map_stats.*
 
-class MapStatsPanel : Fragment() {
+class MapStatsPanelFragment : Fragment() {
 
     private lateinit var statsLayout: View
     private lateinit var statsDetailLayout: View
@@ -26,8 +28,8 @@ class MapStatsPanel : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        statsDetailLayout = view.findViewById<LinearLayout>(R.id.statsDetailLayout)
         mainStatsLayout = view.findViewById<LinearLayout>(R.id.mainStatsLayout)
+        statsDetailLayout = view.findViewById<LinearLayout>(R.id.statsDetailLayout)
         statsLayout = view.findViewById<LinearLayout>(R.id.statsLayout).apply {
             translationX = -resources.getDimension(R.dimen.stat_details_layout_width)
         }
@@ -60,16 +62,9 @@ class MapStatsPanel : Fragment() {
         }
     }
 
-    private fun showDetails() {
-        statsLayout.animate().translationX(0F)
-        btnDrag.animate().rotation(-180F)
-        detailsOpen = true
-    }
-
-    private fun hideDetails() {
-        statsLayout.animate().translationX(-statsDetailLayout.width.toFloat())
-        btnDrag.animate().rotation(0F)
-        detailsOpen = false
+    fun refresh(game: Game) {
+        tvBlueTeam.text = getString(R.string.remaining_players, game.blueTeam.getRemainingPlayers(), game.blueTeam.size)
+        tvRedTeam.text = getString(R.string.remaining_players, game.redTeam.getRemainingPlayers(), game.redTeam.size)
     }
 
     fun show() {
@@ -82,5 +77,17 @@ class MapStatsPanel : Fragment() {
                 resources.getDimension(R.dimen.stat_details_layout_width) -
                 resources.getDimension(R.dimen.stat_drag_button_width)
         statsLayout.animate().translationX(translateX)
+    }
+
+    private fun showDetails() {
+        statsLayout.animate().translationX(0F)
+        btnDrag.animate().rotation(-180F)
+        detailsOpen = true
+    }
+
+    private fun hideDetails() {
+        statsLayout.animate().translationX(-statsDetailLayout.width.toFloat())
+        btnDrag.animate().rotation(0F)
+        detailsOpen = false
     }
 }

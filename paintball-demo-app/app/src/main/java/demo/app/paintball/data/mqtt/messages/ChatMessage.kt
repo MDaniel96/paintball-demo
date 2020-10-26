@@ -13,7 +13,7 @@ class ChatMessage {
     var playerName: String = ""
 
     companion object {
-        const val SEPARATOR = '|'
+        private const val SEPARATOR = '|'
 
         fun parse(raw: String): ChatMessage {
             val split = raw.split(SEPARATOR)

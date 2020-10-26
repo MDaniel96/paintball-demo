@@ -74,7 +74,7 @@
 
     <fragment
         android:id="@+id/statsPanelFragment"
-        class="demo.app.paintball.fragments.panels.MapStatsPanel"
+        class="demo.app.paintball.fragments.panels.MapStatsPanelFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
 

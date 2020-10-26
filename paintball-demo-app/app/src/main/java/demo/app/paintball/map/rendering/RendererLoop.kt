@@ -67,6 +67,10 @@ class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Threa
         renderer.addBluePlayer(playerName)
     }
 
+    fun removePlayer(playerName: String) {
+        renderer.removePlayer(playerName)
+    }
+
     fun zoom(scaleFactor: Float) {
         renderer.zoom(scaleFactor)
     }

@@ -6,22 +6,22 @@ import demo.app.paintball.data.mqtt.Topic
 class GameMessage {
 
     var raw: String = ""
-    var type: String = ""
+    var type: Type = Type.START
     var playerName: String = ""
 
     companion object {
-        const val SEPARATOR = '|'
+        private const val SEPARATOR = '|'
 
         fun parse(raw: String): GameMessage {
             val split = raw.split(SEPARATOR)
             return GameMessage().apply {
                 this.raw = raw
-                type = split[0]
+                type = Type.find(split[0])
                 playerName = split[1]
             }
         }
 
-        fun build(type: String, playerName: String = "") =
+        fun build(type: Type, playerName: String = "") =
             GameMessage().apply {
                 raw = "$type$SEPARATOR$playerName"
                 this.type = type
@@ -31,5 +31,14 @@ class GameMessage {
 
     fun publish(mqttService: MqttService) {
         mqttService.publish(Topic.GAME, raw)
+    }
+
+    enum class Type(val value: String) {
+        START("START"),
+        LEAVE("LEAVE");
+
+        companion object {
+            fun find(value: String): Type = values().find { it.value == value }!!
+        }
     }
 }

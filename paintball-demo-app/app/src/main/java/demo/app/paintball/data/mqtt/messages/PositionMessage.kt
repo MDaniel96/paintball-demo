@@ -12,7 +12,7 @@ class PositionMessage {
     var posY: Int = 0
 
     companion object {
-        const val SEPARATOR = '|'
+        private const val SEPARATOR = '|'
 
         fun parse(raw: String): PositionMessage {
             val split = raw.split(SEPARATOR)

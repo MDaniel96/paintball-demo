@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
-import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.config.Config
 import demo.app.paintball.data.ble.BleService
 import demo.app.paintball.data.ble.BleServiceImpl
 import demo.app.paintball.data.ble.data.BlePositionData
 import demo.app.paintball.data.mqtt.MqttService
+import demo.app.paintball.data.mqtt.messages.GameMessage
 import demo.app.paintball.data.mqtt.messages.PositionMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
 import demo.app.paintball.fragments.buttons.MapButtonsFragment
-import demo.app.paintball.fragments.panels.MapStatsPanel
+import demo.app.paintball.fragments.panels.MapStatsPanelFragment
 import demo.app.paintball.map.MapView
 import demo.app.paintball.map.rendering.MapViewImpl
 import demo.app.paintball.map.sensors.GestureSensor
@@ -30,7 +31,7 @@ import javax.inject.Inject
 
 class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscope.GyroscopeListener, RestService.SuccessListener,
     MqttService.PositionListener, MapViewImpl.MapViewCreatedListener, BleServiceImpl.BleServiceListener,
-    PositionCalculator.PositionCalculatorListener {
+    PositionCalculator.PositionCalculatorListener, MqttService.GameListener {
 
     @Inject
     lateinit var restService: RestService
@@ -51,7 +52,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private lateinit var mainButtons: MapButtonsFragment
     private lateinit var chatButtons: MapButtonsFragment
 
-    private lateinit var statsPanel: MapStatsPanel
+    private lateinit var statsPanel: MapStatsPanelFragment
 
     private lateinit var gyroscope: Gyroscope
 
@@ -66,7 +67,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         mainButtons = supportFragmentManager.findFragmentById(R.id.mainButtonsFragment) as MapButtonsFragment
         chatButtons = supportFragmentManager.findFragmentById(R.id.chatButtonsFragment) as MapButtonsFragment
 
-        statsPanel = supportFragmentManager.findFragmentById(R.id.statsPanelFragment) as MapStatsPanel
+        statsPanel = supportFragmentManager.findFragmentById(R.id.statsPanelFragment) as MapStatsPanelFragment
 
         mainButtons.initLevel(0)
         chatButtons.initLevel(1)
@@ -74,10 +75,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         map.setOnTouchListener(GestureSensor(gestureListener = this, scrollPanel = buttonsPanel))
         gyroscope = Gyroscope(gyroscopeListener = this)
 
-        playerService = PaintballApplication.services.player()
-        restService = PaintballApplication.services.rest().apply { listener = this@MapActivity; errorListener = ErrorHandler }
-        mqttService = PaintballApplication.services.mqtt().apply { positionListener = this@MapActivity }
-        bleService = PaintballApplication.services.ble().also { it.addListener(this@MapActivity) }
+        playerService = services.player()
+        restService = services.rest().apply { listener = this@MapActivity; errorListener = ErrorHandler }
+        mqttService = services.mqtt().apply { positionListener = this@MapActivity;gameListener = this@MapActivity }
+        bleService = services.ble().also { it.addListener(this@MapActivity) }
 
         restService.getGame()
         mqttService.subscribe(playerService.player.getTeamChatTopic())
@@ -144,6 +145,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun getGameSuccess(response: Response<Game>) {
         game = response.body()
+        statsPanel.refresh(game = response.body())
         addPlayersToMap()
     }
 
@@ -167,6 +169,20 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun positionMessageArrived(message: PositionMessage) {
         map.setMovablePosition(message.player.name, message.posX, message.posY)
+    }
+
+    override fun connectComplete() {
+    }
+
+    override fun gameMessageArrived(message: GameMessage) {
+        game?.let {
+            if (message.type == GameMessage.Type.LEAVE) {
+                it.leave(message.playerName)
+                statsPanel.refresh(it)
+                map.removePlayer(message.playerName)
+                toast(getString(R.string.player_left_the_game, message.playerName))
+            }
+        }
     }
 
     override fun onBleConnected(connection: BleService) {

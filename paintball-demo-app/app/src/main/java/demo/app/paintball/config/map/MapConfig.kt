@@ -1,6 +1,17 @@
 package demo.app.paintball.config.map
 
+import demo.app.paintball.PaintballApplication.Companion.context
+import demo.app.paintball.R
+
 abstract class MapConfig {
+
+    companion object {
+        fun create() = when (context.getString(R.string.map)) {
+            "garden" -> GardenMapConfig()
+            "gyenes" -> GyenesMapConfig()
+            else -> GyenesMapConfig()
+        }
+    }
 
     /*
     Map's image

@@ -68,6 +68,7 @@ fun Int.yToMapPx(): Int {
 // ====================================
 
 // TODO: refactor to config classes: create Team class -> RedTeam, Blueteam subclasses. store these infos in them
+// TODO: merge addPlayersToMap (factorymethod can be used) (store teamConfig object in each player)
 fun Player.getTeamPositionsTopic() = when (team) {
     "RED" -> Topic.POSITIONS_RED_TEAM
     "BLUE" -> Topic.POSITIONS_BLUE_TEAM
