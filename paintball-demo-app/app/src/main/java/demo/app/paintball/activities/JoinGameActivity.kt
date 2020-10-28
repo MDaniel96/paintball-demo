@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.mqtt.MqttService
@@ -16,7 +17,6 @@ import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
 import demo.app.paintball.fragments.dialogs.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
-import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.toast
 import kotlinx.android.synthetic.main.activity_join_game.*
 import retrofit2.Response
@@ -30,16 +30,12 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     @Inject
     lateinit var mqttService: MqttService
 
-    @Inject
-    lateinit var playerService: PlayerService
-
     private var game: Game? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join_game)
 
-        playerService = services.player()
         restService = services.rest().apply { listener = this@JoinGameActivity; errorListener = ErrorHandler }
         mqttService = services.mqtt().apply { gameListener = this@JoinGameActivity }
         restService.getGame()
@@ -72,7 +68,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     }
 
     private fun initStartGameButton() {
-        if (!playerService.player.isAdmin) {
+        if (!player.isAdmin) {
             btnStartGame.isEnabled = false
             btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
@@ -85,13 +81,13 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
 
     private fun initTeamButtons() {
         btnJoinRed.setOnClickListener {
-            if (playerService.player.team == null) {
-                restService.addRedPlayer(playerService.player)
+            if (player.team == null) {
+                restService.addRedPlayer(player)
             }
         }
         btnJoinBlue.setOnClickListener {
-            if (playerService.player.team == null) {
-                restService.addBluePlayer(playerService.player)
+            if (player.team == null) {
+                restService.addBluePlayer(player)
             }
         }
         btnViewRed.setOnClickListener {
@@ -111,14 +107,14 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
         restService.getGame()
         cvRed.setCardBackgroundColor(ContextCompat.getColor(this, R.color.redTeam))
         btnJoinRed.text = getString(R.string.joined_red)
-        playerService.player.team = "RED"
+        player.team = "RED"
     }
 
     override fun addBluePlayerSuccess() {
         restService.getGame()
         cvBlue.setCardBackgroundColor(ContextCompat.getColor(this, R.color.blueTeam))
         btnJoinBlue.text = getString(R.string.joined_blue)
-        playerService.player.team = "BLUE"
+        player.team = "BLUE"
     }
 
     override fun connectComplete() {
@@ -126,7 +122,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     }
 
     override fun gameMessageArrived(message: GameMessage) {
-        if (message.type == GameMessage.Type.START && playerService.player.team != null) {
+        if (message.type == GameMessage.Type.START && player.team != null) {
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
@@ -135,7 +131,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     override fun onBackPressed() {
         when {
             game == null -> super.onBackPressed()
-            playerService.player.isAdmin -> showDeleteGameAlert()
+            player.isAdmin -> showDeleteGameAlert()
         }
     }
 

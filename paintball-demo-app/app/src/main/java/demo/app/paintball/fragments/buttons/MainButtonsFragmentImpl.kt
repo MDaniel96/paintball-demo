@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.activities.MapActivity
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.util.getEnemyPositionsTopic
 import demo.app.paintball.util.services.ButtonProgressDisplayService
-import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.fragment_main_buttons.*
 import java.util.*
 import javax.inject.Inject
@@ -39,13 +39,9 @@ class MainButtonsFragmentImpl : MapButtonsFragment() {
     @Inject
     lateinit var mqttService: MqttService
 
-    @Inject
-    lateinit var playerService: PlayerService
-
     private val timer = Timer()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        playerService = services.player()
         mqttService = services.mqtt().apply { positionListener = activity as MapActivity }
 
         return inflater.inflate(R.layout.fragment_main_buttons, container, false)
@@ -67,13 +63,13 @@ class MainButtonsFragmentImpl : MapButtonsFragment() {
         val rootActivity = activity as Activity
         val fabProgressDisplayer = ButtonProgressDisplayService(fabSpying, rootActivity)
         fabSpying.setOnClickListener {
-            mqttService.subscribe(playerService.player.getEnemyPositionsTopic())
+            mqttService.subscribe(player.getEnemyPositionsTopic())
             fabSpying.isEnabled = false
             fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
 
             timer.schedule(SPYING_TIME) {
                 rootActivity.runOnUiThread {
-                    mqttService.unsubscribe(playerService.player.getEnemyPositionsTopic())
+                    mqttService.unsubscribe(player.getEnemyPositionsTopic())
                     fabProgressDisplayer.show(SPYING_RECHARGE_TIME)
                 }
             }

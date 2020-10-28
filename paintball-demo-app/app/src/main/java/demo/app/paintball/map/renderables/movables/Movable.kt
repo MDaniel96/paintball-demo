@@ -10,7 +10,7 @@ import demo.app.paintball.map.renderables.Renderable
 abstract class Movable(val name: String) : Renderable() {
 
     companion object {
-        const val size = 3
+        const val SIZE = 3
         const val MAX_TIME_BETWEEN_POSITION_UPDATES = 1_500
     }
 
@@ -27,15 +27,15 @@ abstract class Movable(val name: String) : Renderable() {
         if (isVisible()) {
             val distanceFromPlayerX = (Player.posX - posX) / Map.zoom
             val distanceFromPlayerY = (Player.posY - posY) / Map.zoom
-            val translateX = (screenWidth / 2 - distanceFromPlayerX).toInt() - (image.width / size / 2)
-            val translateY = (screenHeight / 2 - distanceFromPlayerY).toInt() - (image.height / size / 2)
+            val translateX = (screenWidth / 2 - distanceFromPlayerX).toInt() - (image.width / SIZE / 2)
+            val translateY = (screenHeight / 2 - distanceFromPlayerY).toInt() - (image.height / SIZE / 2)
 
             val src = Rect(0, 0, image.width, image.height)
             val dst = Rect(
                 translateX,
                 translateY,
-                translateX + image.width / size,
-                translateY + image.height / size
+                translateX + image.width / SIZE,
+                translateY + image.height / SIZE
             )
             canvas.drawBitmap(image, src, dst, null)
         }

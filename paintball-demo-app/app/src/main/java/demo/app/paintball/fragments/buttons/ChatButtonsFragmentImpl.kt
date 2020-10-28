@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
+import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.ChatMessage
 import demo.app.paintball.util.*
 import demo.app.paintball.util.services.ButtonProgressDisplayService
-import demo.app.paintball.util.services.PlayerService
 import demo.app.paintball.util.services.RecordService
 import kotlinx.android.synthetic.main.fragment_chat_buttons.*
 import java.util.*
@@ -40,9 +40,6 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
     @Inject
     lateinit var mqttService: MqttService
 
-    @Inject
-    lateinit var playerService: PlayerService
-
     private lateinit var recordService: RecordService
 
     private var recording = false
@@ -50,7 +47,6 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mqttService = services.mqtt().apply { chatListener = this@ChatButtonsFragmentImpl }
-        playerService = services.player()
 
         return inflater.inflate(R.layout.fragment_chat_buttons, container, false)
     }
@@ -76,8 +72,8 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
             rootActivity.runOnUiThread {
                 timer.cancel()
                 val recordedBytes = recordService.stop()
-                ChatMessage.build(recordedBytes.toHexString(), playerService.player.name)
-                    .publish(mqttService, playerService.player)
+                ChatMessage.build(recordedBytes.toHexString(), player.name)
+                    .publish(mqttService, player)
                 recording = false
                 fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.primaryLightColor))
                 fabTeamChat.setIcon(R.drawable.ic_teamspeak, 0)
@@ -106,18 +102,18 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
             if (chatActivated) {
                 fabActivateChat.setBackgroundTint(R.color.lightTrasparentGray)
                 fabActivateChat.setSrc(R.drawable.ic_volumeoff)
-                mqttService.unsubscribe(playerService.player.getTeamChatTopic())
+                mqttService.unsubscribe(player.getTeamChatTopic())
             } else {
                 fabActivateChat.setBackgroundTint(R.color.primaryLightColor)
                 fabActivateChat.setSrc(R.drawable.ic_volumeup)
-                mqttService.subscribe(playerService.player.getTeamChatTopic())
+                mqttService.subscribe(player.getTeamChatTopic())
             }
             chatActivated = !chatActivated
         }
     }
 
     override fun chatMessageArrived(message: ChatMessage) {
-        if (chatActivated && playerService.player.name != message.playerName) {
+        if (chatActivated && player.name != message.playerName) {
             val bytes = message.message.fromHexToByteArray()
             bytes.playAudio()
         }

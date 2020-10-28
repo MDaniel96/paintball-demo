@@ -3,6 +3,7 @@ package demo.app.paintball.activities
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.config.Config
@@ -23,7 +24,6 @@ import demo.app.paintball.map.sensors.Gyroscope
 import demo.app.paintball.util.*
 import demo.app.paintball.util.positioning.PositionCalculator
 import demo.app.paintball.util.positioning.PositionCalculatorImpl
-import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.activity_map.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -37,9 +37,6 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     @Inject
     lateinit var mqttService: MqttService
-
-    @Inject
-    lateinit var playerService: PlayerService
 
     @Inject
     lateinit var bleService: BleService
@@ -74,14 +71,13 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         map.setOnTouchListener(GestureSensor(gestureListener = this, scrollPanel = buttonsPanel))
         gyroscope = Gyroscope(gyroscopeListener = this)
 
-        playerService = services.player()
         restService = services.rest().apply { listener = this@MapActivity; errorListener = ErrorHandler }
         mqttService = services.mqtt().apply { positionListener = this@MapActivity;gameListener = this@MapActivity }
         bleService = services.ble().also { it.addListener(this@MapActivity) }
 
         restService.getGame()
-        mqttService.subscribe(playerService.player.getTeamChatTopic())
-        mqttService.subscribe(playerService.player.getTeamPositionsTopic())
+        mqttService.subscribe(player.getTeamChatTopic())
+        mqttService.subscribe(player.getTeamPositionsTopic())
         bleService.startPositionSending()
 
         fabActivateButtons.setOnClickListener {
@@ -150,10 +146,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     private fun addPlayersToMap() {
         game?.redTeam
-            ?.filter { it.name != playerService.player.name }
+            ?.filter { it.name != player.name }
             ?.forEach { map.addRedPlayer(it.name) }
         game?.blueTeam
-            ?.filter { it.name != playerService.player.name }
+            ?.filter { it.name != player.name }
             ?.forEach { map.addBluePlayer(it.name) }
     }
 
@@ -198,7 +194,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun onPositionCalculated(posX: Int, posY: Int) {
         map.setPlayerPosition(posX, posY)
-        PositionMessage.build(playerService.player, posX, posY)
+        PositionMessage.build(player, posX, posY)
             .publish(mqttService)
     }
 

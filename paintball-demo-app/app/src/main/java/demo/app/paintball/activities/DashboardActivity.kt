@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.rest.RestService
@@ -14,7 +15,6 @@ import demo.app.paintball.fragments.dialogs.CreateGameFragment
 import demo.app.paintball.fragments.dialogs.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.checkPermissions
-import demo.app.paintball.util.services.PlayerService
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -34,16 +34,12 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
     @Inject
     lateinit var restService: RestService
 
-    @Inject
-    lateinit var playerService: PlayerService
-
     private lateinit var playerName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        playerService = services.player()
         restService = services.rest().apply { listener = this@DashboardActivity; errorListener = ErrorHandler }
 
         btnCreateGame.setOnClickListener { CreateGameFragment().show(supportFragmentManager, "TAG") }
@@ -63,7 +59,7 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
     }
 
     override fun onJoinGame(playerName: String) {
-        playerService.player = Player(name = playerName, isAdmin = false)
+        player = Player(name = playerName, isAdmin = false)
         val intent = Intent(this, JoinGameActivity::class.java)
         startActivity(intent)
     }
@@ -77,7 +73,7 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
     }
 
     override fun createGameSuccess() {
-        playerService.player = Player(name = playerName, isAdmin = true)
+        player = Player(name = playerName, isAdmin = true)
         val intent = Intent(this, JoinGameActivity::class.java)
         startActivity(intent)
     }

@@ -18,7 +18,7 @@ class MqttServiceImpl @Inject constructor() : MqttService {
     override var positionListener: MqttService.PositionListener? = null
     override var chatListener: MqttService.ChatListener? = null
 
-    var mqttAndroidClient: MqttAndroidClient =
+    private var mqttAndroidClient: MqttAndroidClient =
         MqttAndroidClient(context, "tcp://${context.getString(R.string.serverURL)}:1883", MqttClient.generateClientId())
 
     init {
