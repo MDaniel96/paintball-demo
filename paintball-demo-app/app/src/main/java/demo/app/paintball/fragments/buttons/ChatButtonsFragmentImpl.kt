@@ -12,6 +12,7 @@ import demo.app.paintball.PaintballApplication
 import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
+import demo.app.paintball.config.topics.TopicsConfig.Companion.playerTopics
 import demo.app.paintball.data.mqtt.MqttService
 import demo.app.paintball.data.mqtt.messages.ChatMessage
 import demo.app.paintball.util.*
@@ -105,11 +106,11 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
             if (chatActivated) {
                 fabActivateChat.setBackgroundTint(R.color.lightTrasparentGray)
                 fabActivateChat.setSrc(R.drawable.ic_volumeoff)
-                mqttService.unsubscribe(player.getTeamChatTopic())
+                mqttService.unsubscribe(playerTopics.teamChat)
             } else {
                 fabActivateChat.setBackgroundTint(R.color.primaryLightColor)
                 fabActivateChat.setSrc(R.drawable.ic_volumeup)
-                mqttService.subscribe(player.getTeamChatTopic())
+                mqttService.subscribe(playerTopics.teamChat)
             }
             chatActivated = !chatActivated
         }

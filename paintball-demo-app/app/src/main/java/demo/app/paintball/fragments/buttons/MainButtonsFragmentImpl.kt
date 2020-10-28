@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication
-import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.activities.MapActivity
+import demo.app.paintball.config.topics.TopicsConfig.Companion.playerTopics
 import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.util.getEnemyPositionsTopic
 import demo.app.paintball.util.services.ButtonProgressDisplayService
 import kotlinx.android.synthetic.main.fragment_main_buttons.*
 import java.util.*
@@ -63,13 +62,13 @@ class MainButtonsFragmentImpl : MapButtonsFragment() {
         val rootActivity = activity as Activity
         val fabProgressDisplayer = ButtonProgressDisplayService(fabSpying, rootActivity)
         fabSpying.setOnClickListener {
-            mqttService.subscribe(player.getEnemyPositionsTopic())
+            mqttService.subscribe(playerTopics.enemyPositions)
             fabSpying.isEnabled = false
             fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
 
             timer.schedule(SPYING_TIME) {
                 rootActivity.runOnUiThread {
-                    mqttService.unsubscribe(player.getEnemyPositionsTopic())
+                    mqttService.unsubscribe(playerTopics.enemyPositions)
                     fabProgressDisplayer.show(SPYING_RECHARGE_TIME)
                 }
             }

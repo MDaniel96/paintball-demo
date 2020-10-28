@@ -28,8 +28,8 @@ class Map : Renderable() {
     }
 
     override fun render(canvas: Canvas) {
-        val translateX = (screenWidth / 2 - Player.posX / zoom).toInt()
-        val translateY = (screenHeight / 2 - Player.posY / zoom).toInt()
+        val translateX = (screenWidth / 2 - User.posX / zoom).toInt()
+        val translateY = (screenHeight / 2 - User.posY / zoom).toInt()
 
         val src = Rect(0, 0, image.width, image.height)
         val dst = Rect(

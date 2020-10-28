@@ -7,6 +7,7 @@ import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.config.Config
+import demo.app.paintball.config.topics.TopicsConfig.Companion.playerTopics
 import demo.app.paintball.data.ble.BleService
 import demo.app.paintball.data.ble.BleServiceImpl
 import demo.app.paintball.data.ble.data.BlePositionData
@@ -76,8 +77,8 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         bleService = services.ble().also { it.addListener(this@MapActivity) }
 
         restService.getGame()
-        mqttService.subscribe(player.getTeamChatTopic())
-        mqttService.subscribe(player.getTeamPositionsTopic())
+        mqttService.subscribe(playerTopics.teamChat)
+        mqttService.subscribe(playerTopics.positions)
         bleService.startPositionSending()
 
         fabActivateButtons.setOnClickListener {
@@ -147,10 +148,10 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     private fun addPlayersToMap() {
         game?.redTeam
             ?.filter { it.name != player.name }
-            ?.forEach { map.addRedPlayer(it.name) }
+            ?.forEach { map.addPlayer(it) }
         game?.blueTeam
             ?.filter { it.name != player.name }
-            ?.forEach { map.addBluePlayer(it.name) }
+            ?.forEach { map.addPlayer(it) }
     }
 
     override fun createGameSuccess() {

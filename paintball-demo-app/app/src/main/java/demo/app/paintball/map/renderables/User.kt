@@ -5,11 +5,12 @@ import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.R
 import demo.app.paintball.config.Config
+import demo.app.paintball.data.rest.models.Player
 import demo.app.paintball.util.xToMapPx
 import demo.app.paintball.util.yToMapPx
 
 
-class Player : Renderable() {
+class User : Renderable() {
 
     companion object {
         const val SIZE = 3
@@ -33,8 +34,8 @@ class Player : Renderable() {
 
     private val sprite: Bitmap = BitmapFactory.decodeResource(
         context.resources, when (player.team) {
-            "RED" -> R.drawable.sprite_pulse_red
-            "BLUE" -> R.drawable.sprite_pulse_blue
+            Player.Team.RED -> R.drawable.sprite_pulse_red
+            Player.Team.BLUE -> R.drawable.sprite_pulse_blue
             else -> R.drawable.sprite_pulse_gr
         }
     )

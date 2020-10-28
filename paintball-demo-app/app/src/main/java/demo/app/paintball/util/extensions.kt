@@ -15,8 +15,6 @@ import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import demo.app.paintball.PaintballApplication.Companion.context
 import demo.app.paintball.config.Config
-import demo.app.paintball.data.mqtt.MqttTopic
-import demo.app.paintball.data.rest.models.Player
 import java.io.File
 
 // ====================================
@@ -66,36 +64,6 @@ fun Int.xToMapPx(): Int {
 fun Int.yToMapPx(): Int {
     val anchorYMm = Config.mapConfig.anchorOriginPosY
     return (anchorYMm - this).mmToPx()
-}
-
-// ====================================
-//  TOPICS
-// ====================================
-
-// TODO: refactor to config classes: create Team class -> RedTeam, Blueteam subclasses. store these infos in them
-// TODO: merge addPlayersToMap (factorymethod can be used) (store teamConfig object in each player)
-fun Player.getTeamPositionsTopic() = when (team) {
-    "RED" -> MqttTopic.POSITIONS_RED_TEAM
-    "BLUE" -> MqttTopic.POSITIONS_BLUE_TEAM
-    else -> MqttTopic.POSITIONS_BLUE_TEAM
-}
-
-fun Player.getEnemyPositionsTopic() = when (team) {
-    "RED" -> MqttTopic.POSITIONS_BLUE_TEAM
-    "BLUE" -> MqttTopic.POSITIONS_RED_TEAM
-    else -> MqttTopic.POSITIONS_BLUE_TEAM
-}
-
-fun Player.getTeamChatTopic() = when (team) {
-    "RED" -> MqttTopic.CHAT_RED_TEAM
-    "BLUE" -> MqttTopic.CHAT_BLUE_TEAM
-    else -> MqttTopic.CHAT_BLUE_TEAM
-}
-
-fun Player.getEnemyChatTopic() = when (team) {
-    "RED" -> MqttTopic.CHAT_RED_TEAM
-    "BLUE" -> MqttTopic.CHAT_BLUE_TEAM
-    else -> MqttTopic.CHAT_BLUE_TEAM
 }
 
 // ====================================

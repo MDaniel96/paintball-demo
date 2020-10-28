@@ -1,8 +1,8 @@
 package demo.app.paintball.data.mqtt.messages
 
 import demo.app.paintball.PaintballApplication.Companion.player
+import demo.app.paintball.config.topics.TopicsConfig.Companion.playerTopics
 import demo.app.paintball.data.mqtt.MqttMessage
-import demo.app.paintball.data.mqtt.MqttTopic
 
 class GameMessage(raw: String) : MqttMessage(raw) {
 
@@ -10,7 +10,7 @@ class GameMessage(raw: String) : MqttMessage(raw) {
 
     constructor(type: Type) : this("${player.name}$SEPARATOR$type")
 
-    override fun getTopic() = MqttTopic.GAME
+    override fun getTopic() = playerTopics.game
 
     enum class Type(val value: String) {
         START("START"),
