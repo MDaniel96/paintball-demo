@@ -11,7 +11,7 @@ import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
 import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.data.mqtt.Topic
+import demo.app.paintball.data.mqtt.MqttTopic
 import demo.app.paintball.data.mqtt.messages.GameMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
@@ -73,8 +73,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
             btnStartGame.text = getString(R.string.waiting_for_admin)
         } else {
             btnStartGame.setOnClickListener {
-                GameMessage.build(GameMessage.Type.START)
-                    .publish(mqttService)
+                GameMessage(type = GameMessage.Type.START).publish(mqttService)
             }
         }
     }
@@ -118,7 +117,7 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
     }
 
     override fun connectComplete() {
-        mqttService.subscribe(Topic.GAME)
+        mqttService.subscribe(MqttTopic.GAME)
     }
 
     override fun gameMessageArrived(message: GameMessage) {

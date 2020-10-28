@@ -163,7 +163,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
     }
 
     override fun positionMessageArrived(message: PositionMessage) {
-        map.setMovablePosition(message.player.name, message.posX, message.posY)
+        map.setMovablePosition(message.playerName, message.posX, message.posY)
     }
 
     override fun connectComplete() {
@@ -194,8 +194,7 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
 
     override fun onPositionCalculated(posX: Int, posY: Int) {
         map.setPlayerPosition(posX, posY)
-        PositionMessage.build(player, posX, posY)
-            .publish(mqttService)
+        PositionMessage(posX, posY).publish(mqttService)
     }
 
     private fun showButtons() {

@@ -4,7 +4,6 @@ import android.graphics.Canvas
 import demo.app.paintball.map.renderables.Anchor
 import demo.app.paintball.map.renderables.Map
 import demo.app.paintball.map.renderables.Player
-import demo.app.paintball.map.renderables.Renderable
 import demo.app.paintball.map.renderables.movables.BluePlayer
 import demo.app.paintball.map.renderables.movables.Movable
 import demo.app.paintball.map.renderables.movables.RedPlayer
@@ -21,12 +20,6 @@ class Renderer(private val width: Int, private val height: Int) {
     init {
         map.setSize(width, height)
         player.setSize(width, height)
-    }
-
-    fun step() {
-        player.step()
-        movables.forEach(Renderable::step)
-        anchors.forEach(Renderable::step)
     }
 
     fun draw(canvas: Canvas) {

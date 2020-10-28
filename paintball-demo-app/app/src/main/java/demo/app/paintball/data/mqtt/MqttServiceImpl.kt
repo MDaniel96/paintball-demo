@@ -32,17 +32,17 @@ class MqttServiceImpl @Inject constructor() : MqttService {
                 gameListener?.connectComplete()
             }
 
-            override fun messageArrived(topic: String, mqttMessage: MqttMessage) {
+            override fun messageArrived(topic: String, mqttMessage: org.eclipse.paho.client.mqttv3.MqttMessage) {
                 val rawMessage = mqttMessage.toString()
-                when (Topic.find(topic)) {
-                    Topic.GAME -> {
-                        gameListener?.gameMessageArrived(GameMessage.parse(rawMessage))
+                when (MqttTopic.find(topic)) {
+                    MqttTopic.GAME -> {
+                        gameListener?.gameMessageArrived(GameMessage(raw = rawMessage))
                     }
-                    Topic.POSITIONS_RED_TEAM, Topic.POSITIONS_BLUE_TEAM -> {
-                        positionListener?.positionMessageArrived(PositionMessage.parse(rawMessage))
+                    MqttTopic.POSITIONS_RED_TEAM, MqttTopic.POSITIONS_BLUE_TEAM -> {
+                        positionListener?.positionMessageArrived(PositionMessage(raw = rawMessage))
                     }
-                    Topic.CHAT_RED_TEAM, Topic.CHAT_BLUE_TEAM -> {
-                        chatListener?.chatMessageArrived(ChatMessage.parse(rawMessage))
+                    MqttTopic.CHAT_RED_TEAM, MqttTopic.CHAT_BLUE_TEAM -> {
+                        chatListener?.chatMessageArrived(ChatMessage(raw = rawMessage))
                     }
                 }
             }
@@ -69,15 +69,15 @@ class MqttServiceImpl @Inject constructor() : MqttService {
         })
     }
 
-    override fun subscribe(topic: Topic) {
+    override fun subscribe(topic: MqttTopic) {
         mqttAndroidClient.subscribe(topic.value, 0, null)
     }
 
-    override fun unsubscribe(topic: Topic) {
+    override fun unsubscribe(topic: MqttTopic) {
         mqttAndroidClient.unsubscribe(topic.value)
     }
 
-    override fun publish(topic: Topic, message: String) {
+    override fun publish(topic: MqttTopic, message: String) {
         mqttAndroidClient.publish(topic.value, message.toByteArray(), 0, false)
     }
 }

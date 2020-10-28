@@ -10,11 +10,11 @@ interface MqttService {
     var positionListener: PositionListener?
     var chatListener: ChatListener?
 
-    fun subscribe(topic: Topic)
+    fun subscribe(topic: MqttTopic)
 
-    fun unsubscribe(topic: Topic)
+    fun unsubscribe(topic: MqttTopic)
 
-    fun publish(topic: Topic, message: String)
+    fun publish(topic: MqttTopic, message: String)
 
     interface GameListener {
         fun connectComplete()

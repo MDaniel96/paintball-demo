@@ -1,39 +1,15 @@
 package demo.app.paintball.data.mqtt.messages
 
-import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.data.rest.models.Player
+import demo.app.paintball.PaintballApplication.Companion.player
+import demo.app.paintball.data.mqtt.MqttMessage
 import demo.app.paintball.util.getTeamPositionsTopic
 
-class PositionMessage {
+class PositionMessage(raw: String) : MqttMessage(raw) {
 
-    var raw: String = ""
-    var player: Player = Player()
-    var posX: Int = 0
-    var posY: Int = 0
+    var posX = rawFields[1].toInt()
+    var posY = rawFields[2].toInt()
 
-    companion object {
-        private const val SEPARATOR = '|'
+    constructor(posX: Int, posY: Int) : this("${player.name}$SEPARATOR$posX$SEPARATOR$posY")
 
-        fun parse(raw: String): PositionMessage {
-            val split = raw.split(SEPARATOR)
-            return PositionMessage().apply {
-                this.raw = raw
-                player.name = split[0]
-                posX = split[1].toInt()
-                posY = split[2].toInt()
-            }
-        }
-
-        fun build(player: Player, posX: Int, posY: Int) =
-            PositionMessage().apply {
-                raw = "${player.name}$SEPARATOR$posX$SEPARATOR$posY"
-                this.player = player
-                this.posX = posX
-                this.posY = posY
-            }
-    }
-
-    fun publish(mqttService: MqttService) {
-        mqttService.publish(player.getTeamPositionsTopic(), raw)
-    }
+    override fun getTopic() = player.getTeamPositionsTopic()
 }

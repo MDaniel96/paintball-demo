@@ -15,8 +15,5 @@ abstract class Renderable {
         screenHeight = y
     }
 
-    open fun step() {
-    }
-
     abstract fun render(canvas: Canvas)
 }

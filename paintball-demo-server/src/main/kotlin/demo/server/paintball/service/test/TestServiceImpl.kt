@@ -81,14 +81,14 @@ class TestServiceImpl(val gameService: GameService,
     }
 
     override fun sendLeaveGameMessage(playerName: String) {
-        mqttService.publish(topic = GAME, message = "LEAVE|$playerName")
+        mqttService.publish(topic = GAME, message = "$playerName|LEAVE")
     }
 
     override fun sendChatMessage(playerName: String) {
         val resource = resourceLoader.getResource("classpath:test-chat-message.txt")
         val message = resource.file.readLines()[0]
-        mqttService.publish(topic = RED_TEAM_CHAT, message = "$message|$playerName")
-        mqttService.publish(topic = BLUE_TEAM_CHAT, message = "$message|$playerName")
+        mqttService.publish(topic = RED_TEAM_CHAT, message = "$playerName|$message|1800")
+        mqttService.publish(topic = BLUE_TEAM_CHAT, message = "$playerName|$message|1800")
     }
 
     private fun getPositions(playerName: String, startX: Int, startY: Int, step: Int): List<String> {

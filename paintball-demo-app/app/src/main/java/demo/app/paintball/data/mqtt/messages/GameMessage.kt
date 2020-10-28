@@ -1,37 +1,16 @@
 package demo.app.paintball.data.mqtt.messages
 
-import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.data.mqtt.Topic
+import demo.app.paintball.PaintballApplication.Companion.player
+import demo.app.paintball.data.mqtt.MqttMessage
+import demo.app.paintball.data.mqtt.MqttTopic
 
-class GameMessage {
+class GameMessage(raw: String) : MqttMessage(raw) {
 
-    var raw: String = ""
-    var type: Type = Type.START
-    var playerName: String = ""
+    var type: Type = Type.find(rawFields[1])
 
-    companion object {
-        private const val SEPARATOR = '|'
+    constructor(type: Type) : this("${player.name}$SEPARATOR$type")
 
-        fun parse(raw: String): GameMessage {
-            val split = raw.split(SEPARATOR)
-            return GameMessage().apply {
-                this.raw = raw
-                type = Type.find(split[0])
-                playerName = split[1]
-            }
-        }
-
-        fun build(type: Type, playerName: String = "") =
-            GameMessage().apply {
-                raw = "$type$SEPARATOR$playerName"
-                this.type = type
-                this.playerName = playerName
-            }
-    }
-
-    fun publish(mqttService: MqttService) {
-        mqttService.publish(Topic.GAME, raw)
-    }
+    override fun getTopic() = MqttTopic.GAME
 
     enum class Type(val value: String) {
         START("START"),

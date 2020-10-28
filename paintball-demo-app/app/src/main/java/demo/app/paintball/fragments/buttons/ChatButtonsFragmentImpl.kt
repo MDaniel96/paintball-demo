@@ -3,6 +3,7 @@ package demo.app.paintball.fragments.buttons
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,12 +69,13 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
         val rootActivity = activity as Activity
         val buttonProgressDisplayService = ButtonProgressDisplayService(fabTeamChat, rootActivity)
         var timer = Timer()
+        var timerStarted = 0L
         val recordingStopped = {
             rootActivity.runOnUiThread {
                 timer.cancel()
                 val recordedBytes = recordService.stop()
-                ChatMessage.build(recordedBytes.toHexString(), player.name)
-                    .publish(mqttService, player)
+                val messageLength = SystemClock.uptimeMillis() - timerStarted
+                ChatMessage(message = recordedBytes.toHexString(), length = messageLength).publish(mqttService)
                 recording = false
                 fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.primaryLightColor))
                 fabTeamChat.setIcon(R.drawable.ic_teamspeak, 0)
@@ -85,6 +87,7 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
                 recordService = RecordService()
                 recordService.start()
                 recording = true
+                timerStarted = SystemClock.uptimeMillis()
                 fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
                 fabTeamChat.setIcon(R.drawable.ic_stop, 0)
                 buttonProgressDisplayService.show(RECORDING_TIME)

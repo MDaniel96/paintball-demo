@@ -1,6 +1,6 @@
 package demo.app.paintball.data.mqtt
 
-enum class Topic(val value: String) {
+enum class MqttTopic(val value: String) {
     GAME("game"),
     POSITIONS_RED_TEAM("positions/redTeam"),
     POSITIONS_BLUE_TEAM("positions/blueTeam"),
@@ -8,6 +8,6 @@ enum class Topic(val value: String) {
     CHAT_BLUE_TEAM("chat/blueTeam");
 
     companion object {
-        fun find(value: String): Topic = values().find { it.value == value }!!
+        fun find(value: String): MqttTopic = values().find { it.value == value }!!
     }
 }

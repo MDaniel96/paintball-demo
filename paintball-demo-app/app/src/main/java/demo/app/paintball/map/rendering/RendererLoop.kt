@@ -31,10 +31,7 @@ class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Threa
     }
 
     private fun draw() {
-        renderer.step()
-
         var canvas: Canvas? = null
-
         try {
             canvas = view.holder.lockCanvas()
             synchronized(view.holder) {
