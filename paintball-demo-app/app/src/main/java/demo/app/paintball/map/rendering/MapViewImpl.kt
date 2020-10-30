@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import demo.app.paintball.data.rest.models.Player
 import demo.app.paintball.map.MapView
 import demo.app.paintball.util.xToMapPx
 import demo.app.paintball.util.yToMapPx
@@ -57,12 +58,8 @@ class MapViewImpl : SurfaceView, MapView {
         renderLoop?.setPlayerOrientation(degree)
     }
 
-    override fun addRedPlayer(playerName: String) {
-        renderLoop?.addRedPlayer(playerName)
-    }
-
-    override fun addBluePlayer(playerName: String) {
-        renderLoop?.addBluePlayer(playerName)
+    override fun addPlayer(player: Player) {
+        renderLoop?.addPlayer(player)
     }
 
     override fun removePlayer(playerName: String) {

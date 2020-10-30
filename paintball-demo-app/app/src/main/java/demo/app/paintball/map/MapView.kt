@@ -1,6 +1,7 @@
 package demo.app.paintball.map
 
 import android.view.View
+import demo.app.paintball.data.rest.models.Player
 
 interface MapView {
 
@@ -10,9 +11,7 @@ interface MapView {
 
     fun setMovablePosition(playerName: String, posX: Int, posY: Int)
 
-    fun addRedPlayer(playerName: String)
-
-    fun addBluePlayer(playerName: String)
+    fun addPlayer(player: Player)
 
     fun removePlayer(playerName: String)
 

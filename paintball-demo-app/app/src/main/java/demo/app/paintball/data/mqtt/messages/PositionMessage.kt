@@ -1,8 +1,8 @@
 package demo.app.paintball.data.mqtt.messages
 
 import demo.app.paintball.PaintballApplication.Companion.player
+import demo.app.paintball.config.topics.TopicsConfig.Companion.playerTopics
 import demo.app.paintball.data.mqtt.MqttMessage
-import demo.app.paintball.util.getTeamPositionsTopic
 
 class PositionMessage(raw: String) : MqttMessage(raw) {
 
@@ -11,5 +11,5 @@ class PositionMessage(raw: String) : MqttMessage(raw) {
 
     constructor(posX: Int, posY: Int) : this("${player.name}$SEPARATOR$posX$SEPARATOR$posY")
 
-    override fun getTopic() = player.getTeamPositionsTopic()
+    override fun getTopic() = playerTopics.positions
 }

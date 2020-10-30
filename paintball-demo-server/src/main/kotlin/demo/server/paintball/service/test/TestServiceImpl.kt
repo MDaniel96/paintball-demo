@@ -28,11 +28,11 @@ class TestServiceImpl(val gameService: GameService,
 
     override fun initPlayers() {
         if (appConfig.environment == "test") {
-            val redPlayer1 = Player().apply { name = "Dani" }
-            val redPlayer2 = Player().apply { name = "Akos" }
-            val redPlayer3 = Player().apply { name = "Porgi" }
-            val bluePlayer1 = Player().apply { name = "Mate" }
-            val bluePlayer2 = Player().apply { name = "Markolt" }
+            val redPlayer1 = Player().apply { name = "Dani"; team = Player.Team.RED }
+            val redPlayer2 = Player().apply { name = "Akos"; team = Player.Team.RED }
+            val redPlayer3 = Player().apply { name = "Porgi"; team = Player.Team.RED }
+            val bluePlayer1 = Player().apply { name = "Mate"; team = Player.Team.BLUE }
+            val bluePlayer2 = Player().apply { name = "Markolt"; team = Player.Team.BLUE }
 
             gameService.game?.redTeam?.addAll(
                     mutableListOf(redPlayer1, redPlayer2, redPlayer3)

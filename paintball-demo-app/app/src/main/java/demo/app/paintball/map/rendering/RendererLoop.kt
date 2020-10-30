@@ -1,6 +1,7 @@
 package demo.app.paintball.map.rendering
 
 import android.graphics.Canvas
+import demo.app.paintball.data.rest.models.Player
 
 class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Thread() {
 
@@ -56,12 +57,8 @@ class RenderLoop(private val view: MapViewImpl, width: Int, height: Int) : Threa
         renderer.setMovablePosition(playerName, posX, posY)
     }
 
-    fun addRedPlayer(playerName: String) {
-        renderer.addRedPlayer(playerName)
-    }
-
-    fun addBluePlayer(playerName: String) {
-        renderer.addBluePlayer(playerName)
+    fun addPlayer(player: Player) {
+        renderer.addPlayer(player)
     }
 
     fun removePlayer(playerName: String) {

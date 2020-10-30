@@ -10,11 +10,12 @@ import androidx.core.content.ContextCompat
 import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
+import demo.app.paintball.config.topics.TopicsConfig.Companion.playerTopics
 import demo.app.paintball.data.mqtt.MqttService
-import demo.app.paintball.data.mqtt.MqttTopic
 import demo.app.paintball.data.mqtt.messages.GameMessage
 import demo.app.paintball.data.rest.RestService
 import demo.app.paintball.data.rest.models.Game
+import demo.app.paintball.data.rest.models.Player
 import demo.app.paintball.fragments.dialogs.ViewPlayersFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.toast
@@ -106,18 +107,18 @@ class JoinGameActivity : AppCompatActivity(), RestService.SuccessListener, MqttS
         restService.getGame()
         cvRed.setCardBackgroundColor(ContextCompat.getColor(this, R.color.redTeam))
         btnJoinRed.text = getString(R.string.joined_red)
-        player.team = "RED"
+        player.team = Player.Team.RED
     }
 
     override fun addBluePlayerSuccess() {
         restService.getGame()
         cvBlue.setCardBackgroundColor(ContextCompat.getColor(this, R.color.blueTeam))
         btnJoinBlue.text = getString(R.string.joined_blue)
-        player.team = "BLUE"
+        player.team = Player.Team.BLUE
     }
 
     override fun connectComplete() {
-        mqttService.subscribe(MqttTopic.GAME)
+        mqttService.subscribe(playerTopics.game)
     }
 
     override fun gameMessageArrived(message: GameMessage) {
