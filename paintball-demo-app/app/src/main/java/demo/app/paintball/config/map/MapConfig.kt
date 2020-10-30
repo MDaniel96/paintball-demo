@@ -9,6 +9,7 @@ abstract class MapConfig {
         fun create() = when (context.getString(R.string.map)) {
             "garden" -> GardenMapConfig()
             "gyenes" -> GyenesMapConfig()
+            "test" -> TestMapConfig()
             else -> GyenesMapConfig()
         }
     }

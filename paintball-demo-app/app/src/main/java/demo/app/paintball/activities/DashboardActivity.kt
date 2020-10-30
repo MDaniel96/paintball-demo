@@ -47,6 +47,7 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
         btnConnectTag.setOnClickListener { ConnectTagFragment().show(supportFragmentManager, "TAG") }
         checkTagsEnabled()
         this.checkPermissions(permissionsNeeded)
+        checkOnlyMapMode()
     }
 
     private fun checkTagsEnabled() {
@@ -88,5 +89,13 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
         btnCreateGame.isEnabled = true
         btnJoinGame.isEnabled = true
         btnConnectTag.isEnabled = false
+    }
+
+    private fun checkOnlyMapMode() {
+        if (resources.getBoolean(R.bool.mapOnlyMode)) {
+            player = Player(name = "OnlyMapPlayer", isAdmin = true)
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
