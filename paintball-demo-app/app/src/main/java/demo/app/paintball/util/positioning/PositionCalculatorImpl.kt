@@ -120,7 +120,7 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
             var ncomb = anchorCombinationNumber - 1
             val q = createRealMatrix(2, 1)
 
-            var eta = 100000.0
+            var eta = 10000.0
             var iter = 1
 
             q.setEntry(0, 0, qPrev.getEntry(0, 0))
@@ -190,6 +190,10 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
                 eta = sqrt(delta.getEntry(0, 0).pow(2) + delta.getEntry(1, 0).pow(2))
 
                 iter++
+
+                if (eta>50_000.0){
+                    iter= MAXITER
+                }
             }
 
             if (iter == MAXITER) {
