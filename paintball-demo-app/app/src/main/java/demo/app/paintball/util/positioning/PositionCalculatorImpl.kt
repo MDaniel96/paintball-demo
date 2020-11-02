@@ -6,6 +6,7 @@ import android.os.SystemClock
 import demo.app.paintball.data.ble.data.BlePositionData
 import demo.app.paintball.util.toast
 import org.apache.commons.math3.linear.MatrixUtils
+import org.apache.commons.math3.linear.MatrixUtils.createRealIdentityMatrix
 import org.apache.commons.math3.linear.MatrixUtils.createRealMatrix
 import org.apache.commons.math3.linear.SingularMatrixException
 import java.util.*
@@ -20,13 +21,13 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
         Stopping condition: maximum number of iterations
             - set to 15-30, based on runtime
          */
-        const val MAXITER = 30
+        const val MAXITER = 20
 
         /*
         Stopping condition: error limit of differences between iterations
             - set to 50 or 100
          */
-        const val ERROR = 100.0
+        const val ERROR = 50.0
 
         /*
         Tag height (now fixed)
@@ -36,7 +37,7 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
         /*
         Number of last positions to be averaged
          */
-        const val WINDOW_SIZE = 12
+        const val WINDOW_SIZE = 6
     }
 
     override lateinit var listener: PositionCalculator.PositionCalculatorListener
@@ -112,6 +113,7 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
         try {
 
             val zk = createRealMatrix(anchorCombinationNumber, 1)
+            val idm= createRealIdentityMatrix(2)
 
             for (i in 0 until anchorCombinationNumber) {
                 zk.setEntry(i, 0, data.ranges[i + 1].toDouble())
@@ -120,7 +122,9 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
             var ncomb = anchorCombinationNumber - 1
             val q = createRealMatrix(2, 1)
 
-            var eta = 10000.0
+            var eta:Double
+            var etaprev = 1000.0
+            var lambda=0.1
             var iter = 1
 
             q.setEntry(0, 0, qPrev.getEntry(0, 0))
@@ -134,7 +138,7 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
                 iter = MAXITER
             }
 
-            while (eta > ERROR && iter < MAXITER) {
+           do {
 
                 val rez = createRealMatrix(ncomb + 1, 1)
                 val jac = createRealMatrix(ncomb + 1, 2)
@@ -180,9 +184,11 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
 
                 val jacT = jac.transpose()
                 val a = jacT.multiply(jac)
-                val b = MatrixUtils.inverse(a)
-                val c = b.multiply(jacT)
-                val delta = c.multiply(rez)
+                val b = idm.scalarMultiply(lambda)
+                val c = a.add(b)
+                val d = MatrixUtils.inverse(c)
+                val e = d.multiply(jacT)
+                val delta = e.multiply(rez)
 
                 q.setEntry(0, 0, q.getEntry(0, 0) - delta.getEntry(0, 0))
                 q.setEntry(1, 0, q.getEntry(1, 0) - delta.getEntry(1, 0))
@@ -191,10 +197,11 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
 
                 iter++
 
-                if (eta>50_000.0){
-                    iter= MAXITER
-                }
-            }
+                lambda=if (eta>=etaprev) lambda*10 else lambda/10
+
+                etaprev=eta
+
+            } while (eta > ERROR && iter < MAXITER)
 
             if (iter == MAXITER) {
                 q.setEntry(0, 0, qPrev.getEntry(0, 0))

@@ -5,7 +5,7 @@ import demo.app.paintball.R
 class TestMapConfig : MapConfig() {
 
     // TODO
-    override val imageDrawableId = R.drawable.map_garden
+    override val imageDrawableId = R.drawable.map_gyenes
 
     override val imageWidthPx = 2_049
 
@@ -20,10 +20,10 @@ class TestMapConfig : MapConfig() {
     override val anchorOriginPxX = 175
 
     override val anchors = listOf(
-        intArrayOf(0, 0, 800),
-        intArrayOf(15_000, 0, 800),
-        intArrayOf(0, 10000, 800),
-        intArrayOf(15_000, 8_700, 800),
+        intArrayOf(0, 0, 1100),
+        intArrayOf(3_795, 0, 1100),
+        intArrayOf(-80, 4_135, 1100),
+        intArrayOf(3_795, 4_135, 1100),
         intArrayOf(0, 0, 0),
         intArrayOf(0, 0, 0),
         intArrayOf(0, 0, 0),
