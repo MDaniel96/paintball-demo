@@ -1,6 +1,5 @@
 package demo.app.paintball.util
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.PackageManager
@@ -96,5 +95,5 @@ fun ByteArray.playAudio() {
 
 fun Activity.checkPermissions(permissions: List<String>) {
     permissions.filter { ContextCompat.checkSelfPermission(context, it) != PackageManager.PERMISSION_GRANTED }
-        .map { ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 0) }
+        .map { ActivityCompat.requestPermissions(this, permissions.toTypedArray(), 0) }
 }

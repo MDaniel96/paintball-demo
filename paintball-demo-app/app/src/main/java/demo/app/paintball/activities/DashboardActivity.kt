@@ -23,7 +23,7 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
     JoinGameFragment.JoinGameListener, CreateGameFragment.CreateGameListener, ConnectTagFragment.ConnectTagListener {
 
     companion object {
-        val permissionsNeeded = arrayListOf(
+        val permissionsNeeded = listOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,

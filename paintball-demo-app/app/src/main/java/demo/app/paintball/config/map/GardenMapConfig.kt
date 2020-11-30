@@ -21,7 +21,7 @@ class GardenMapConfig : MapConfig() {
     override val anchors = listOf(
         intArrayOf(0, 0, 800),
         intArrayOf(15_000, 0, 800),
-        intArrayOf(0, 10000, 800),
+        intArrayOf(0, 10_000, 800),
         intArrayOf(15_000, 8_700, 800),
         intArrayOf(0, 0, 0),
         intArrayOf(0, 0, 0),

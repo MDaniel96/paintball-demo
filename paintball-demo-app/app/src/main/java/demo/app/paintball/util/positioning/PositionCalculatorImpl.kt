@@ -185,23 +185,27 @@ class PositionCalculatorImpl(private val anchors: List<IntArray>) : PositionCalc
                 val jacT = jac.transpose()
                 val a = jacT.multiply(jac)
                 val b = idm.scalarMultiply(lambda)
-                val c = a.add(b)
-                val d = MatrixUtils.inverse(c)
-                val e = d.multiply(jacT)
-                val delta = e.multiply(rez)
+               val c = a.add(b)
+               val d = MatrixUtils.inverse(c)
+               val e = d.multiply(jacT)
+               val delta = e.multiply(rez)
 
-                q.setEntry(0, 0, q.getEntry(0, 0) - delta.getEntry(0, 0))
-                q.setEntry(1, 0, q.getEntry(1, 0) - delta.getEntry(1, 0))
+               q.setEntry(0, 0, q.getEntry(0, 0) - delta.getEntry(0, 0))
+               q.setEntry(1, 0, q.getEntry(1, 0) - delta.getEntry(1, 0))
 
-                eta = sqrt(delta.getEntry(0, 0).pow(2) + delta.getEntry(1, 0).pow(2))
+               eta = sqrt(delta.getEntry(0, 0).pow(2) + delta.getEntry(1, 0).pow(2))
 
-                iter++
+               if (eta > 100_000) {
+                   iter = MAXITER
+               }
 
-                lambda=if (eta>=etaprev) lambda*10 else lambda/10
+               iter++
 
-                etaprev=eta
+               lambda = if (eta >= etaprev) lambda * 10 else lambda / 10
 
-            } while (eta > ERROR && iter < MAXITER)
+               etaprev = eta
+
+           } while (eta > ERROR && iter < MAXITER)
 
             if (iter == MAXITER) {
                 q.setEntry(0, 0, qPrev.getEntry(0, 0))

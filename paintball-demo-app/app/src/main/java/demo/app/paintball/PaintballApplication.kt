@@ -12,7 +12,6 @@ class PaintballApplication : Application() {
         lateinit var context: Context
         lateinit var services: DataServiceInjector
         lateinit var player: Player
-
     }
 
     override fun onCreate() {

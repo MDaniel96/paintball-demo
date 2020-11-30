@@ -32,7 +32,7 @@ class JoinGameFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnDone.setOnClickListener{
+        btnDone.setOnClickListener {
             val name = etPlayerName.text.toString()
             val errorMsg = getString(R.string.fill_out)
 
