@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PaintballApp</string>
+    <string name="app_name">Paintball Demo</string>
     <string name="create_game">Create game</string>
     <string name="join_game">Join game</string>
     <string name="itemPlayerName">Your name</string>
