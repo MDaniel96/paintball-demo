@@ -64,7 +64,7 @@ class MainButtonsFragmentImpl : MapButtonsFragment() {
         fabSpying.setOnClickListener {
             mqttService.subscribe(playerTopics.enemyPositions)
             fabSpying.isEnabled = false
-            fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
+            fabSpying.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTransparentGray))
 
             timer.schedule(SPYING_TIME) {
                 rootActivity.runOnUiThread {

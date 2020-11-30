@@ -133,13 +133,13 @@ class MapActivity : AppCompatActivity(), GestureSensor.GestureListener, Gyroscop
         mainButtons.changeLevel(-1)
         chatButtons.changeLevel(0)
         btnPagingChat.setBackgroundTint(R.color.transparentWhite)
-        btnPagingMain.setBackgroundTint(R.color.lightTrasparentGray)
+        btnPagingMain.setBackgroundTint(R.color.lightTransparentGray)
     }
 
     override fun onScrollDown() {
         mainButtons.changeLevel(0)
         chatButtons.changeLevel(1)
-        btnPagingChat.setBackgroundTint(R.color.lightTrasparentGray)
+        btnPagingChat.setBackgroundTint(R.color.lightTransparentGray)
         btnPagingMain.setBackgroundTint(R.color.transparentWhite)
     }
 

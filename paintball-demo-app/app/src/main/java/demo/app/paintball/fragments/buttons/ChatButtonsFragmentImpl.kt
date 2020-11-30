@@ -89,7 +89,7 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
                 recordService.start()
                 recording = true
                 timerStarted = SystemClock.uptimeMillis()
-                fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTrasparentGray))
+                fabTeamChat.setColor(ContextCompat.getColor(PaintballApplication.context, R.color.lightTransparentGray))
                 fabTeamChat.setIcon(R.drawable.ic_stop, 0)
                 buttonProgressDisplayService.show(RECORDING_TIME)
                 timer = Timer()
@@ -104,7 +104,7 @@ class ChatButtonsFragmentImpl : MapButtonsFragment(), MqttService.ChatListener {
     private fun initFabActivateTeamChat() {
         fabActivateChat.setOnClickListener {
             if (chatActivated) {
-                fabActivateChat.setBackgroundTint(R.color.lightTrasparentGray)
+                fabActivateChat.setBackgroundTint(R.color.lightTransparentGray)
                 fabActivateChat.setSrc(R.drawable.ic_volumeoff)
                 mqttService.unsubscribe(playerTopics.teamChat)
             } else {

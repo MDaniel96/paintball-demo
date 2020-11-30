@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.view.View
+import android.view.animation.AlphaAnimation
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -35,6 +36,15 @@ fun View.setBackgroundTint(colorId: Int) {
 
 fun FloatingActionButton.setSrc(imageId: Int) {
     this.setImageDrawable(ResourcesCompat.getDrawable(resources, imageId, null))
+}
+
+fun View.fadeIn(delay: Long = 1000, duration: Long = 800) {
+    AlphaAnimation(0.0f, 1.0f).apply {
+        this.startOffset = delay
+        this.duration = duration
+    }.let {
+        this.startAnimation(it)
+    }
 }
 
 // ====================================

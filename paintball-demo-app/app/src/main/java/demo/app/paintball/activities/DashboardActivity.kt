@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import demo.app.paintball.PaintballApplication.Companion.player
 import demo.app.paintball.PaintballApplication.Companion.services
 import demo.app.paintball.R
@@ -15,6 +16,7 @@ import demo.app.paintball.fragments.dialogs.CreateGameFragment
 import demo.app.paintball.fragments.dialogs.JoinGameFragment
 import demo.app.paintball.util.ErrorHandler
 import demo.app.paintball.util.checkPermissions
+import demo.app.paintball.util.fadeIn
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import retrofit2.Response
 import javax.inject.Inject
@@ -48,6 +50,7 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
         checkTagsEnabled()
         this.checkPermissions(permissionsNeeded)
         checkOnlyMapMode()
+        initAnimations()
     }
 
     private fun checkTagsEnabled() {
@@ -97,5 +100,17 @@ class DashboardActivity : AppCompatActivity(), RestService.SuccessListener,
             val intent = Intent(this, MapActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun initAnimations() {
+        btnCreateGame.fadeIn(800)
+        btnJoinGame.fadeIn(800)
+        btnConnectTag.fadeIn(800)
+        imgIcon.animate()
+            .scaleX(0.8F)
+            .scaleY(0.8F)
+            .translationY(-150F)
+            .setDuration(800).startDelay = 300
+        Glide.with(this).load(R.drawable.gif_icon).into(imgIcon)
     }
 }

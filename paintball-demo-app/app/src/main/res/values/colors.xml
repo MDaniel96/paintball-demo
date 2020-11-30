@@ -11,6 +11,6 @@
     <color name="lightGreen">#BBE19F</color>
     <color name="redTeam">#F13B3B</color>
     <color name="blueTeam">#23C5ED</color>
-    <color name="lightTrasparentGray">#99B4B4BA</color>
+    <color name="lightTransparentGray">#99B4B4BA</color>
     <color name="darkTransparentGray">#E6363639</color>
 </resources>

@@ -4,42 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_flag"
     tools:context=".activities.DashboardActivity">
+
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="@dimen/gif_icon_width"
+        android:layout_height="@dimen/gif_icon_width"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/img_icon"
+        app:layout_constraintBottom_toTopOf="@id/btnCreateGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnCreateGame"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:text="@string/create_game"
-        android:layout_marginTop="200dp"
         style="@style/button"
+        android:layout_marginTop="200dp"
+        android:text="@string/create_game"
         app:layout_constraintBottom_toTopOf="@+id/btnJoinGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/btnJoinGame"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:text="@string/join_game"
-        android:layout_marginTop="50dp"
         style="@style/button"
-        app:layout_constraintBottom_toTopOf="@+id/btnConnectTag"
+        android:layout_marginTop="50dp"
+        android:text="@string/join_game"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnConnectTag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCreateGame" />
 
     <Button
         android:id="@+id/btnConnectTag"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:text="@string/select_your_tag"
-        android:layout_marginTop="50dp"
         style="@style/button"
+        android:layout_marginTop="50dp"
+        android:text="@string/select_your_tag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

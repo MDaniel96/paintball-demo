@@ -34,6 +34,7 @@ abstract class MapButtonsFragment : Fragment() {
         if (isOpen) {
             translateY = level * screenHeight
             rootLayout.animate().translationY(translateY)
+            rootLayout.animate().translationY(translateY)
         }
     }
 
