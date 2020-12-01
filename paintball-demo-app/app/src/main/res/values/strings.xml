@@ -19,8 +19,9 @@
     <string name="create">Create</string>
     <string name="fill_out">Please fill out this part</string>
     <string name="waiting_for_admin">Waiting for admin</string>
+    <string name="type_is">Type: %1$s</string>
     <string name="admin_is">Admin: %1$s</string>
-    <string name="player_cnt">%1$d players</string>
+    <string name="player_cnt">Players: %1$d</string>
     <string name="view_players_">View players (%1$d)</string>
     <string name="joined_blue">Joined blue</string>
     <string name="joined_red">Joined red</string>
@@ -41,4 +42,7 @@
     <string name="connecting_to_tag">Connecting to %1$s</string>
     <string name="remaining_players">%1$d/%2$d</string>
     <string name="player_left_the_game">%1$s left the game</string>
+    <string name="type_dm">Type: DM</string>
+    <string name="admin_user">Admin: User</string>
+    <string name="players_8">Players: 8</string>
 </resources>

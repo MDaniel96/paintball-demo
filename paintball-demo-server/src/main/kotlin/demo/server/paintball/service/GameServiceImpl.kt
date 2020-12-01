@@ -16,10 +16,16 @@ class GameServiceImpl : GameService {
     }
 
     override fun addRedPlayer(player: Player) {
+        game?.blueTeam?.remove(player)
+
+        player.team = Player.Team.RED
         game?.redTeam?.add(player)
     }
 
     override fun addBluePlayer(player: Player) {
+        game?.redTeam?.remove(player)
+
+        player.team = Player.Team.BLUE
         game?.blueTeam?.add(player)
     }
 }

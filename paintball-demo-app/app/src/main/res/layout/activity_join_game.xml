@@ -7,152 +7,162 @@
     android:orientation="vertical"
     tools:context=".activities.JoinGameActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
+    <com.google.android.material.card.MaterialCardView
+        style="@style/card"
+        android:layout_width="@dimen/players_expansion_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        style="@style/card"
-        app:cardBackgroundColor="@color/lightGreen">
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="@color/lighterTransparentGray">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="12dp">
 
             <TextView
                 android:id="@+id/tvGameName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Game name"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                android:paddingBottom="10dp"
+                android:text="@string/game_name"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvGameType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Game type"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                style="@style/tvGameInfo"
+                android:text="@string/type_dm" />
 
             <TextView
                 android:id="@+id/tvGameAdmin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Game admin"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                style="@style/tvGameInfo"
+                android:text="@string/admin_user" />
 
             <TextView
                 android:id="@+id/tvGamePlayerCnt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Game player count"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                style="@style/tvGameInfo"
+                android:text="@string/players_8" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <RelativeLayout
+    <com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:orientation="vertical"
+        app:expansion_openOnlyOne="true">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvRed"
+        <com.github.florent37.expansionpanel.ExpansionHeader
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
-            style="@style/card"
-            app:cardBackgroundColor="#E8A2A2">
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:expansion_layout="@id/redExpansionLayout"
+            app:expansion_toggleOnClick="false">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnJoinRed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
-                    android:layout_marginVertical="40dp"
-                    android:background="@color/redTeam"
+                    style="@style/buttonJoinTeam"
                     android:text="@string/join_red"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/redTeam"
+                    app:strokeColor="@color/redTeam" />
 
                 <Button
                     android:id="@+id/btnViewRed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
-                    android:layout_marginVertical="40dp"
-                    android:background="#99F8F5F5"
-                    android:text="@string/view_players"
-                    android:textColor="@color/white" />
+                    style="@style/buttonViewPlayers"
+                    android:text="@string/view_players" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvBlue"
+        </com.github.florent37.expansionpanel.ExpansionHeader>
+
+        <com.github.florent37.expansionpanel.ExpansionLayout
+            android:id="@+id/redExpansionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout style="@style/expansionLayout">
+
+                <ListView
+                    android:id="@+id/lsRedPlayers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/players_expansion_height" />
+
+            </LinearLayout>
+
+        </com.github.florent37.expansionpanel.ExpansionLayout>
+
+        <com.github.florent37.expansionpanel.ExpansionHeader
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
-            style="@style/card"
-            app:cardBackgroundColor="#9F9FEC">
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            app:expansion_layout="@id/blueExpansionLayout"
+            app:expansion_toggleOnClick="false">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnJoinBlue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
-                    android:layout_marginVertical="40dp"
-                    android:background="@color/blueTeam"
+                    style="@style/buttonJoinTeam"
                     android:text="@string/join_blue"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/blueTeam"
+                    app:strokeColor="@color/blueTeam" />
 
                 <Button
                     android:id="@+id/btnViewBlue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
-                    android:layout_marginVertical="40dp"
-                    android:background="#99F8F5F5"
-                    android:text="@string/view_players"
-                    android:textColor="@color/white" />
+                    style="@style/buttonViewPlayers"
+                    android:text="@string/view_players" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
+        </com.github.florent37.expansionpanel.ExpansionHeader>
 
-    <Button
-        android:id="@+id/btnStartGame"
-        android:layout_width="280dp"
-        android:layout_height="80dp"
-        android:text="@string/start_game"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center_horizontal"
-        style="@style/button" />
+        <com.github.florent37.expansionpanel.ExpansionLayout
+            android:id="@+id/blueExpansionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout style="@style/expansionLayout">
+
+                <ListView
+                    android:id="@+id/lsBluePlayers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/players_expansion_height" />
+
+            </LinearLayout>
+
+        </com.github.florent37.expansionpanel.ExpansionLayout>
+
+    </com.github.florent37.expansionpanel.viewgroup.ExpansionsViewGroupLinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/btnStartGame"
+            style="@style/button"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="15dp"
+            android:text="@string/start_game" />
+
+    </LinearLayout>
 
 </LinearLayout>

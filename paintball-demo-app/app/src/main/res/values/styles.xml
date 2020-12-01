@@ -20,10 +20,51 @@
         <item name="strokeWidth">4dp</item>
     </style>
 
+    <style name="buttonJoinTeam">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">@color/lightTransparentGray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="strokeWidth">4dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+    </style>
+
+    <style name="buttonViewPlayers">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="rippleColor">@color/lightTransparentGray</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">@color/primaryColor</item>
+        <item name="android:textColor">@color/primaryLightColor</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="tvGameInfo" parent="CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryLightColor</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
     <style name="card" parent="CardView">
-        <item name="cardCornerRadius">10dp</item>
+        <item name="cardCornerRadius">4dp</item>
         <item name="cardElevation">5dp</item>
         <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="expansionLayout" parent="CardView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/players_expansion_width</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/lighterTransparentGray</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
     <style name="TitleDialog" parent="@style/Theme.AppCompat.Light.Dialog">
