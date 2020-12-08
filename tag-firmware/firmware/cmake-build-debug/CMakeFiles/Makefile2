@@ -55,19 +55,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/129/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/129/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware
+CMAKE_SOURCE_DIR = /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -97,14 +97,14 @@ clean: CMakeFiles/gdbs.dir/clean
 CMakeFiles/flash_softdevice.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flash_softdevice.dir/build.make CMakeFiles/flash_softdevice.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flash_softdevice.dir/build.make CMakeFiles/flash_softdevice.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles --progress-num= "Built target flash_softdevice"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles --progress-num= "Built target flash_softdevice"
 .PHONY : CMakeFiles/flash_softdevice.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/flash_softdevice.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/flash_softdevice.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/flash_softdevice.dir/rule
 
 # Convenience name for target.
@@ -124,14 +124,14 @@ CMakeFiles/flash_softdevice.dir/clean:
 CMakeFiles/flash.dir/all: CMakeFiles/uwb2020.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flash.dir/build.make CMakeFiles/flash.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flash.dir/build.make CMakeFiles/flash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles --progress-num= "Built target flash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles --progress-num= "Built target flash"
 .PHONY : CMakeFiles/flash.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 100
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 85
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/flash.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/flash.dir/rule
 
 # Convenience name for target.
@@ -151,14 +151,14 @@ CMakeFiles/flash.dir/clean:
 CMakeFiles/uwb2020.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target uwb2020"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86 "Built target uwb2020"
 .PHONY : CMakeFiles/uwb2020.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/uwb2020.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 100
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 85
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/uwb2020.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/uwb2020.dir/rule
 
 # Convenience name for target.
@@ -178,14 +178,14 @@ CMakeFiles/uwb2020.dir/clean:
 CMakeFiles/gdbs.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gdbs.dir/build.make CMakeFiles/gdbs.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gdbs.dir/build.make CMakeFiles/gdbs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles --progress-num= "Built target gdbs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles --progress-num=1 "Built target gdbs"
 .PHONY : CMakeFiles/gdbs.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gdbs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gdbs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/gdbs.dir/rule
 
 # Convenience name for target.

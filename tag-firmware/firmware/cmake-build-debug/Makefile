@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/129/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/129/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware
+CMAKE_SOURCE_DIR = /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-de
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/129/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/137/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/129/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/137/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -452,2174 +452,1769 @@ dwm_utils.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/dwm_utils.c.s
 .PHONY : dwm_utils.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.o
+home/mate/programs/nRF5/components/ble/common/ble_advdata.o: home/mate/programs/nRF5/components/ble/common/ble_advdata.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_advdata.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.o
+home/mate/programs/nRF5/components/ble/common/ble_advdata.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_advdata.c.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_advdata.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.i
+home/mate/programs/nRF5/components/ble/common/ble_advdata.i: home/mate/programs/nRF5/components/ble/common/ble_advdata.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_advdata.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.i
+home/mate/programs/nRF5/components/ble/common/ble_advdata.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_advdata.c.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_advdata.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.s
+home/mate/programs/nRF5/components/ble/common/ble_advdata.s: home/mate/programs/nRF5/components/ble/common/ble_advdata.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_advdata.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.c.s
+home/mate/programs/nRF5/components/ble/common/ble_advdata.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_advdata.c.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_advdata.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.o
+home/mate/programs/nRF5/components/ble/common/ble_conn_params.o: home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_params.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.o
+home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.i
+home/mate/programs/nRF5/components/ble/common/ble_conn_params.i: home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_params.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.i
+home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.s
+home/mate/programs/nRF5/components/ble/common/ble_conn_params.s: home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_params.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.c.s
+home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_params.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.o
+home/mate/programs/nRF5/components/ble/common/ble_conn_state.o: home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_state.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.o
+home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.i
+home/mate/programs/nRF5/components/ble/common/ble_conn_state.i: home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_state.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.i
+home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.s
+home/mate/programs/nRF5/components/ble/common/ble_conn_state.s: home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_state.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.c.s
+home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_conn_state.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.o
+home/mate/programs/nRF5/components/ble/common/ble_srv_common.o: home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_srv_common.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.o
+home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.o
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.i
+home/mate/programs/nRF5/components/ble/common/ble_srv_common.i: home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_srv_common.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.i
+home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.i
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.s
+home/mate/programs/nRF5/components/ble/common/ble_srv_common.s: home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_srv_common.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.c.s
+home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.s
+.PHONY : home/mate/programs/nRF5/components/ble/common/ble_srv_common.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.o
+home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.o: home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.o
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.o
+home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.i
+home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.i: home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.i
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.i
+home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.s
+home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.s: home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.s
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.c.s
+home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.o
+home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.o: home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.o
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.o
+home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.i
+home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.i: home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.i
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.i
+home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.s
+home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.s: home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.s
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.c.s
+home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s
+.PHONY : home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.o
+home/mate/programs/nRF5/components/boards/boards.o: home/mate/programs/nRF5/components/boards/boards.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.o
+.PHONY : home/mate/programs/nRF5/components/boards/boards.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.o
+home/mate/programs/nRF5/components/boards/boards.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/boards/boards.c.o
+.PHONY : home/mate/programs/nRF5/components/boards/boards.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.i
+home/mate/programs/nRF5/components/boards/boards.i: home/mate/programs/nRF5/components/boards/boards.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.i
+.PHONY : home/mate/programs/nRF5/components/boards/boards.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.i
+home/mate/programs/nRF5/components/boards/boards.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/boards/boards.c.i
+.PHONY : home/mate/programs/nRF5/components/boards/boards.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.s
+home/mate/programs/nRF5/components/boards/boards.s: home/mate/programs/nRF5/components/boards/boards.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.s
+.PHONY : home/mate/programs/nRF5/components/boards/boards.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.c.s
+home/mate/programs/nRF5/components/boards/boards.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/boards/boards.c.s
+.PHONY : home/mate/programs/nRF5/components/boards/boards.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.o
+home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.o: home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.o
+.PHONY : home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.o
+home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o
+.PHONY : home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.i
+home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.i: home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.i
+.PHONY : home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.i
+home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i
+.PHONY : home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.s
+home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.s: home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.s
+.PHONY : home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.c.s
+home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s
+.PHONY : home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.o
+home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.o: home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.o
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.o
+home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.i
+home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.i: home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.i
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.i
+home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.s
+home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.s: home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.s
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.c.s
+home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.o
+home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.o: home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.o
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.o
+home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.i
+home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.i: home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.i
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.i
+home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.s
+home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.s: home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.s
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.c.s
+home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.o
+home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.o: home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.o
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.o
+home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.i
+home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.i: home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.i
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.i
+home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.s
+home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.s: home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.s
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.c.s
+home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.o
+home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.o: home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.o
+.PHONY : home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.o
+home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.i
+home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.i: home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.i
+.PHONY : home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.i
+home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.s
+home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.s: home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.s
+.PHONY : home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.c.s
+home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.o
+home/mate/programs/nRF5/components/libraries/button/app_button.o: home/mate/programs/nRF5/components/libraries/button/app_button.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.o
+.PHONY : home/mate/programs/nRF5/components/libraries/button/app_button.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.o
+home/mate/programs/nRF5/components/libraries/button/app_button.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/button/app_button.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/button/app_button.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.i
+home/mate/programs/nRF5/components/libraries/button/app_button.i: home/mate/programs/nRF5/components/libraries/button/app_button.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.i
+.PHONY : home/mate/programs/nRF5/components/libraries/button/app_button.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.i
+home/mate/programs/nRF5/components/libraries/button/app_button.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/button/app_button.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/button/app_button.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.s
+home/mate/programs/nRF5/components/libraries/button/app_button.s: home/mate/programs/nRF5/components/libraries/button/app_button.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.s
+.PHONY : home/mate/programs/nRF5/components/libraries/button/app_button.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.c.s
+home/mate/programs/nRF5/components/libraries/button/app_button.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/button/app_button.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/button/app_button.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.o
+home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.o: home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.o
+.PHONY : home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.o
+home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.i
+home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.i: home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.i
+.PHONY : home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.i
+home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.s
+home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.s: home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.s
+.PHONY : home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.c.s
+home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.o: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.o
+home/mate/programs/nRF5/components/libraries/fifo/app_fifo.o: home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.o
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.o
+.PHONY : home/mate/programs/nRF5/components/libraries/fifo/app_fifo.o
 
 # target to build an object file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.o
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.o
+home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.o
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.i: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.i
+home/mate/programs/nRF5/components/libraries/fifo/app_fifo.i: home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.i
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.i
+.PHONY : home/mate/programs/nRF5/components/libraries/fifo/app_fifo.i
 
 # target to preprocess a source file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.i
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.i
+home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.i
 
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.s: home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.s
+home/mate/programs/nRF5/components/libraries/fifo/app_fifo.s: home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.s
 
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.s
+.PHONY : home/mate/programs/nRF5/components/libraries/fifo/app_fifo.s
 
 # target to generate assembly for a file
-home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.s
-.PHONY : home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.c.s
+home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/fifo/app_fifo.c.s
 
-home/mate/software/nRF5/components/ble/common/ble_advdata.o: home/mate/software/nRF5/components/ble/common/ble_advdata.c.o
+home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.o: home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.o
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_advdata.o
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.o
 
 # target to build an object file
-home/mate/software/nRF5/components/ble/common/ble_advdata.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_advdata.c.o
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_advdata.c.o
+home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.o
 
-home/mate/software/nRF5/components/ble/common/ble_advdata.i: home/mate/software/nRF5/components/ble/common/ble_advdata.c.i
+home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.i: home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.i
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_advdata.i
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/ble/common/ble_advdata.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_advdata.c.i
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_advdata.c.i
+home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.i
 
-home/mate/software/nRF5/components/ble/common/ble_advdata.s: home/mate/software/nRF5/components/ble/common/ble_advdata.c.s
+home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.s: home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.s
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_advdata.s
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/ble/common/ble_advdata.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_advdata.c.s
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_advdata.c.s
+home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.c.s
 
-home/mate/software/nRF5/components/ble/common/ble_conn_params.o: home/mate/software/nRF5/components/ble/common/ble_conn_params.c.o
+home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.o: home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_params.o
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.o
 
 # target to build an object file
-home/mate/software/nRF5/components/ble/common/ble_conn_params.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_conn_params.c.o
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_params.c.o
+home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o
 
-home/mate/software/nRF5/components/ble/common/ble_conn_params.i: home/mate/software/nRF5/components/ble/common/ble_conn_params.c.i
+home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.i: home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_params.i
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/ble/common/ble_conn_params.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_conn_params.c.i
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_params.c.i
+home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i
 
-home/mate/software/nRF5/components/ble/common/ble_conn_params.s: home/mate/software/nRF5/components/ble/common/ble_conn_params.c.s
+home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.s: home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_params.s
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/ble/common/ble_conn_params.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_conn_params.c.s
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_params.c.s
+home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s
 
-home/mate/software/nRF5/components/ble/common/ble_conn_state.o: home/mate/software/nRF5/components/ble/common/ble_conn_state.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.o: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_state.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.o
 
 # target to build an object file
-home/mate/software/nRF5/components/ble/common/ble_conn_state.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_conn_state.c.o
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_state.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o
 
-home/mate/software/nRF5/components/ble/common/ble_conn_state.i: home/mate/software/nRF5/components/ble/common/ble_conn_state.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.i: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_state.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/ble/common/ble_conn_state.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_conn_state.c.i
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_state.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i
 
-home/mate/software/nRF5/components/ble/common/ble_conn_state.s: home/mate/software/nRF5/components/ble/common/ble_conn_state.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.s: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_state.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/ble/common/ble_conn_state.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_conn_state.c.s
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_conn_state.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s
 
-home/mate/software/nRF5/components/ble/common/ble_srv_common.o: home/mate/software/nRF5/components/ble/common/ble_srv_common.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.o: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_srv_common.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.o
 
 # target to build an object file
-home/mate/software/nRF5/components/ble/common/ble_srv_common.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_srv_common.c.o
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_srv_common.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o
 
-home/mate/software/nRF5/components/ble/common/ble_srv_common.i: home/mate/software/nRF5/components/ble/common/ble_srv_common.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.i: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_srv_common.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/ble/common/ble_srv_common.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_srv_common.c.i
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_srv_common.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i
 
-home/mate/software/nRF5/components/ble/common/ble_srv_common.s: home/mate/software/nRF5/components/ble/common/ble_srv_common.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.s: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s
 
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_srv_common.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/ble/common/ble_srv_common.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/common/ble_srv_common.c.s
-.PHONY : home/mate/software/nRF5/components/ble/common/ble_srv_common.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s
 
-home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.o: home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.o: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o
 
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.o
 
 # target to build an object file
-home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o
 
-home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.i: home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.i: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i
 
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i
 
-home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.s: home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.s: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s
 
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s
 
-home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.o: home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.o: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o
 
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.o
 
 # target to build an object file
-home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o
 
-home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.i: home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.i: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i
 
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i
 
-home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.s: home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.s: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s
 
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s
-.PHONY : home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s
 
-home/mate/software/nRF5/components/boards/boards.o: home/mate/software/nRF5/components/boards/boards.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.o: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.o
 
-.PHONY : home/mate/software/nRF5/components/boards/boards.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.o
 
 # target to build an object file
-home/mate/software/nRF5/components/boards/boards.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/boards/boards.c.o
-.PHONY : home/mate/software/nRF5/components/boards/boards.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.o
 
-home/mate/software/nRF5/components/boards/boards.i: home/mate/software/nRF5/components/boards/boards.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.i: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.i
 
-.PHONY : home/mate/software/nRF5/components/boards/boards.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/boards/boards.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/boards/boards.c.i
-.PHONY : home/mate/software/nRF5/components/boards/boards.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.i
 
-home/mate/software/nRF5/components/boards/boards.s: home/mate/software/nRF5/components/boards/boards.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.s: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.s
 
-.PHONY : home/mate/software/nRF5/components/boards/boards.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/boards/boards.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/boards/boards.c.s
-.PHONY : home/mate/software/nRF5/components/boards/boards.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.c.s
 
-home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.o: home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.o: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o
 
-.PHONY : home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.o
 
 # target to build an object file
-home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o
-.PHONY : home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.o
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o
 
-home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.i: home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.i: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i
 
-.PHONY : home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i
-.PHONY : home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.i
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i
 
-home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.s: home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.s: home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s
 
-.PHONY : home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s
-.PHONY : home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.c.s
+home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s
 
-home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.o: home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.o
+home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.o: home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.o
+.PHONY : home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.o
+home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.o
 
-home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.i: home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.i
+home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.i: home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.i
+.PHONY : home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.i
+home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.i
 
-home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.s: home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.s
+home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.s: home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.s
+.PHONY : home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.c.s
+home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.c.s
 
-home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.o: home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o
+home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.o: home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.o
+.PHONY : home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.o
+home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o
 
-home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.i: home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i
+home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.i: home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.i
+.PHONY : home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.i
+home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i
 
-home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.s: home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s
+home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.s: home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.s
+.PHONY : home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.c.s
+home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s
 
-home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.o: home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o
+home/mate/programs/nRF5/components/libraries/queue/nrf_queue.o: home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.o
+.PHONY : home/mate/programs/nRF5/components/libraries/queue/nrf_queue.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.o
+home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.o
 
-home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.i: home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i
+home/mate/programs/nRF5/components/libraries/queue/nrf_queue.i: home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.i
+.PHONY : home/mate/programs/nRF5/components/libraries/queue/nrf_queue.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.i
+home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.i
 
-home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.s: home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s
+home/mate/programs/nRF5/components/libraries/queue/nrf_queue.s: home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.s
+.PHONY : home/mate/programs/nRF5/components/libraries/queue/nrf_queue.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.c.s
+home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/queue/nrf_queue.c.s
 
-home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.o: home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.o
+home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.o: home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.o
+.PHONY : home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.o
+home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o
 
-home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.i: home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.i
+home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.i: home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.i
+.PHONY : home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.i
+home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i
 
-home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.s: home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.s
+home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.s: home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.s
+.PHONY : home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.c.s
+home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s
 
-home/mate/software/nRF5/components/libraries/button/app_button.o: home/mate/software/nRF5/components/libraries/button/app_button.c.o
+home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.o: home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/button/app_button.o
+.PHONY : home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/button/app_button.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/button/app_button.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/button/app_button.c.o
+home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.o
 
-home/mate/software/nRF5/components/libraries/button/app_button.i: home/mate/software/nRF5/components/libraries/button/app_button.c.i
+home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.i: home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/button/app_button.i
+.PHONY : home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/button/app_button.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/button/app_button.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/button/app_button.c.i
+home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.i
 
-home/mate/software/nRF5/components/libraries/button/app_button.s: home/mate/software/nRF5/components/libraries/button/app_button.c.s
+home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.s: home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/button/app_button.s
+.PHONY : home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/button/app_button.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/button/app_button.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/button/app_button.c.s
+home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.c.s
 
-home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.o: home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o
+home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.o: home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.o
+.PHONY : home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.o
+home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.o
 
-home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.i: home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i
+home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.i: home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.i
+.PHONY : home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.i
+home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.i
 
-home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.s: home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s
+home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.s: home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.s
+.PHONY : home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.c.s
+home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.c.s
 
-home/mate/software/nRF5/components/libraries/fifo/app_fifo.o: home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.o
+home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.o: home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/fifo/app_fifo.o
+.PHONY : home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.o
+home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.o
 
-home/mate/software/nRF5/components/libraries/fifo/app_fifo.i: home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.i
+home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.i: home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/fifo/app_fifo.i
+.PHONY : home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.i
+home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.i
 
-home/mate/software/nRF5/components/libraries/fifo/app_fifo.s: home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.s
+home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.s: home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/fifo/app_fifo.s
+.PHONY : home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/fifo/app_fifo.c.s
+home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.c.s
 
-home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.o: home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.o
+home/mate/programs/nRF5/components/libraries/timer/app_timer2.o: home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.o
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/app_timer2.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.o
+home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.o
 
-home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.i: home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.i
+home/mate/programs/nRF5/components/libraries/timer/app_timer2.i: home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.i
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/app_timer2.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.i
+home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.i
 
-home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.s: home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.s
+home/mate/programs/nRF5/components/libraries/timer/app_timer2.s: home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.s
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/app_timer2.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.c.s
+home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/app_timer2.c.s
 
-home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.o: home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o
+home/mate/programs/nRF5/components/libraries/timer/drv_rtc.o: home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.o
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/drv_rtc.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.o
+home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.o
 
-home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.i: home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i
+home/mate/programs/nRF5/components/libraries/timer/drv_rtc.i: home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.i
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/drv_rtc.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.i
+home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.i
 
-home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.s: home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s
+home/mate/programs/nRF5/components/libraries/timer/drv_rtc.s: home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.s
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/drv_rtc.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.c.s
+home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/timer/drv_rtc.c.s
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.o: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o
+home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.o: home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.o
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.o
+home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.i: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i
+home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.i: home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.i
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.i
+home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.s: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s
+home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.s: home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.s
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.c.s
+home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.o: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o
+home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.o: home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.o
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.o
+home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.i: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i
+home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.i: home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.i
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.i
+home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.s: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s
+home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.s: home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.s
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.c.s
+home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.o: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o
+home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.o: home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.o
+.PHONY : home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.o
+home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.o
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.i: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i
+home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.i: home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.i
+.PHONY : home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.i
+home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.i
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.s: home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s
+home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.s: home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.s
+.PHONY : home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.c.s
+home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.c.s
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.o: home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o
+home/mate/programs/nRF5/components/libraries/util/app_error.o: home/mate/programs/nRF5/components/libraries/util/app_error.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.o
+home/mate/programs/nRF5/components/libraries/util/app_error.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error.c.o
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.i: home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i
+home/mate/programs/nRF5/components/libraries/util/app_error.i: home/mate/programs/nRF5/components/libraries/util/app_error.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.i
+home/mate/programs/nRF5/components/libraries/util/app_error.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error.c.i
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.s: home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s
+home/mate/programs/nRF5/components/libraries/util/app_error.s: home/mate/programs/nRF5/components/libraries/util/app_error.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.c.s
+home/mate/programs/nRF5/components/libraries/util/app_error.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error.c.s
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.o: home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.o
+home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.o: home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.o
+home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.o
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.i: home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.i
+home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.i: home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.i
+home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.i
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.s: home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.s
+home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.s: home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.c.s
+home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.c.s
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.o: home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o
+home/mate/programs/nRF5/components/libraries/util/app_error_weak.o: home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_weak.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.o
+home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.o
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.i: home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i
+home/mate/programs/nRF5/components/libraries/util/app_error_weak.i: home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_weak.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.i
+home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.i
 
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.s: home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s
+home/mate/programs/nRF5/components/libraries/util/app_error_weak.s: home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_weak.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.c.s
+home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_error_weak.c.s
 
-home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.o: home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.o
+home/mate/programs/nRF5/components/libraries/util/app_util_platform.o: home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_util_platform.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.o
+home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.o
 
-home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.i: home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.i
+home/mate/programs/nRF5/components/libraries/util/app_util_platform.i: home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_util_platform.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.i
+home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.i
 
-home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.s: home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.s
+home/mate/programs/nRF5/components/libraries/util/app_util_platform.s: home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_util_platform.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.c.s
+home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/app_util_platform.c.s
 
-home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.o: home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o
+home/mate/programs/nRF5/components/libraries/util/nrf_assert.o: home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/nrf_assert.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.o
+home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.o
+.PHONY : home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.o
 
-home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.i: home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i
+home/mate/programs/nRF5/components/libraries/util/nrf_assert.i: home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/nrf_assert.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.i
+home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.i
+.PHONY : home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.i
 
-home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.s: home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s
+home/mate/programs/nRF5/components/libraries/util/nrf_assert.s: home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/nrf_assert.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.c.s
+home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.s
+.PHONY : home/mate/programs/nRF5/components/libraries/util/nrf_assert.c.s
 
-home/mate/software/nRF5/components/libraries/queue/nrf_queue.o: home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.o
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.o: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/queue/nrf_queue.o
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.o
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.o
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.o
 
-home/mate/software/nRF5/components/libraries/queue/nrf_queue.i: home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.i
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.i: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/queue/nrf_queue.i
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.i
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.i
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.i
 
-home/mate/software/nRF5/components/libraries/queue/nrf_queue.s: home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.s
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.s: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/queue/nrf_queue.s
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/queue/nrf_queue.c.s
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.s
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.c.s
 
-home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.o: home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.o: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.o
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.o
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.o
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.o
 
-home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.i: home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.i: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.i
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.i
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.i
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.i
 
-home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.s: home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.s: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.s
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.c.s
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.s
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.c.s
 
-home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.o: home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.o
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.o: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.o
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.o
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.o
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.o
 
-home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.i: home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.i
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.i: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.i
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.i
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.i
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.i
 
-home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.s: home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.s
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.s: home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.s
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.c.s
+home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.s
+.PHONY : home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.c.s
 
-home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.o: home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.o
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf.o: home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.o
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.o
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.o
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.o
 
-home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.i: home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.i
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf.i: home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.i
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.i
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.i
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.i
 
-home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.s: home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.s
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf.s: home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.s
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.c.s
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.s
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf.c.s
 
-home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.o: home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.o
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.o: home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.o
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.o
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.o
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.o
 
-home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.i: home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.i
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.i: home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.i
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.i
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.i
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.i
 
-home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.s: home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.s
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.s: home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.s
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.c.s
+home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.s
+.PHONY : home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.c.s
 
-home/mate/software/nRF5/components/libraries/timer/app_timer2.o: home/mate/software/nRF5/components/libraries/timer/app_timer2.c.o
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.o: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/timer/app_timer2.o
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/timer/app_timer2.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/timer/app_timer2.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/timer/app_timer2.c.o
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.o
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.o
 
-home/mate/software/nRF5/components/libraries/timer/app_timer2.i: home/mate/software/nRF5/components/libraries/timer/app_timer2.c.i
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.i: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/timer/app_timer2.i
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/timer/app_timer2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/timer/app_timer2.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/timer/app_timer2.c.i
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.i
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.i
 
-home/mate/software/nRF5/components/libraries/timer/app_timer2.s: home/mate/software/nRF5/components/libraries/timer/app_timer2.c.s
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.s: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/timer/app_timer2.s
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/timer/app_timer2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/timer/app_timer2.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/timer/app_timer2.c.s
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.s
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.c.s
 
-home/mate/software/nRF5/components/libraries/timer/drv_rtc.o: home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.o
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.o: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/timer/drv_rtc.o
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.o
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o
 
-home/mate/software/nRF5/components/libraries/timer/drv_rtc.i: home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.i
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.i: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/timer/drv_rtc.i
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.i
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i
 
-home/mate/software/nRF5/components/libraries/timer/drv_rtc.s: home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.s
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.s: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/timer/drv_rtc.s
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/timer/drv_rtc.c.s
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s
 
-home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.o: home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.o: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.o
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.o
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o
 
-home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.i: home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.i: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.i
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.i
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i
 
-home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.s: home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.s: home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.s
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.c.s
+home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s
+.PHONY : home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s
 
-home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.o: home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o
+home/mate/programs/nRF5/external/utf_converter/utf.o: home/mate/programs/nRF5/external/utf_converter/utf.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.o
+.PHONY : home/mate/programs/nRF5/external/utf_converter/utf.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.o
+home/mate/programs/nRF5/external/utf_converter/utf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/utf_converter/utf.c.o
+.PHONY : home/mate/programs/nRF5/external/utf_converter/utf.c.o
 
-home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.i: home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i
+home/mate/programs/nRF5/external/utf_converter/utf.i: home/mate/programs/nRF5/external/utf_converter/utf.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.i
+.PHONY : home/mate/programs/nRF5/external/utf_converter/utf.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.i
+home/mate/programs/nRF5/external/utf_converter/utf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/utf_converter/utf.c.i
+.PHONY : home/mate/programs/nRF5/external/utf_converter/utf.c.i
 
-home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.s: home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s
+home/mate/programs/nRF5/external/utf_converter/utf.s: home/mate/programs/nRF5/external/utf_converter/utf.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.s
+.PHONY : home/mate/programs/nRF5/external/utf_converter/utf.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.c.s
+home/mate/programs/nRF5/external/utf_converter/utf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/external/utf_converter/utf.c.s
+.PHONY : home/mate/programs/nRF5/external/utf_converter/utf.c.s
 
-home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.o: home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.o: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o
 
-home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.i: home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.i: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i
 
-home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.s: home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.s: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s
 
-home/mate/software/nRF5/components/libraries/util/app_error.o: home/mate/software/nRF5/components/libraries/util/app_error.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.o: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/util/app_error.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o
 
-home/mate/software/nRF5/components/libraries/util/app_error.i: home/mate/software/nRF5/components/libraries/util/app_error.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.i: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/util/app_error.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i
 
-home/mate/software/nRF5/components/libraries/util/app_error.s: home/mate/software/nRF5/components/libraries/util/app_error.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.s: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/util/app_error.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s
 
-home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.o: home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.o: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o
 
-home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.i: home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.i: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i
 
-home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.s: home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.s: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s
 
-home/mate/software/nRF5/components/libraries/util/app_error_weak.o: home/mate/software/nRF5/components/libraries/util/app_error_weak.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.o: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_weak.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/util/app_error_weak.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error_weak.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_weak.c.o
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o
 
-home/mate/software/nRF5/components/libraries/util/app_error_weak.i: home/mate/software/nRF5/components/libraries/util/app_error_weak.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.i: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_weak.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/util/app_error_weak.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error_weak.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_weak.c.i
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i
 
-home/mate/software/nRF5/components/libraries/util/app_error_weak.s: home/mate/software/nRF5/components/libraries/util/app_error_weak.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.s: home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_weak.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/util/app_error_weak.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_error_weak.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_error_weak.c.s
+home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s
+.PHONY : home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s
 
-home/mate/software/nRF5/components/libraries/util/app_util_platform.o: home/mate/software/nRF5/components/libraries/util/app_util_platform.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_util_platform.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/util/app_util_platform.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_util_platform.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_util_platform.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o
 
-home/mate/software/nRF5/components/libraries/util/app_util_platform.i: home/mate/software/nRF5/components/libraries/util/app_util_platform.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_util_platform.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/util/app_util_platform.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_util_platform.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_util_platform.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i
 
-home/mate/software/nRF5/components/libraries/util/app_util_platform.s: home/mate/software/nRF5/components/libraries/util/app_util_platform.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_util_platform.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/util/app_util_platform.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/app_util_platform.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/util/app_util_platform.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s
 
-home/mate/software/nRF5/components/libraries/util/nrf_assert.o: home/mate/software/nRF5/components/libraries/util/nrf_assert.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/nrf_assert.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.o
 
 # target to build an object file
-home/mate/software/nRF5/components/libraries/util/nrf_assert.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/nrf_assert.c.o
-.PHONY : home/mate/software/nRF5/components/libraries/util/nrf_assert.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o
 
-home/mate/software/nRF5/components/libraries/util/nrf_assert.i: home/mate/software/nRF5/components/libraries/util/nrf_assert.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/nrf_assert.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/libraries/util/nrf_assert.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/nrf_assert.c.i
-.PHONY : home/mate/software/nRF5/components/libraries/util/nrf_assert.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i
 
-home/mate/software/nRF5/components/libraries/util/nrf_assert.s: home/mate/software/nRF5/components/libraries/util/nrf_assert.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s
 
-.PHONY : home/mate/software/nRF5/components/libraries/util/nrf_assert.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/libraries/util/nrf_assert.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/libraries/util/nrf_assert.c.s
-.PHONY : home/mate/software/nRF5/components/libraries/util/nrf_assert.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh.o: home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.o
 
 # target to build an object file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.o
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh.i: home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.i
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh.s: home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.s
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.o: home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.o
 
 # target to build an object file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.o
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.i: home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.i
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.s: home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.s
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.o: home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.o
 
 # target to build an object file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.o
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.i: home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.i
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i
 
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.s: home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s
 
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.s
-.PHONY : home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s
 
-home/mate/software/nRF5/external/fprintf/nrf_fprintf.o: home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o
 
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.o
 
 # target to build an object file
-home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.o
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o
 
-home/mate/software/nRF5/external/fprintf/nrf_fprintf.i: home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i
 
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.i
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i
 
-home/mate/software/nRF5/external/fprintf/nrf_fprintf.s: home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s
 
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.s
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s
 
-home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.o: home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o
 
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.o
 
 # target to build an object file
-home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.o
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o
 
-home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.i: home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i
 
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.i
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i
 
-home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.s: home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s
 
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.s
-.PHONY : home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.o: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.o
 
 # target to build an object file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.o
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.i: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.i
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.s: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.s
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.o: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.o
 
 # target to build an object file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.i: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.s: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.o: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.o: home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.o
 
 # target to build an object file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.o
+home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.i: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.i: home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.i
+home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i
 
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.s: home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.s: home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s
 
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s
-.PHONY : home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.c.s
+home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s
 
-home/mate/software/nRF5/external/utf_converter/utf.o: home/mate/software/nRF5/external/utf_converter/utf.c.o
+home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.o: home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o
 
-.PHONY : home/mate/software/nRF5/external/utf_converter/utf.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.o
 
 # target to build an object file
-home/mate/software/nRF5/external/utf_converter/utf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/utf_converter/utf.c.o
-.PHONY : home/mate/software/nRF5/external/utf_converter/utf.c.o
+home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o
 
-home/mate/software/nRF5/external/utf_converter/utf.i: home/mate/software/nRF5/external/utf_converter/utf.c.i
+home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.o: home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.o
 
-.PHONY : home/mate/software/nRF5/external/utf_converter/utf.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.o
 
-# target to preprocess a source file
-home/mate/software/nRF5/external/utf_converter/utf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/utf_converter/utf.c.i
-.PHONY : home/mate/software/nRF5/external/utf_converter/utf.c.i
-
-home/mate/software/nRF5/external/utf_converter/utf.s: home/mate/software/nRF5/external/utf_converter/utf.c.s
-
-.PHONY : home/mate/software/nRF5/external/utf_converter/utf.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/external/utf_converter/utf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/external/utf_converter/utf.c.s
-.PHONY : home/mate/software/nRF5/external/utf_converter/utf.c.s
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.o: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.o
-
-# target to build an object file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.o
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.i: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.i
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.s: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.c.s
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.o: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.o
-
-# target to build an object file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.o
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.i: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.i
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.s: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.c.s
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.o: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.o
-
-# target to build an object file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.o
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.i: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.i
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.s: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.c.s
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.o: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.o
-
-# target to build an object file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.o
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.i: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.i
-
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.s: home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s
-
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s
-.PHONY : home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.o: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.i: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.s: home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.c.s
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.o: home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.o
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.i: home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.i
-
-# target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.i
-
-home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.s: home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.s
-
-# target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.c.s
-
-home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.o: home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.o
-
-# target to build an object file
-home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.S.o
-
-home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.o: home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.o
-
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.o
-
 # target to build an object file
-home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.o
+home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.o
 
-home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.i: home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.i
+home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.i: home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.i
 
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.i
+home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.i
 
-home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.s: home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.s
+home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.s: home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.s
 
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.c.s
+home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.c.s
 
-home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.o: home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.o
+home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.o: home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.o
 
-.PHONY : home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.o
 
 # target to build an object file
-home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.o
-.PHONY : home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.o
+home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.o
+.PHONY : home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.o
 
-home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.i: home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.i
+home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.i: home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.i
 
-.PHONY : home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.i
 
 # target to preprocess a source file
-home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.i
-.PHONY : home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.i
+home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.i
+.PHONY : home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.i
 
-home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.s: home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.s
+home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.s: home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.s
 
-.PHONY : home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.s
 
 # target to generate assembly for a file
-home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.s
-.PHONY : home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.c.s
+home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.s
+.PHONY : home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.c.s
 
 impl_anchor.o: impl_anchor.c.o
 
@@ -2756,60 +2351,6 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/main.c.s
 .PHONY : main.c.s
 
-ranging.o: ranging.c.o
-
-.PHONY : ranging.o
-
-# target to build an object file
-ranging.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/ranging.c.o
-.PHONY : ranging.c.o
-
-ranging.i: ranging.c.i
-
-.PHONY : ranging.i
-
-# target to preprocess a source file
-ranging.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/ranging.c.i
-.PHONY : ranging.c.i
-
-ranging.s: ranging.c.s
-
-.PHONY : ranging.s
-
-# target to generate assembly for a file
-ranging.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/ranging.c.s
-.PHONY : ranging.c.s
-
-ranging_anchor.o: ranging_anchor.c.o
-
-.PHONY : ranging_anchor.o
-
-# target to build an object file
-ranging_anchor.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/ranging_anchor.c.o
-.PHONY : ranging_anchor.c.o
-
-ranging_anchor.i: ranging_anchor.c.i
-
-.PHONY : ranging_anchor.i
-
-# target to preprocess a source file
-ranging_anchor.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/ranging_anchor.c.i
-.PHONY : ranging_anchor.c.i
-
-ranging_anchor.s: ranging_anchor.c.s
-
-.PHONY : ranging_anchor.s
-
-# target to generate assembly for a file
-ranging_anchor.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/uwb2020.dir/build.make CMakeFiles/uwb2020.dir/ranging_anchor.c.s
-.PHONY : ranging_anchor.c.s
-
 timing.o: timing.c.o
 
 .PHONY : timing.o
@@ -2933,247 +2474,202 @@ help:
 	@echo "... dwm_utils.o"
 	@echo "... dwm_utils.i"
 	@echo "... dwm_utils.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/eml_rand_mt19937ar_stateful.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/find.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/isequal.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/kalmanfil_tdoa.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/minOrMax.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rand.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetInf.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rtGetNaN.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/rt_nonfinite.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/str2double.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/string1.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_data.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_initialize.s"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.o"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.i"
-	@echo "... home/mate/Asztal/matlab/uwb-tdoa-mat/uwb-tdoa-mat-master/codegen/lib/tdoa_as_func_test/tdoa_as_func_test_terminate.s"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_advdata.o"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_advdata.i"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_advdata.s"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_conn_params.o"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_conn_params.i"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_conn_params.s"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_conn_state.o"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_conn_state.i"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_conn_state.s"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_srv_common.o"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_srv_common.i"
-	@echo "... home/mate/software/nRF5/components/ble/common/ble_srv_common.s"
-	@echo "... home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.o"
-	@echo "... home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.i"
-	@echo "... home/mate/software/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.s"
-	@echo "... home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.o"
-	@echo "... home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.i"
-	@echo "... home/mate/software/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.s"
-	@echo "... home/mate/software/nRF5/components/boards/boards.o"
-	@echo "... home/mate/software/nRF5/components/boards/boards.i"
-	@echo "... home/mate/software/nRF5/components/boards/boards.s"
-	@echo "... home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.o"
-	@echo "... home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.i"
-	@echo "... home/mate/software/nRF5/components/drivers_ext/lis2dh12/lis2dh12.s"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.o"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.i"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic/nrf_atomic.s"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.o"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.i"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic_fifo/nrf_atfifo.s"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.o"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.i"
-	@echo "... home/mate/software/nRF5/components/libraries/atomic_flags/nrf_atflags.s"
-	@echo "... home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.o"
-	@echo "... home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.i"
-	@echo "... home/mate/software/nRF5/components/libraries/balloc/nrf_balloc.s"
-	@echo "... home/mate/software/nRF5/components/libraries/button/app_button.o"
-	@echo "... home/mate/software/nRF5/components/libraries/button/app_button.i"
-	@echo "... home/mate/software/nRF5/components/libraries/button/app_button.s"
-	@echo "... home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.o"
-	@echo "... home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.i"
-	@echo "... home/mate/software/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.s"
-	@echo "... home/mate/software/nRF5/components/libraries/fifo/app_fifo.o"
-	@echo "... home/mate/software/nRF5/components/libraries/fifo/app_fifo.i"
-	@echo "... home/mate/software/nRF5/components/libraries/fifo/app_fifo.s"
-	@echo "... home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.o"
-	@echo "... home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.i"
-	@echo "... home/mate/software/nRF5/components/libraries/hardfault/hardfault_implementation.s"
-	@echo "... home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.o"
-	@echo "... home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.i"
-	@echo "... home/mate/software/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.s"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.o"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.i"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_rtt.s"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.o"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.i"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_serial.s"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.o"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.i"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_backend_uart.s"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.o"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.i"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_default_backends.s"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.o"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.i"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_frontend.s"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.o"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.i"
-	@echo "... home/mate/software/nRF5/components/libraries/log/src/nrf_log_str_formatter.s"
-	@echo "... home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.o"
-	@echo "... home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.i"
-	@echo "... home/mate/software/nRF5/components/libraries/memobj/nrf_memobj.s"
-	@echo "... home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.o"
-	@echo "... home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.i"
-	@echo "... home/mate/software/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.s"
-	@echo "... home/mate/software/nRF5/components/libraries/queue/nrf_queue.o"
-	@echo "... home/mate/software/nRF5/components/libraries/queue/nrf_queue.i"
-	@echo "... home/mate/software/nRF5/components/libraries/queue/nrf_queue.s"
-	@echo "... home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.o"
-	@echo "... home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.i"
-	@echo "... home/mate/software/nRF5/components/libraries/ringbuf/nrf_ringbuf.s"
-	@echo "... home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.o"
-	@echo "... home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.i"
-	@echo "... home/mate/software/nRF5/components/libraries/scheduler/app_scheduler.s"
-	@echo "... home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.o"
-	@echo "... home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.i"
-	@echo "... home/mate/software/nRF5/components/libraries/sortlist/nrf_sortlist.s"
-	@echo "... home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.o"
-	@echo "... home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.i"
-	@echo "... home/mate/software/nRF5/components/libraries/strerror/nrf_strerror.s"
-	@echo "... home/mate/software/nRF5/components/libraries/timer/app_timer2.o"
-	@echo "... home/mate/software/nRF5/components/libraries/timer/app_timer2.i"
-	@echo "... home/mate/software/nRF5/components/libraries/timer/app_timer2.s"
-	@echo "... home/mate/software/nRF5/components/libraries/timer/drv_rtc.o"
-	@echo "... home/mate/software/nRF5/components/libraries/timer/drv_rtc.i"
-	@echo "... home/mate/software/nRF5/components/libraries/timer/drv_rtc.s"
-	@echo "... home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.o"
-	@echo "... home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.i"
-	@echo "... home/mate/software/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.s"
-	@echo "... home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.o"
-	@echo "... home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.i"
-	@echo "... home/mate/software/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.s"
-	@echo "... home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.o"
-	@echo "... home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.i"
-	@echo "... home/mate/software/nRF5/components/libraries/uart/app_uart_fifo.s"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error.o"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error.i"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error.s"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.o"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.i"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error_handler_gcc.s"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error_weak.o"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error_weak.i"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_error_weak.s"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_util_platform.o"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_util_platform.i"
-	@echo "... home/mate/software/nRF5/components/libraries/util/app_util_platform.s"
-	@echo "... home/mate/software/nRF5/components/libraries/util/nrf_assert.o"
-	@echo "... home/mate/software/nRF5/components/libraries/util/nrf_assert.i"
-	@echo "... home/mate/software/nRF5/components/libraries/util/nrf_assert.s"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh.o"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh.i"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh.s"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.o"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.i"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh_ble.s"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.o"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.i"
-	@echo "... home/mate/software/nRF5/components/softdevice/common/nrf_sdh_soc.s"
-	@echo "... home/mate/software/nRF5/external/fprintf/nrf_fprintf.o"
-	@echo "... home/mate/software/nRF5/external/fprintf/nrf_fprintf.i"
-	@echo "... home/mate/software/nRF5/external/fprintf/nrf_fprintf.s"
-	@echo "... home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.o"
-	@echo "... home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.i"
-	@echo "... home/mate/software/nRF5/external/fprintf/nrf_fprintf_format.s"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.o"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.i"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT.s"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.o"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.i"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.s"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.o"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.i"
-	@echo "... home/mate/software/nRF5/external/segger_rtt/SEGGER_RTT_printf.s"
-	@echo "... home/mate/software/nRF5/external/utf_converter/utf.o"
-	@echo "... home/mate/software/nRF5/external/utf_converter/utf.i"
-	@echo "... home/mate/software/nRF5/external/utf_converter/utf.s"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.o"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.i"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_clock.s"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.o"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.i"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_spi.s"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.o"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.i"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_twi.s"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.o"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.i"
-	@echo "... home/mate/software/nRF5/integration/nrfx/legacy/nrf_drv_uart.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_clock.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_rtc.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_saadc.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_spim.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_timer.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_twi.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uart.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/nrfx_uarte.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/mdk/system_nrf52.s"
-	@echo "... home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.o"
-	@echo "... home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.i"
-	@echo "... home/mate/software/nRF5/modules/nrfx/soc/nrfx_atomic.s"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_advdata.o"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_advdata.i"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_advdata.s"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_conn_params.o"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_conn_params.i"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_conn_params.s"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_conn_state.o"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_conn_state.i"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_conn_state.s"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_srv_common.o"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_srv_common.i"
+	@echo "... home/mate/programs/nRF5/components/ble/common/ble_srv_common.s"
+	@echo "... home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.o"
+	@echo "... home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.i"
+	@echo "... home/mate/programs/nRF5/components/ble/nrf_ble_gatt/nrf_ble_gatt.s"
+	@echo "... home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.o"
+	@echo "... home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.i"
+	@echo "... home/mate/programs/nRF5/components/ble/nrf_ble_qwr/nrf_ble_qwr.s"
+	@echo "... home/mate/programs/nRF5/components/boards/boards.o"
+	@echo "... home/mate/programs/nRF5/components/boards/boards.i"
+	@echo "... home/mate/programs/nRF5/components/boards/boards.s"
+	@echo "... home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.o"
+	@echo "... home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.i"
+	@echo "... home/mate/programs/nRF5/components/drivers_ext/lis2dh12/lis2dh12.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic/nrf_atomic.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic_fifo/nrf_atfifo.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/atomic_flags/nrf_atflags.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/balloc/nrf_balloc.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/button/app_button.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/button/app_button.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/button/app_button.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/experimental_section_vars/nrf_section_iter.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/fifo/app_fifo.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/fifo/app_fifo.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/fifo/app_fifo.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/hardfault/hardfault_implementation.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/hardfault/nrf52/handler/hardfault_handler_gcc.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_rtt.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_serial.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_backend_uart.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_default_backends.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_frontend.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/log/src/nrf_log_str_formatter.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/memobj/nrf_memobj.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/pwr_mgmt/nrf_pwr_mgmt.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/queue/nrf_queue.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/queue/nrf_queue.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/queue/nrf_queue.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/ringbuf/nrf_ringbuf.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/scheduler/app_scheduler.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/sortlist/nrf_sortlist.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/strerror/nrf_strerror.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/timer/app_timer2.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/timer/app_timer2.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/timer/app_timer2.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/timer/drv_rtc.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/timer/drv_rtc.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/timer/drv_rtc.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/twi_mngr/nrf_twi_mngr.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/twi_sensor/nrf_twi_sensor.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/uart/app_uart_fifo.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error_handler_gcc.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error_weak.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error_weak.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_error_weak.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_util_platform.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_util_platform.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/app_util_platform.s"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/nrf_assert.o"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/nrf_assert.i"
+	@echo "... home/mate/programs/nRF5/components/libraries/util/nrf_assert.s"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.o"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.i"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh.s"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.o"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.i"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_ble.s"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.o"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.i"
+	@echo "... home/mate/programs/nRF5/components/softdevice/common/nrf_sdh_soc.s"
+	@echo "... home/mate/programs/nRF5/external/fprintf/nrf_fprintf.o"
+	@echo "... home/mate/programs/nRF5/external/fprintf/nrf_fprintf.i"
+	@echo "... home/mate/programs/nRF5/external/fprintf/nrf_fprintf.s"
+	@echo "... home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.o"
+	@echo "... home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.i"
+	@echo "... home/mate/programs/nRF5/external/fprintf/nrf_fprintf_format.s"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.o"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.i"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT.s"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.o"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.i"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.s"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.o"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.i"
+	@echo "... home/mate/programs/nRF5/external/segger_rtt/SEGGER_RTT_printf.s"
+	@echo "... home/mate/programs/nRF5/external/utf_converter/utf.o"
+	@echo "... home/mate/programs/nRF5/external/utf_converter/utf.i"
+	@echo "... home/mate/programs/nRF5/external/utf_converter/utf.s"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.o"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.i"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_clock.s"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.o"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.i"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_spi.s"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.o"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.i"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_twi.s"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.o"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.i"
+	@echo "... home/mate/programs/nRF5/integration/nrfx/legacy/nrf_drv_uart.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_clock.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_gpiote.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_rtc.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_saadc.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_spim.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_timer.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_twi.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uart.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/nrfx_uarte.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/drivers/src/prs/nrfx_prs.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/mdk/gcc_startup_nrf52.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/mdk/system_nrf52.s"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.o"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.i"
+	@echo "... home/mate/programs/nRF5/modules/nrfx/soc/nrfx_atomic.s"
 	@echo "... impl_anchor.o"
 	@echo "... impl_anchor.i"
 	@echo "... impl_anchor.s"
@@ -3189,12 +2685,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... ranging.o"
-	@echo "... ranging.i"
-	@echo "... ranging.s"
-	@echo "... ranging_anchor.o"
-	@echo "... ranging_anchor.i"
-	@echo "... ranging_anchor.s"
 	@echo "... timing.o"
 	@echo "... timing.i"
 	@echo "... timing.s"

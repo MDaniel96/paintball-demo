@@ -33,8 +33,8 @@
 #include "nrf_pwr_mgmt.h"
 #include "nrf_sdh.h"
 #include "ble_func.h"
-#include "uart.h"
-#include "tdoa_as_func_test.h"
+
+
 #include "address_handler.h"
 #include "impl_observer.h"
 #include "impl_anchor.h"
@@ -148,10 +148,10 @@ int main(void)
 
     APP_SCHED_INIT(
                 ENSURE_ALIGN(MAX(MAX(
-                    sizeof(df_ranging_info_t),
+                    sizeof(sf_anchor_msg_t),
                     sizeof(df_accel_info_t)
                     ),
-                    sizeof(df_anchor_ranging_info_t)),sizeof(uint32_t)),
+                    sizeof(tag_to_ble_msg_t)),sizeof(uint32_t)),
                 10);
 
     leds_init();

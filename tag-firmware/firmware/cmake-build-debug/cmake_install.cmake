@@ -1,4 +1,4 @@
-# Install script for directory: /home/mate/Asztal/matlab/tag_firmware/firmware
+# Install script for directory: /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

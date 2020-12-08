@@ -96,8 +96,8 @@
 
 #define ATT_MTU_SIZE                    65
 static_assert((sizeof(df_accel_info_t) <= (ATT_MTU_SIZE - 3)) &&
-                (sizeof(df_ranging_info_t) <= (ATT_MTU_SIZE - 3)) &&
-                (sizeof(df_anchor_ranging_info_t) <= (ATT_MTU_SIZE - 3)), "Watch out for ATT_MTU size!");
+                (sizeof(tag_to_ble_msg_t) <= (ATT_MTU_SIZE - 3))
+                , "Watch out for ATT_MTU size!");
 static_assert(ATT_MTU_SIZE <= NRF_SDH_BLE_GATT_MAX_MTU_SIZE, "Modify max MTU size!");
 
 #define DEAD_BEEF                       0xDEADBEEF                              /**< Value used as error code on stack dump, can be used to identify stack location on stack unwind. */
