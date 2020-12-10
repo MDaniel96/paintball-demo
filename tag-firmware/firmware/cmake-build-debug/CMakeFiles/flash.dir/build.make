@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/129/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/129/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware
+CMAKE_SOURCE_DIR = /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug
 
 # Utility rule file for flash.
 
@@ -91,6 +91,6 @@ CMakeFiles/flash.dir/clean:
 .PHONY : CMakeFiles/flash.dir/clean
 
 CMakeFiles/flash.dir/depend:
-	cd /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mate/Asztal/matlab/tag_firmware/firmware /home/mate/Asztal/matlab/tag_firmware/firmware /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug /home/mate/Asztal/matlab/tag_firmware/firmware/cmake-build-debug/CMakeFiles/flash.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug /home/mate/Asztal/paintball-app/paintball-demo/tag-firmware/firmware/cmake-build-debug/CMakeFiles/flash.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/flash.dir/depend
 

@@ -6,24 +6,15 @@
 #include "log.h"
 #include "utils.h"
 #include "address_handler.h"
-
 #include "nrf_gpio.h"
-#include "nrf_drv_gpiote.h"
-#include "nrf_gpiote.h"
-
 #include "nrf_drv_timer.h"
 #include "timing.h"
-#include "uart.h"
-
-#include "ranging.h"
-#include "ranging_anchor.h"
 #include "accel_service.h"
 #include "ranging_service.h"
 #include "accel.h"
+#include "data_format.h"
 
 #define TAG "tag"
-
-
 
 #define SYNC_COMPENSATION_CONST_US	150
 
@@ -43,14 +34,14 @@ const static nrf_drv_timer_t	m_frame_timer = NRF_DRV_TIMER_INSTANCE(1);
 static int32_t					m_frame_timer_compensation_us = 0;
 static tag_state_t				m_tag_state = TAG_STATE__DISCOVERY;
 static uint16_t					m_tag_id = 0;
-static uint8_t					m_superframe_id = 0;
+static uint16_t                 m_superframe_ts=0;
+static uint8_t                  m_superframe_id=0;
 static uint32_t                 m_superframe_counter = 0;
 static uint8_t					m_rx_buffer[SF_MAX_MESSAGE_SIZE];
 static uint8_t					m_received_sync_messages_count = 0;
 static uint8_t					m_unsynced_sf_count = 0;
-static uint16_t                 m_superframe_ts = 0;
 static uint8_t                  m_tag_mode = TAG_MODE_POWERDOWN;
-static rx_info_t				m_anchor_rx_infos[TIMING_ANCHOR_COUNT];
+static tag_to_ble_msg_t         ble_msg;
 
 static void frame_timer_event_handler(nrf_timer_event_t event_type, void* p_context);
 static void restart_frame_timer();
@@ -109,13 +100,6 @@ static void restart_frame_timer() {
 	nrf_drv_timer_resume(&m_frame_timer);
 }
 
-static void set_frame_timer(uint32_t us) {
-	nrf_drv_timer_pause(&m_frame_timer);
-	uint32_t time_ticks = nrf_drv_timer_us_to_ticks(&m_frame_timer, us - m_frame_timer_compensation_us);
-	nrf_drv_timer_compare(&m_frame_timer, NRF_TIMER_CC_CHANNEL0, time_ticks, true);
-	nrf_drv_timer_resume(&m_frame_timer);
-}
-
 static void compensate_frame_timer(uint32_t c)
 {
 	uint32_t state = nrf_drv_timer_capture(&m_frame_timer, NRF_TIMER_CC_CHANNEL2) >> 4;
@@ -129,50 +113,12 @@ static void compensate_frame_timer(uint32_t c)
 	nrf_drv_timer_resume(&m_frame_timer);
 }
 
-static void transmit_tag_msg() {
-	sf_tag_msg_t	msg;
-	msg.hdr.src_id = m_tag_id;
-	msg.hdr.fctrl = SF_HEADER_FCTRL_MSG_TYPE_TAG_MESSAGE;
-	msg.tr_id = m_superframe_id;
-
-    uint64_t sys_ts = dwm1000_get_system_time_u64().ts;
-	uint32_t tx_ts_32 = (sys_ts + (TIMING_MESSAGE_TX_PREFIX_TIME_US * UUS_TO_DWT_TIME)) >> 8;
-    dwm1000_ts_t tx_ts = { .ts = (((uint64_t)(tx_ts_32 & 0xFFFFFFFEUL)) << 8) };
-
-	dwm1000_ts_to_pu8(tx_ts, msg.tx_ts);
-	memcpy(msg.anchors, m_anchor_rx_infos, sizeof(rx_info_t) * TIMING_ANCHOR_COUNT);
-
-	dwt_forcetrxoff();
-	dwt_writetxdata(sizeof(sf_tag_msg_t) + 2, (uint8_t*)&msg, 0);
-	dwt_writetxfctrl(sizeof(sf_tag_msg_t) + 2, 0, false);
-	dwt_setdelayedtrxtime(tx_ts_32);
-	if(dwt_starttx(DWT_START_TX_DELAYED) != DWT_SUCCESS)
-	{
-		LOGE(TAG, "err: starttx\n");
-	}
-
-    ranging_on_tag_tx(tx_ts);
-}
-
 static void tag_ranging_sched_handler(void *p_event_data, uint16_t event_size)
 {
-    LOGI(TAG, "sending ranging (%d)\n", event_size);
+   // LOGI(TAG, "sending ranging (%d)\n", event_size);
 
-    df_ranging_info_t* ranging = p_event_data;
-    LOGI(TAG, "ranging ts: %" PRIu16 "\n", ranging->ts);
-    for(int i = 0; i < TIMING_ANCHOR_COUNT; i++)
-    {
-       // LOGI(TAG, " dist %d: %" PRIu16 "\n", i, ranging->values[i]);
-    }
+    ble_rs_send((tag_to_ble_msg_t*) p_event_data, sizeof(tag_to_ble_msg_t));
 
-    ble_rs_send_ranging((df_ranging_info_t*)p_event_data);
-}
-
-static void anchor_ranging_sched_handler(void *p_event_data, uint16_t event_size)
-{
-    df_anchor_ranging_info_t* ranging_info = (df_anchor_ranging_info_t*)p_event_data;
-
-    ble_rs_send_anchor_ranging_info(ranging_info);
 }
 
 static void acc_measurement_sched_handler(void * p_event_data, uint16_t event_size)
@@ -199,125 +145,81 @@ static void event_handler(event_type_t event_type, const uint8_t* data, uint16_t
 
 	if(event_type == EVENT_SF_BEGIN)
 	{
-        m_superframe_ts = (uint16_t)utils_get_tick_time();
+
+	    m_superframe_ts = (uint16_t)utils_get_tick_time();
 
 		restart_frame_timer();
 		LOGT(TAG, "SF\n");
-
         m_superframe_counter++;
-		m_received_sync_messages_count = 0;
 
-        switch(m_tag_mode)
+        if(m_received_sync_messages_count == 0)
         {
-        case TAG_MODE_TAG_RANGING:
-            ranging_on_new_superframe();
-            break;
-        case TAG_MODE_ANCHOR_RANGING:
-            ranging_anchor_on_new_superframe();
+            m_unsynced_sf_count++;
+            LOGW(TAG, "sync warn\n");
 
+            if (m_unsynced_sf_count > 5)
             {
-                df_anchor_ranging_info_t ranging_info;
-                ranging_info.ts = m_superframe_ts;
-                memcpy(ranging_info.values, ranging_anchor_get_distances(), ranging_anchor_distances_length() * sizeof(uint16_t));
+                set_tag_state(TAG_STATE__DISCOVERY);
+                LOGE(TAG, "sync lost\n");
 
-                app_sched_event_put(&ranging_info, sizeof(df_anchor_ranging_info_t), anchor_ranging_sched_handler);
+                m_superframe_counter = 0;
+
+                return;
             }
-            break;
         }
 
-		memset(m_anchor_rx_infos, 0, sizeof(rx_info_t) * TIMING_ANCHOR_COUNT);
+		m_received_sync_messages_count = 0;
+
 	}
 
-	if(m_tag_state == TAG_STATE__DISCOVERY)
+	if(m_tag_state == TAG_STATE__SYNCHRONIZED)
 	{
 		if(event_type == EVENT_RX)
 		{
-			// Found anchor message, sync
+		    sf_anchor_msg_t* msg = (sf_anchor_msg_t*)data;
 
-			sf_header_t* hdr = (sf_header_t*)data;
-			if(hdr->fctrl == SF_HEADER_FCTRL_MSG_TYPE_ANCHOR_MESSAGE)
-			{
-				set_tag_state(TAG_STATE__SYNCHRONIZED);
+			dwm1000_ts_t rx_ts = dwm1000_get_rx_timestamp_u64();
+			uint32_t slot_time_us = get_slot_time_by_message(rx_ts);
+			uint32_t sf_time_us = (2 * msg->hdr.src_id + 1) * TIMING_ANCHOR_MESSAGE_TIMESLOT_US + slot_time_us;
 
-				uint32_t slot_time_us = get_slot_time_by_message(dwm1000_get_rx_timestamp_u64());
-				uint32_t sf_time_us = hdr->src_id * TIMING_ANCHOR_MESSAGE_LENGTH_US + slot_time_us;
+			compensate_frame_timer(sf_time_us);
 
-				compensate_frame_timer(sf_time_us);
+			LOGT(TAG,"SFT %ld\n", sf_time_us)
 
-				LOGT(TAG,"SFT %ld\n", sf_time_us)
+			m_superframe_id = msg->tr_id;
 
-				sf_anchor_msg_t* msg = (sf_anchor_msg_t*)data;
-				m_superframe_id = msg->tr_id;
-			}
-		}
-	}
-	else if(m_tag_state == TAG_STATE__SYNCHRONIZED)
-	{
-		if(event_type == EVENT_RX)
-		{
-			sf_header_t* hdr = (sf_header_t*)data;
-			if(hdr->fctrl == SF_HEADER_FCTRL_MSG_TYPE_ANCHOR_MESSAGE)
-			{
-                dwm1000_ts_t rx_ts = dwm1000_get_rx_timestamp_u64();
-				uint32_t slot_time_us = get_slot_time_by_message(rx_ts);
-				uint32_t sf_time_us = hdr->src_id * TIMING_ANCHOR_MESSAGE_LENGTH_US + slot_time_us;
-
-				compensate_frame_timer(sf_time_us);
-
-				LOGT(TAG,"SFT %ld\n", sf_time_us)
-
-				sf_anchor_msg_t* msg = (sf_anchor_msg_t*)data;
-				m_superframe_id = msg->tr_id;
-
-				set_frame_timer(TIMING_ANCHOR_COUNT * TIMING_ANCHOR_MESSAGE_LENGTH_US + m_tag_id * TIMING_TAG_MESSAGE_LENGTH_US);
-
-				m_received_sync_messages_count++;
-				m_unsynced_sf_count = 0;
-
-                switch(m_tag_mode)
-                {
-                case TAG_MODE_TAG_RANGING:
-                    ranging_on_anchor_rx(rx_ts, msg);
-                    break;
-                case TAG_MODE_ANCHOR_RANGING:
-                    ranging_anchor_on_anchor_rx(rx_ts, msg);
-                    break;
-                }
-
-				dwm1000_ts_to_pu8(rx_ts, m_anchor_rx_infos[hdr->src_id].rx_ts);
-			}
-		}
-		else if(event_type == EVENT_TIMER)
-		{
-			if(m_received_sync_messages_count == 0)
-			{
-				m_unsynced_sf_count++;
-                LOGW(TAG, "sync warn\n");
-
-				if(m_unsynced_sf_count > 5)
-				{
-					set_tag_state(TAG_STATE__DISCOVERY);
-                    LOGE(TAG, "sync lost\n");
-
-                    m_superframe_counter = 0;
-
-					return;
-				}
-			}
-
-
-			transmit_tag_msg();
+			m_received_sync_messages_count++;
+			m_unsynced_sf_count = 0;
 
             if(m_tag_mode == TAG_MODE_TAG_RANGING)
             {
-                df_ranging_info_t ranging_info;
-                ranging_info.ts = m_superframe_ts;
-                memcpy(ranging_info.values, ranging_get_distances(), (TIMING_ANCHOR_NCOMB2+1) * sizeof(int16_t));
-
-                app_sched_event_put(&ranging_info, sizeof(df_ranging_info_t), tag_ranging_sched_handler);
+                ble_msg = put_anchor_msg_to_ble(rx_ts, msg);
+                app_sched_event_put(&ble_msg, sizeof(tag_to_ble_msg_t), tag_ranging_sched_handler);
             }
 		}
 	}
+
+    else if(m_tag_state == TAG_STATE__DISCOVERY)
+    {
+        if(event_type == EVENT_RX)
+        {
+            // Found anchor message, sync
+
+            sf_anchor_msg_t* msg = (sf_anchor_msg_t*)data;
+
+            set_tag_state(TAG_STATE__SYNCHRONIZED);
+
+            uint32_t slot_time_us = get_slot_time_by_message(dwm1000_get_rx_timestamp_u64());
+            uint32_t sf_time_us = (2 * msg->hdr.src_id + 1)* TIMING_ANCHOR_MESSAGE_TIMESLOT_US + slot_time_us;
+
+            compensate_frame_timer(sf_time_us);
+
+            LOGT(TAG,"SFT %ld\n", sf_time_us)
+
+            m_superframe_id = msg->tr_id;
+
+        }
+    }
 }
 
 static void frame_timer_event_handler(nrf_timer_event_t event_type, void* p_context)
@@ -401,13 +303,13 @@ static void ble_rs_mode_callback(tag_mode_t mode)
     }
 
     if(m_tag_mode == TAG_MODE_POWERDOWN &&
-            (mode == TAG_MODE_TAG_RANGING || mode == TAG_MODE_ANCHOR_RANGING))
+            (mode == TAG_MODE_TAG_RANGING ))
     {
         start_uwb_comm();
 		utils_use_tick_timer();
     }
 
-    if((m_tag_mode == TAG_MODE_TAG_RANGING || m_tag_mode == TAG_MODE_ANCHOR_RANGING) &&
+    if((m_tag_mode == TAG_MODE_TAG_RANGING) &&
             mode == TAG_MODE_POWERDOWN)
     {
         stop_uwb_comm();
@@ -427,10 +329,10 @@ int impl_tag_init()
 		for(;;);
 	}
 
-	if(m_tag_id >= TIMING_TAG_COUNT)
-	{
-        ERROR(TAG, "tag count reached\n");
-	}
+//	if(m_tag_id >= TIMING_TAG_COUNT)
+//	{
+//        ERROR(TAG, "tag count reached\n");
+//	}
 
 	LOGI(TAG,"mode: tag\n");
 	LOGI(TAG,"addr: %04X\n", m_tag_id);
@@ -439,8 +341,8 @@ int impl_tag_init()
     //NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
     //NRF_CLOCK->TASKS_HFCLKSTART = 1;
 
-    ranging_init(m_tag_id);
-    ranging_anchor_init();
+//    ranging_init(m_tag_id);
+//    ranging_anchor_init();
 
 	//uart_init();
 

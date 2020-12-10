@@ -10,6 +10,7 @@ SET(CMAKE_SYSTEM_PROCESSOR arm)
 #   - NRFJPROG_ROOT
 #   - ARM_GCC_ROOT
 #   - TDOA_ROOT
+
 include(CMakePaths.cmake)
 
 SET(CMAKE_C_COMPILER   ${ARM_GCC_ROOT}/arm-none-eabi-gcc)
@@ -64,29 +65,27 @@ set(SRCS
       ${PROJECT_SOURCE_DIR}/decadriver/deca_params_init.c
       ${PROJECT_SOURCE_DIR}/utils.c
       ${PROJECT_SOURCE_DIR}/timing.c
-      ${PROJECT_SOURCE_DIR}/ranging.c
-      ${PROJECT_SOURCE_DIR}/ranging_anchor.c
       ${PROJECT_SOURCE_DIR}/accel.c
       ${PROJECT_SOURCE_DIR}/data_format.c
       ${PROJECT_SOURCE_DIR}/ble/ble_func.c
       ${PROJECT_SOURCE_DIR}/ble/ranging_service.c
       ${PROJECT_SOURCE_DIR}/ble/accel_service.c
 
-      ${TDOA_ROOT}/eml_rand_mt19937ar_stateful.c
-      ${TDOA_ROOT}/find.c
-      ${TDOA_ROOT}/isequal.c
-      ${TDOA_ROOT}/kalmanfil_tdoa.c
-      ${TDOA_ROOT}/minOrMax.c
-      ${TDOA_ROOT}/rand.c
-      ${TDOA_ROOT}/rtGetInf.c
-      ${TDOA_ROOT}/rtGetNaN.c
-      ${TDOA_ROOT}/rt_nonfinite.c
-      ${TDOA_ROOT}/str2double.c
-      ${TDOA_ROOT}/string1.c
-      ${TDOA_ROOT}/tdoa_as_func_test.c
-      ${TDOA_ROOT}/tdoa_as_func_test_data.c
-      ${TDOA_ROOT}/tdoa_as_func_test_initialize.c
-      ${TDOA_ROOT}/tdoa_as_func_test_terminate.c
+#      ${TDOA_ROOT}/eml_rand_mt19937ar_stateful.c
+#      ${TDOA_ROOT}/find.c
+#      ${TDOA_ROOT}/isequal.c
+#      ${TDOA_ROOT}/kalmanfil_tdoa.c
+#      ${TDOA_ROOT}/minOrMax.c
+#      ${TDOA_ROOT}/rand.c
+#      ${TDOA_ROOT}/rtGetInf.c
+#      ${TDOA_ROOT}/rtGetNaN.c
+#      ${TDOA_ROOT}/rt_nonfinite.c
+#      ${TDOA_ROOT}/str2double.c
+#      ${TDOA_ROOT}/string1.c
+#      ${TDOA_ROOT}/tdoa_as_func_test.c
+#      ${TDOA_ROOT}/tdoa_as_func_test_data.c
+#      ${TDOA_ROOT}/tdoa_as_func_test_initialize.c
+#      ${TDOA_ROOT}/tdoa_as_func_test_terminate.c
 
       ${NRF5_SDK_ROOT}/modules/nrfx/mdk/gcc_startup_nrf52.S
       ${NRF5_SDK_ROOT}/components/libraries/log/src/nrf_log_backend_rtt.c

@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+#include <dwm_utils.h>
 #include "ble.h"
 #include "ble_srv_common.h"
 #include "nrf_sdh_ble.h"
@@ -35,10 +36,10 @@ struct ble_rs_s
 };
 
 uint32_t ble_rs_init();
-uint32_t ble_rs_send_ranging(df_ranging_info_t* ranging_data);
-uint32_t ble_rs_send_anchor_ranging_info(df_anchor_ranging_info_t *ranging_data);
+uint32_t ble_rs_send(void *data,uint16_t len);
 uint8_t  ble_rs_get_uuid_type();
 void     ble_rs_set_tag_mode_callback(ble_rs_tag_mode_callback_t cb);
-df_device_info_t* ble_rs_get_device_info();
+tag_to_ble_msg_t put_anchor_msg_to_ble(dwm1000_ts_t rx_ts, sf_anchor_msg_t * msg);
+
 
 #endif // RANGING_SERVICE_H

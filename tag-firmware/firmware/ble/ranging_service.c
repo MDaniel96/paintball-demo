@@ -6,6 +6,7 @@
 #include "log.h"
 #include "app_scheduler.h"
 
+
 #define TAG "rs"
 
 #define RS_MODE_POWER_DOWN      0x00
@@ -26,7 +27,7 @@ uint32_t ble_rs_init()
     m_device_info.group_id = addr_handler_get_group_id();
     m_device_info.dev_id = addr_handler_get_virtual_addr();
     m_device_info.anchor_count = TIMING_ANCHOR_COUNT;
-    m_device_info.tag_count = TIMING_TAG_COUNT;
+    m_device_info.tag_count = 255;
     m_device_info.notification_count = 0;
     m_device_info.failed_notification_count = 0;
 
@@ -65,12 +66,12 @@ uint32_t ble_rs_init()
         return err_code;
     }
 
-    // Add ranging characteristic.
+    // Add anchor messages characteristic.
     memset(&add_char_params, 0, sizeof(add_char_params));
     add_char_params.uuid              = RS_UUID_RANGING_CHAR;
     add_char_params.uuid_type         = p_rs->uuid_type;
     add_char_params.init_len          = sizeof(uint16_t);
-    add_char_params.max_len           = MAX(sizeof(df_ranging_info_t),sizeof(df_anchor_ranging_info_t));
+    add_char_params.max_len           = sizeof(tag_to_ble_msg_t);
     add_char_params.is_var_len        = true;
     add_char_params.char_props.read   = 1;
     add_char_params.char_props.notify = 1;
@@ -168,17 +169,16 @@ static void update_device_info_value()
     }
 }
 
-uint32_t ble_rs_send_ranging(df_ranging_info_t *ranging_data)
+uint32_t ble_rs_send(void *data,uint16_t len)
 {
     if(m_conn_handle != BLE_CONN_HANDLE_INVALID)
     {
         ble_gatts_hvx_params_t params;
-        uint16_t len = sizeof(df_ranging_info_t);
 
         memset(&params, 0, sizeof(params));
         params.type   = BLE_GATT_HVX_NOTIFICATION;
         params.handle = m_rs.ranging_char_handles.value_handle;
-        params.p_data = (uint8_t*)ranging_data;
+        params.p_data = (uint8_t*)data;
         params.p_len  = &len;
 
         m_device_info.notification_count++;
@@ -197,37 +197,6 @@ uint32_t ble_rs_send_ranging(df_ranging_info_t *ranging_data)
         return NRF_SUCCESS;
     }
 }
-
-uint32_t ble_rs_send_anchor_ranging_info(df_anchor_ranging_info_t *ranging_data)
-{
-    if(m_conn_handle != BLE_CONN_HANDLE_INVALID)
-    {
-        ble_gatts_hvx_params_t params;
-        uint16_t len = sizeof(df_anchor_ranging_info_t);
-
-        memset(&params, 0, sizeof(params));
-        params.type   = BLE_GATT_HVX_NOTIFICATION;
-        params.handle = m_rs.ranging_char_handles.value_handle;
-        params.p_data = (uint8_t*)ranging_data;
-        params.p_len  = &len;
-
-        m_device_info.notification_count++;
-        uint32_t err_code = sd_ble_gatts_hvx(m_conn_handle, &params);
-        if(err_code == NRF_ERROR_RESOURCES)
-        {
-            m_device_info.failed_notification_count++;
-        }
-
-        update_device_info_value();
-
-        return err_code;
-    }
-    else
-    {
-        return NRF_SUCCESS;
-    }
-}
-
 
 uint8_t ble_rs_get_uuid_type()
 {
@@ -246,4 +215,15 @@ NRF_SDH_BLE_OBSERVER(m_rs_obs,BLE_LBS_BLE_OBSERVER_PRIO,ble_rs_on_ble_evt, &m_rs
 df_device_info_t *ble_rs_get_device_info()
 {
     return &m_device_info;
+}
+tag_to_ble_msg_t put_anchor_msg_to_ble(dwm1000_ts_t rx_ts, sf_anchor_msg_t * msg)
+{
+    tag_to_ble_msg_t ble_msg;
+
+    memcpy(&ble_msg.anc_msg,msg,sizeof(sf_anchor_msg_t));
+    memcpy(&ble_msg.tag_rx_ts,rx_ts.ts_bytes,sizeof (rx_ts.ts_bytes));
+    //ble_msg.tag_rx_ts=rx_ts.ts_bytes;
+
+    return ble_msg;
+
 }
